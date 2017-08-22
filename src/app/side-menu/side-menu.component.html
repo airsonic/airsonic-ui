@@ -1,0 +1,50 @@
+<ng-sidebar-container>
+  <ng-sidebar [(opened)]="opened"
+              mode="push"
+              [dock]="true"
+              dockedSize="65px">
+    <div on-mouseover="showSidebar()" on-mouseleave="hideSidebar()" class="list-group">
+      <div (click)="toggleShowAlbums()" class="list-group-item">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Music</h5><i class="material-icons">library_music</i>
+        </div>
+        <div class="card" *ngIf="showAlbums">
+          <div class="card-body">
+            <h6>A</h6>
+            <ul>
+              <li>Ace of Base</li>
+              <li>Amy Winehouse</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="list-group-item">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Playing</h5><i class="material-icons">music_note</i>
+        </div>
+      </div>
+      <div class="list-group-item">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Starred</h5><i class="material-icons">star</i>
+        </div>
+      </div>
+      <div class="list-group-item">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Playlists</h5><i class="material-icons">playlist_play</i>
+        </div>
+      </div>
+      <div class="list-group-item">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Podcasts</h5><i class="material-icons">headset</i>
+        </div>
+      </div>
+      <div class="list-group-item">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Settings</h5><i class="material-icons">settings</i>
+        </div>
+      </div>
+    </div>
+  </ng-sidebar>
+  <div ng-sidebar-content>
+  </div>
+</ng-sidebar-container>

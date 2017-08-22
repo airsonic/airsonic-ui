@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Airsonic</a>
+  <button class="navbar-toggler" (click)="collapseOpen()" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" [class.collapse]="collapsed" id="navbarSupportedContent">
+    <form class="mx-auto my-auto d-inline w-50">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search">
+        <span class="input-group-btn">
+          <button class="btn btn-outline-secondary" type="button">GO</button>
+        </span>
+      </div>
+    </form>
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown" [class.show]="menuOpen">
+        <a class="nav-link dropdown-toggle" id="logout-menu" (click)="openMenu()">
+          <i class="material-icons">account_circle</i>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" [class.show]="menuOpen">
+          <li class="dropdown-item">Name Placeholder</li>
+          <li class="dropdown-item"><a id="logout" (click)="logout()">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+</nav>
+<app-side-menu></app-side-menu>

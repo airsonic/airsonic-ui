@@ -1,0 +1,10 @@
+#logout-menu {
+  cursor: pointer;
+  padding: 0;
+}
+
+
+
+#logout-menu .material-icons {
+  font-size: 36px;
+}

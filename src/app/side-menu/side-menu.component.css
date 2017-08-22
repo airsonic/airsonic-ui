@@ -1,0 +1,17 @@
+ng-sidebar-container {
+  height: 100vh;
+}
+
+.list-group {
+  width: 300px;
+}
+
+.list-group-item {
+  cursor: pointer;
+}
+
+.material-icons {
+  right: 0;
+  padding-right: 0;
+  margin-right: 0;
+}
