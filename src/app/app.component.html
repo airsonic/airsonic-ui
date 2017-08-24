@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Airsonic</a>
+  <a class="navbar-brand" href="#"><img src="assets/images/default_light/logo.png"></a>
   <button class="navbar-toggler" (click)="collapseOpen()" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -15,7 +15,7 @@
     </form>
     <ul class="navbar-nav">
       <li class="nav-item dropdown" [class.show]="menuOpen">
-        <a class="nav-link dropdown-toggle" id="logout-menu" (click)="openMenu()">
+        <a class="nav-link mx-auto" id="logout-menu" (click)="openMenu()">
           <i class="material-icons">account_circle</i>
         </a>
         <ul class="dropdown-menu dropdown-menu-right" [class.show]="menuOpen">
@@ -27,4 +27,6 @@
   </div>
 
 </nav>
-<app-side-menu></app-side-menu>
+<app-side-menu>
+<router-outlet></router-outlet>
+</app-side-menu>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,6 @@ import { Component, Input } from '@angular/core';
 export class AppComponent {
   menuOpen = false;
   collapsed = true;
-  constructor() { }
 
   openMenu() {
     this.menuOpen = !this.menuOpen;

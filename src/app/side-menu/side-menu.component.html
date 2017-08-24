@@ -1,6 +1,6 @@
 <ng-sidebar-container>
   <ng-sidebar [(opened)]="opened"
-              mode="push"
+              mode="over"
               [dock]="true"
               dockedSize="65px">
     <div on-mouseover="showSidebar()" on-mouseleave="hideSidebar()" class="list-group">
@@ -45,6 +45,7 @@
       </div>
     </div>
   </ng-sidebar>
-  <div ng-sidebar-content>
+  <div ng-sidebar-content class="container-fluid">
+    <router-outlet></router-outlet>
   </div>
 </ng-sidebar-container>

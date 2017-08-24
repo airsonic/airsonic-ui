@@ -1,10 +1,15 @@
 #logout-menu {
   cursor: pointer;
-  padding: 0;
+  padding-bottom: 0;
+  padding-top: 0;
 }
 
 
 
 #logout-menu .material-icons {
   font-size: 36px;
+}
+
+.navbar-brand img {
+  width: 196px;
 }

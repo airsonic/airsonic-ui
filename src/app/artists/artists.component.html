@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-lg-2 col-sm-4" *ngFor="let artist of artists">
+    <a class="card">
+      <img class="card-img-top" src="{{artist.coverArt}}" alt="Photo of {{artist.name}}">
+      <div class="card-body">
+        <h4 class="card-title">{{artist.name}}</h4>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Albums: {{artist.albumCount}}</small>
+      </div>
+    </a>
+  </div>
+</div>
