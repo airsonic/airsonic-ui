@@ -11,27 +11,37 @@ import { ArtistService } from './shared/service/artist.service';
 import { AlbumsComponent } from './albums/albums.component';
 import { ArtistsComponent } from './artists/artists.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './login/login.component';
+import { NotificationService } from './shared/service/notification.service';
+import { UserService } from './shared/service/user.service';
+import { FormsModule } from '@angular/forms';
+import { SystemService } from './shared/service/system.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     SideMenuComponent,
     AlbumsComponent,
-    ArtistsComponent
+    ArtistsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
     SidebarModule.forRoot(),
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
   },
-  ArtistService],
+  ArtistService,
+  NotificationService,
+  UserService,
+  SystemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

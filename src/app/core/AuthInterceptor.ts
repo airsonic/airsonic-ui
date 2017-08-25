@@ -1,16 +1,26 @@
-
-
 import { Injectable } from '@angular/core';
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpParams, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { User, UserService } from '../shared/service/user.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
+
+  constructor(private userService: UserService) { }
+
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    req.params.append('u', 'admin')
-      .append('t', '4b07bee94cf48ad97506f62bcda25c27')
-      .append('s', 'c19b2d')
-      .append('v', '1.15.0');
+    const user: User = this.userService.getUser();
+    if (req.url.startsWith(user.server)) {
+      const params = new HttpParams()
+        .set('u', user.name)
+        .set('t', user.token)
+        .set('s', user.salt)
+        .set('c', 'airsonic-ui')
+        .set('f', 'json')
+        .set('v', '1.15.0');
+      const authReq = req.clone({params: params});
+      return next.handle(authReq);
+    }
     return next.handle(req);
   }
 }
