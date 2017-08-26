@@ -16,6 +16,7 @@ import { NotificationService } from './shared/service/notification.service';
 import { UserService } from './shared/service/user.service';
 import { FormsModule } from '@angular/forms';
 import { SystemService } from './shared/service/system.service';
+import { AlbumService } from './shared/service/album.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { SystemService } from './shared/service/system.service';
   ArtistService,
   NotificationService,
   UserService,
-  SystemService],
+  SystemService,
+  AlbumService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,24 @@
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><button class="page-link" (click)="onPrevious()">Previous</button></li>
+    <li class="page-item"><button class="page-link" (click)="onNext()">Next</button></li>
+  </ul>
+</nav>
+<div class="row" id="albumsList">
+  <div class="col-lg-2 col-sm-4" *ngFor="let album of albums">
+    <a class="card" >
+      <img class="card-img-top"
+           src="{{getAlbumImageUrl(album.id)}}"
+           alt="Photo of {{album.title}}"
+           >
+      <div class="card-body">
+        <h4 class="card-title"
+            ngbPopover="{{album.title}}"
+            triggers="mouseenter:mouseleave">{{album.title}}</h4>
+        <p class="card-text">{{album.artist}}</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+

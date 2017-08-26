@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ArtistsComponent } from './artists/artists.component';
 import { LoginComponent } from './login/login.component';
+import { AlbumsComponent } from './albums/albums.component';
 
 @NgModule({
   imports: [ RouterModule.forRoot([
-    { path: '', component: ArtistsComponent },
+    { path: '', component: AlbumsComponent },
     { path: 'login', component: LoginComponent }
   ]) ],
   exports: [ RouterModule ]

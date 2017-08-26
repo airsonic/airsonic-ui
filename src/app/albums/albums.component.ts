@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AlbumService } from '../shared/service/album.service';
+import { Album } from '../shared/domain/album.domain';
+import { NotificationService } from '../shared/service/notification.service';
 
 @Component({
   selector: 'app-albums',
@@ -6,8 +9,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./albums.component.css']
 })
 export class AlbumsComponent implements OnInit {
+  albums: Array<Album>;
+  pageSize = 20;
+  page = 0;
+  constructor(private albumService: AlbumService,
+              private notificationService: NotificationService) {}
 
   ngOnInit() {
+    this.getAlbums();
   }
 
+  getAlbumImageUrl(id: String) {
+    return this.albumService.getAlbumImageUrl(id);
+  }
+
+  getAlbums() {
+    this.albumService.getAlbums({size: this.pageSize, offset: this.page * this.pageSize})
+      .subscribe(
+        data => this.albums = data['subsonic-response'].albumList.album,
+        err => this.notificationService.notify(err));
+  }
+
+  onPrevious() {
+    if (this.page > 0) {
+      this.page--;
+      this.getAlbums();
+    }
+  }
+
+  onNext() {
+    this.page++;
+    this.getAlbums();
+  }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ArtistService } from '../shared/service/artist.service';
+import { ArtistIndex } from '../shared/domain/artist.domain';
 
 @Component({
   selector: 'app-artists',
@@ -6,18 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./artists.component.css']
 })
 export class ArtistsComponent implements OnInit {
-  artists = [];
-  constructor() {
-    const initialArtists = [{'id': 276, 'name': 'Wallflowers, The', 'coverArt': null, 'albumCount': 1}, {'id': 277, 'name': 'Weakerthans, The', 'coverArt': null, 'albumCount': 1}];
-    const inter = [];
-    for (let i = 0; i < 25; i++) {
-      this.artists.push(initialArtists[0]);
-      this.artists.push(initialArtists[1]);
-    }
-  }
+  artistIndex: Array<ArtistIndex>;
+  constructor(private artistService: ArtistService) { }
 
   ngOnInit() {
-
+    this.artistService.getAll().subscribe(data => {
+      this.artistIndex = data['subsonic-response'].artists.index;
+    });
   }
 
 }

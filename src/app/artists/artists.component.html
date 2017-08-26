@@ -1,8 +1,7 @@
-<div class="row">
-  <div class="col-lg-2 col-sm-4" *ngFor="let artist of artists">
+<div class="row" *ngFor="let index of artistIndex">
+  <div class="col-lg-2 col-sm-4" *ngFor="let artist of index.artist">
     <a href="">
-      <img class="rounded-circle" src="assets/218px-The_Weakerthans_in_Winnipeg.jpg" alt="Photo of {{artist.name}}">
-      <h4 class="card-title">{{artist.name}}</h4>
+      <h4>{{artist.name}}</h4>
     </a>
   </div>
 </div>
