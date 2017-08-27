@@ -12,6 +12,7 @@ export class AlbumsComponent implements OnInit {
   albums: Array<Albums>;
   pageSize = 20;
   page = 0;
+
   constructor(private albumService: AlbumService,
               private notificationService: NotificationService) {}
 

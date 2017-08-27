@@ -13,3 +13,7 @@ describe('NotificationService', () => {
     expect(service).toBeTruthy();
   }));
 });
+
+export class NotificationServiceSpy {
+  notify = jasmine.createSpy('notify');
+}

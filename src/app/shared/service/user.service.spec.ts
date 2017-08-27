@@ -1,11 +1,13 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { UserService } from './user.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('UserService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [UserService]
+      providers: [UserService],
+      imports: [HttpClientTestingModule]
     });
   });
 
@@ -13,3 +15,7 @@ describe('UserService', () => {
     expect(service).toBeTruthy();
   }));
 });
+
+export class UserServiceSpy {
+  loginUser = jasmine.createSpy('loginUser');
+}

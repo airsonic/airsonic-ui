@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ArtistsComponent } from './artists.component';
+import { ArtistService } from '../shared/service/artist.service';
+import { ArtistServiceSpy } from '../shared/service/artist.service.spec';
 
 describe('ArtistsComponent', () => {
   let component: ArtistsComponent;
@@ -8,7 +10,10 @@ describe('ArtistsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArtistsComponent ]
+      declarations: [ ArtistsComponent ],
+      providers: [
+        { provide: ArtistService, useValue: new ArtistServiceSpy() }
+      ]
     })
     .compileComponents();
   }));

@@ -23,11 +23,7 @@ export class AlbumComponent implements OnInit {
       .subscribe(
         data => {
           this.musicDirectory = data['subsonic-response'].directory;
-          this.albumService.getAlbum(this.musicDirectory.child[0].albumId)
-            .subscribe(
-              res => this.album = res['subsonic-response'].album,
-              err => console.log(err)
-            );
+          this.getAlbum(this.musicDirectory.child[0].albumId);
         },
         error => console.log(error)
       );
@@ -35,6 +31,14 @@ export class AlbumComponent implements OnInit {
 
   getAlbumImageUrl(id: String) {
     return this.albumService.getAlbumImageUrl(id);
+  }
+
+  getAlbum(albumId: string) {
+    this.albumService.getAlbum(albumId)
+      .subscribe(
+        res => this.album = res['subsonic-response'].album,
+        err => console.log(err)
+      );
   }
 
 }
