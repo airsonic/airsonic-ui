@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlbumService } from '../shared/service/album.service';
-import { Album } from '../shared/domain/album.domain';
+import { Albums } from '../shared/domain/album.domain';
 import { NotificationService } from '../shared/service/notification.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { NotificationService } from '../shared/service/notification.service';
   styleUrls: ['./albums.component.css']
 })
 export class AlbumsComponent implements OnInit {
-  albums: Array<Album>;
+  albums: Array<Albums>;
   pageSize = 20;
   page = 0;
   constructor(private albumService: AlbumService,

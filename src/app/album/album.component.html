@@ -1,0 +1,30 @@
+<div class="row my-3" *ngIf="musicDirectory">
+  <div class="col-lg-6" *ngIf="album">
+    <img class="rounded mx-2 float-left" src="{{getAlbumImageUrl(musicDirectory.id)}}" alt="Photo of {{musicDirectory.name}}">
+    <h4>{{album.name}}</h4>
+    <p class="text-muted">{{album.artist}}</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <table class="table" *ngIf="musicDirectory">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th><i class="material-icons">access_time</i></th>
+        <th><i class="material-icons">music_note</i></th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let song of musicDirectory.child">
+          <td>{{song.track}}</td>
+          <td>{{song.title}}</td>
+          <td>{{song.duration | time}}</td>
+          <td>{{song.playCount}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

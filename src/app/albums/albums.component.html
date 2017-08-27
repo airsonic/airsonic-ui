@@ -6,7 +6,7 @@
 </nav>
 <div class="row" id="albumsList">
   <div class="col-lg-2 col-sm-4" *ngFor="let album of albums">
-    <a class="card" >
+    <a class="card" routerLink="/album/{{album.id}}">
       <img class="card-img-top"
            src="{{getAlbumImageUrl(album.id)}}"
            alt="Photo of {{album.title}}"

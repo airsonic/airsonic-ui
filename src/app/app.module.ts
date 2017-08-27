@@ -17,6 +17,9 @@ import { UserService } from './shared/service/user.service';
 import { FormsModule } from '@angular/forms';
 import { SystemService } from './shared/service/system.service';
 import { AlbumService } from './shared/service/album.service';
+import { AlbumComponent } from './album/album.component';
+import { MusicDirectoryService } from './shared/service/music-directory.service';
+import { TimePipe } from './shared/pipe/time.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { AlbumService } from './shared/service/album.service';
     SideMenuComponent,
     AlbumsComponent,
     ArtistsComponent,
-    LoginComponent
+    LoginComponent,
+    AlbumComponent,
+    TimePipe
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,8 @@ import { AlbumService } from './shared/service/album.service';
   NotificationService,
   UserService,
   SystemService,
-  AlbumService],
+  AlbumService,
+  MusicDirectoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

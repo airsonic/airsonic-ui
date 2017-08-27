@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { SERVER_URL } from './user.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { AlbumsResponse } from '../domain/album.domain';
+import { AlbumResponse, AlbumsResponse } from '../domain/album.domain';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AlbumService {
@@ -29,6 +30,13 @@ export class AlbumService {
       }
     }
     return this.httpClient.get<AlbumsResponse>(`${server}/rest/getAlbumList`, {params: params});
+  }
+
+  getAlbum(id: string): Observable<AlbumResponse> {
+    const server = localStorage.getItem(SERVER_URL);
+    const params = new HttpParams()
+      .set('id', id);
+    return this.httpClient.get<AlbumResponse>(`${server}/rest/getAlbum`, {params: params});
   }
 
   getAlbumImageUrl(id: String) {

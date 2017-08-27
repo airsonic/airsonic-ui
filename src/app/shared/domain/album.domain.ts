@@ -1,14 +1,16 @@
+import { MediaFile } from './media-file.domain';
+
 export interface AlbumsResponse {
   'subsonic-response': {
     status: string,
     version: string,
     albumList: {
-      album: Array<Album>
+      album: Array<Albums>
     }
   };
 }
 
-export interface Album {
+export interface Albums {
   id: string;
   parent: string;
   isDir: boolean;
@@ -20,3 +22,26 @@ export interface Album {
   playCount: number;
   created: string;
 }
+
+export interface AlbumResponse {
+  'subsonic-response': {
+    status: string;
+    version: string;
+    album: Album;
+  };
+}
+
+export interface Album {
+  id: string;
+  name: string;
+  artist: string;
+  artistId: string;
+  coverArt: string;
+  songCount: number;
+  duration: number;
+  created: string;
+  year: string;
+  genre: string;
+  song: Array<MediaFile>;
+}
+
