@@ -3335,6 +3335,10 @@ ng-sidebar@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/ng-sidebar/-/ng-sidebar-6.0.1.tgz#38a642bbc5a65ce2351e95053fc89d78e877ae56"
 
+ngx-infinite-scroll@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/ngx-infinite-scroll/-/ngx-infinite-scroll-0.5.1.tgz#dd9452c602ff7c3222f0ca168481aa14140286b7"
+
 no-case@^2.2.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.1.tgz#7aeba1c73a52184265554b7dc03baf720df80081"

@@ -9,7 +9,7 @@ import { NotificationService } from '../shared/service/notification.service';
   styleUrls: ['./albums.component.css']
 })
 export class AlbumsComponent implements OnInit {
-  albums: Array<Albums>;
+  albums: Array<Albums> = [];
   pageSize = 20;
   page = 0;
 
@@ -27,7 +27,7 @@ export class AlbumsComponent implements OnInit {
   getAlbums() {
     this.albumService.getAlbums({size: this.pageSize, offset: this.page * this.pageSize})
       .subscribe(
-        data => this.albums = data['subsonic-response'].albumList.album,
+        data => this.albums.push(...data['subsonic-response'].albumList.album),
         err => this.notificationService.notify(err));
   }
 
@@ -39,6 +39,11 @@ export class AlbumsComponent implements OnInit {
   }
 
   onNext() {
+    this.page++;
+    this.getAlbums();
+  }
+
+  onScroll() {
     this.page++;
     this.getAlbums();
   }

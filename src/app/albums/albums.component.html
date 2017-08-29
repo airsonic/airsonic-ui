@@ -1,10 +1,5 @@
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item"><button class="page-link" (click)="onPrevious()">Previous</button></li>
-    <li class="page-item"><button class="page-link" (click)="onNext()">Next</button></li>
-  </ul>
-</nav>
-<div class="row" id="albumsList">
+<div class="row" id="albumsList" infiniteScroll
+     (scrolled)="onScroll()">
   <div class="col-lg-2 col-sm-4" *ngFor="let album of albums">
     <a class="card" routerLink="/album/{{album.id}}">
       <img class="card-img-top"

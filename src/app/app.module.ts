@@ -21,6 +21,7 @@ import { AlbumComponent } from './album/album.component';
 import { MusicDirectoryService } from './shared/service/music-directory.service';
 import { TimePipe } from './shared/pipe/time.pipe';
 import { MediaControlsComponent } from './shared/component/media-controls/media-controls.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { MediaControlsComponent } from './shared/component/media-controls/media-
     SidebarModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    InfiniteScrollModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
