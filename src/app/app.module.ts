@@ -20,6 +20,7 @@ import { AlbumService } from './shared/service/album.service';
 import { AlbumComponent } from './album/album.component';
 import { MusicDirectoryService } from './shared/service/music-directory.service';
 import { TimePipe } from './shared/pipe/time.pipe';
+import { MediaControlsComponent } from './shared/component/media-controls/media-controls.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { TimePipe } from './shared/pipe/time.pipe';
     ArtistsComponent,
     LoginComponent,
     AlbumComponent,
-    TimePipe
+    TimePipe,
+    MediaControlsComponent
   ],
   imports: [
     BrowserModule,

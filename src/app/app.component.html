@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <a class="navbar-brand" routerLink=""><img src="assets/images/default_light/logo.png"></a>
   <button class="navbar-toggler" (click)="collapseOpen()" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -27,6 +27,11 @@
   </div>
 
 </nav>
-<app-side-menu>
-<router-outlet></router-outlet>
-</app-side-menu>
+
+
+    <!--<app-side-menu>-->
+      <div class="container-fluid" id="content">
+        <router-outlet></router-outlet>
+      </div>
+    <!--</app-side-menu>-->
+<app-media-controls></app-media-controls>
