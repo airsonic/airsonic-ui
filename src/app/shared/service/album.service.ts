@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { SERVER_URL } from './user.service';
+import { SERVER_URL, User, USER_INFO } from './user.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Album, AlbumResponse, Albums, AlbumsResponse } from '../domain/album.domain';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { APPLICATION_NAME } from '../../app.module';
 
 @Injectable()
 export class AlbumService {
@@ -43,7 +44,8 @@ export class AlbumService {
   }
 
   getAlbumImageUrl(id: String) {
-    const server = localStorage.getItem(SERVER_URL);
-    return `${server}/coverArt.view?size=160&id=${id}`;
+    const userInfo: User = JSON.parse(localStorage.getItem(USER_INFO));
+    return `${userInfo.server}/rest/getCoverArt?id=${id}&v=1.15.0&
+      u=${userInfo.name}&s=${userInfo.salt}&t=${userInfo.token}&c=${APPLICATION_NAME}&size=160`;
   }
 }
