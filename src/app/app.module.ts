@@ -57,3 +57,5 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export const APPLICATION_NAME = 'AIRSONIC_UI';

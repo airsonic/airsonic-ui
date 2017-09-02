@@ -13,7 +13,7 @@ export class ArtistsComponent implements OnInit {
 
   ngOnInit() {
     this.artistService.getAll().subscribe(data => {
-      this.artistIndex = data['subsonic-response'].artists.index;
+      this.artistIndex = data;
     });
   }
 

@@ -27,7 +27,7 @@ export class AlbumsComponent implements OnInit {
   getAlbums() {
     this.albumService.getAlbums({size: this.pageSize, offset: this.page * this.pageSize})
       .subscribe(
-        data => this.albums.push(...data['subsonic-response'].albumList.album),
+        data => this.albums.push(...data),
         err => this.notificationService.notify(err));
   }
 

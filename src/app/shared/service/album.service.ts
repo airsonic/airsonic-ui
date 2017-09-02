@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { SERVER_URL } from './user.service';
+import { SERVER_URL, User, USER_INFO } from './user.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { AlbumResponse, AlbumsResponse } from '../domain/album.domain';
+import { Album, AlbumResponse, Albums, AlbumsResponse } from '../domain/album.domain';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import { APPLICATION_NAME } from '../../app.module';
 
 @Injectable()
 export class AlbumService {
@@ -17,7 +19,7 @@ export class AlbumService {
     toYear?: string,
     genre?: string,
     musicFolderId?: string
-  }) {
+  }): Observable<Array<Albums>> {
     const defaultOptions = {
       type: 'alphabeticalByName'
     };
@@ -29,18 +31,21 @@ export class AlbumService {
         params = params.set(option, sentOptions[option]);
       }
     }
-    return this.httpClient.get<AlbumsResponse>(`${server}/rest/getAlbumList`, {params: params});
+    return this.httpClient.get<AlbumsResponse>(`${server}/rest/getAlbumList`, {params: params})
+      .map(res => res['subsonic-response'].albumList.album);
   }
 
-  getAlbum(id: string): Observable<AlbumResponse> {
+  getAlbum(id: string): Observable<Album> {
     const server = localStorage.getItem(SERVER_URL);
     const params = new HttpParams()
       .set('id', id);
-    return this.httpClient.get<AlbumResponse>(`${server}/rest/getAlbum`, {params: params});
+    return this.httpClient.get<AlbumResponse>(`${server}/rest/getAlbum`, {params: params})
+      .map(res => res['subsonic-response'].album);
   }
 
   getAlbumImageUrl(id: String) {
-    const server = localStorage.getItem(SERVER_URL);
-    return `${server}/coverArt.view?size=160&id=${id}`;
+    const userInfo: User = JSON.parse(localStorage.getItem(USER_INFO));
+    return `${userInfo.server}/rest/getCoverArt?id=${id}&v=1.15.0&
+      u=${userInfo.name}&s=${userInfo.salt}&t=${userInfo.token}&c=${APPLICATION_NAME}&size=160`;
   }
 }

@@ -22,7 +22,7 @@ export class AlbumComponent implements OnInit {
     this.musicDirectoryService.getMusicDirectory(id)
       .subscribe(
         data => {
-          this.musicDirectory = data['subsonic-response'].directory;
+          this.musicDirectory = data;
           this.getAlbum(this.musicDirectory.child[0].albumId);
         },
         error => console.log(error)
@@ -36,7 +36,7 @@ export class AlbumComponent implements OnInit {
   getAlbum(albumId: string) {
     this.albumService.getAlbum(albumId)
       .subscribe(
-        res => this.album = res['subsonic-response'].album,
+        res => this.album = res,
         err => console.log(err)
       );
   }
