@@ -4,7 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Album, AlbumResponse, Albums, AlbumsResponse } from '../domain/album.domain';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { APPLICATION_NAME } from '../../app.module';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class AlbumService {
@@ -43,9 +43,8 @@ export class AlbumService {
       .map(res => res['subsonic-response'].album);
   }
 
-  getAlbumImageUrl(id: String) {
+  getAlbumImageUrl(id: string, size: string = '160') {
     const userInfo: User = JSON.parse(localStorage.getItem(USER_INFO));
-    return `${userInfo.server}/rest/getCoverArt?id=${id}&v=1.15.0&
-      u=${userInfo.name}&s=${userInfo.salt}&t=${userInfo.token}&c=${APPLICATION_NAME}&size=160`;
+    return `${userInfo.server}/rest/getCoverArt?id=${id}&v=1.15.0&u=${userInfo.name}&s=${userInfo.salt}&t=${userInfo.token}&c=${environment.applicationName}&size=${size}`.trim();
   }
 }

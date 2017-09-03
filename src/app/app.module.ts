@@ -6,7 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SidebarModule } from 'ng-sidebar';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { AuthInterceptor } from './core/AuthInterceptor';
+import { AuthInterceptor } from './shared/auth/AuthInterceptor';
 import { ArtistService } from './shared/service/artist.service';
 import { AlbumsComponent } from './albums/albums.component';
 import { ArtistsComponent } from './artists/artists.component';
@@ -22,6 +22,7 @@ import { MusicDirectoryService } from './shared/service/music-directory.service'
 import { TimePipe } from './shared/pipe/time.pipe';
 import { MediaControlsComponent } from './shared/component/media-controls/media-controls.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { StreamService } from './shared/service/stream.service';
 
 @NgModule({
   declarations: [
@@ -53,9 +54,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
   UserService,
   SystemService,
   AlbumService,
-  MusicDirectoryService],
+  MusicDirectoryService,
+  StreamService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-export const APPLICATION_NAME = 'AIRSONIC_UI';

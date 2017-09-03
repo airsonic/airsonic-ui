@@ -20,7 +20,7 @@ export class AlbumsComponent implements OnInit {
     this.getAlbums();
   }
 
-  getAlbumImageUrl(id: String) {
+  getAlbumImageUrl(id: string) {
     return this.albumService.getAlbumImageUrl(id);
   }
 
@@ -29,18 +29,6 @@ export class AlbumsComponent implements OnInit {
       .subscribe(
         data => this.albums.push(...data),
         err => this.notificationService.notify(err));
-  }
-
-  onPrevious() {
-    if (this.page > 0) {
-      this.page--;
-      this.getAlbums();
-    }
-  }
-
-  onNext() {
-    this.page++;
-    this.getAlbums();
   }
 
   onScroll() {
