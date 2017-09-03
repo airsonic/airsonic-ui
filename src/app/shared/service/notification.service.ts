@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-declare var Notification: any;
+declare let Notification: any;
 
 @Injectable()
 export class NotificationService {

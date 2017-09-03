@@ -18,7 +18,7 @@
       </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let song of musicDirectory.child">
+        <tr class="song-row" *ngFor="let song of musicDirectory.child" (click)="playSong(song)">
           <td>{{song.track}}</td>
           <td>{{song.title}}</td>
           <td>{{song.duration | time}}</td>
