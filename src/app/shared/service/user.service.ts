@@ -26,6 +26,10 @@ export class UserService {
     return JSON.parse(localStorage.getItem(USER_INFO));
   }
 
+  hasUser(): boolean {
+    return this.getUser() !== null;
+  }
+
   private generateSalt() {
     const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let result = '';
