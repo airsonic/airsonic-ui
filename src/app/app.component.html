@@ -13,7 +13,7 @@
         </span>
       </div>
     </form>
-    <ul class="navbar-nav">
+    <ul class="navbar-nav" (appClickOutside)="closeMenu()">
       <li class="nav-item dropdown" [class.show]="menuOpen">
         <a class="nav-link mx-auto" id="logout-menu" (click)="openMenu()">
           <i class="material-icons">account_circle</i>
