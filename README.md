@@ -2,7 +2,7 @@
 
 ## Setup
 Install [nvm](https://github.com/creationix/nvm).
-Install angular cli `npm install @angular/cli`
+Install angular cli `npm install -g @angular/cli`
 
 ## Development server
 
