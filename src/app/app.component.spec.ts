@@ -5,6 +5,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { UserService } from './shared/service/user.service';
 import { UserServiceSpy } from './shared/service/user.service.spec';
 import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -15,7 +16,7 @@ describe('AppComponent', () => {
       providers: [
         { provide: UserService, useValue: new UserServiceSpy() }
       ],
-      imports: [ RouterTestingModule ],
+      imports: [ RouterTestingModule, FormsModule ],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   }));

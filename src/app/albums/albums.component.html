@@ -1,19 +1,6 @@
-<div class="row" id="albumsList" infiniteScroll
+<div id="albumsList" infiniteScroll
      (scrolled)="onScroll()">
-  <div class="col-lg-2 col-sm-4" *ngFor="let album of albums">
-    <a class="card" routerLink="/album/{{album.id}}">
-      <img class="card-img-top"
-           src="{{getAlbumImageUrl(album.id)}}"
-           alt="Photo of {{album.title}}"
-           >
-      <div class="card-body">
-        <h4 class="card-title"
-            ngbPopover="{{album.title}}"
-            triggers="mouseenter:mouseleave">{{album.title}}</h4>
-        <p class="card-text">{{album.artist}}</p>
-      </div>
-    </a>
-  </div>
+  <app-album-card [albums]="albums"></app-album-card>
 </div>
 
 

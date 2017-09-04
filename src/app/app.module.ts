@@ -24,6 +24,10 @@ import { MediaControlsComponent } from './shared/component/media-controls/media-
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { StreamService } from './shared/service/stream.service';
 import { ClickOutsideDirective } from './shared/directive/click-outside.directive';
+import { SearchResultComponent } from './search-result/search-result.component';
+import { SearchService } from './shared/service/search.service';
+import { SongTableComponent } from './shared/compoonent/song-table/song-table.component';
+import { AlbumCardComponent } from './shared/compoonent/album-card/album-card.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,10 @@ import { ClickOutsideDirective } from './shared/directive/click-outside.directiv
     AlbumComponent,
     TimePipe,
     MediaControlsComponent,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    SearchResultComponent,
+    SongTableComponent,
+    AlbumCardComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +64,8 @@ import { ClickOutsideDirective } from './shared/directive/click-outside.directiv
   SystemService,
   AlbumService,
   MusicDirectoryService,
-  StreamService],
+  StreamService,
+  SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

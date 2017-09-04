@@ -10,6 +10,7 @@ import { AlbumServiceSpy } from '../shared/service/album.service.spec';
 import { MusicDirectoryServiceSpy } from '../shared/service/music-directory.service.spec';
 import { StreamService } from '../shared/service/stream.service';
 import { StreamServiceSpy } from '../shared/service/stream.service.spec';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('AlbumComponent', () => {
   let component: AlbumComponent;
@@ -32,7 +33,8 @@ describe('AlbumComponent', () => {
         { provide: MusicDirectoryService, useValue: new MusicDirectoryServiceSpy() },
         { provide: ActivatedRoute, useValue: activatedRoute },
         { provide: StreamService, useValue: new StreamServiceSpy() }
-      ]
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));

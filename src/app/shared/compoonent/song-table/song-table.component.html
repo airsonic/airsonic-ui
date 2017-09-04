@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-body">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th><i class="material-icons">access_time</i></th>
+        <th><i class="material-icons">music_note</i></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="song-row" *ngFor="let song of songs" (click)="playSong(song)">
+        <td>{{song.track}}</td>
+        <td>{{song.title}}</td>
+        <td>{{song.duration | time}}</td>
+        <td>{{song.playCount}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

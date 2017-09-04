@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   menuOpen = false;
   collapsed = true;
+  query: string;
 
   constructor(private userService: UserService,
               private router: Router) {}
@@ -33,5 +34,9 @@ export class AppComponent implements OnInit {
   }
 
   logout() {
+  }
+
+  onSearch(query: string) {
+    this.router.navigate(['/search', query]);
   }
 }

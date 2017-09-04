@@ -1,0 +1,12 @@
+<div *ngIf="searchResult && (searchResult.song || searchResult.artist || searchResult.album); else noResultBlock">
+  <div *ngIf="searchResult.artist"></div>
+  <div *ngIf="searchResult.album">
+    <app-album-card [albums]="searchResult.album"></app-album-card>
+  </div>
+  <div *ngIf="searchResult.song">
+    <app-song-table [songs]="searchResult.song"></app-song-table>
+  </div>
+</div>
+<ng-template #noResultBlock>
+  <p>No Results Found</p>
+</ng-template>
