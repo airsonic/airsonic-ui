@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MediaControlsComponent } from './media-controls.component';
+import { StreamService } from '../../service/stream.service';
+import { StreamServiceSpy } from '../../service/stream.service.spec';
 
 describe('MediaControlsComponent', () => {
   let component: MediaControlsComponent;
@@ -8,7 +10,10 @@ describe('MediaControlsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MediaControlsComponent ]
+      declarations: [ MediaControlsComponent ],
+      providers: [
+        { provide: StreamService, useValue: new StreamServiceSpy() }
+      ]
     })
     .compileComponents();
   }));

@@ -8,6 +8,8 @@ import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/observable/of';
 import { AlbumServiceSpy } from '../shared/service/album.service.spec';
 import { MusicDirectoryServiceSpy } from '../shared/service/music-directory.service.spec';
+import { StreamService } from '../shared/service/stream.service';
+import { StreamServiceSpy } from '../shared/service/stream.service.spec';
 
 describe('AlbumComponent', () => {
   let component: AlbumComponent;
@@ -28,7 +30,8 @@ describe('AlbumComponent', () => {
       providers: [
         { provide: AlbumService, useValue: new AlbumServiceSpy() },
         { provide: MusicDirectoryService, useValue: new MusicDirectoryServiceSpy() },
-        { provide: ActivatedRoute, useValue: activatedRoute }
+        { provide: ActivatedRoute, useValue: activatedRoute },
+        { provide: StreamService, useValue: new StreamServiceSpy() }
       ]
     })
     .compileComponents();

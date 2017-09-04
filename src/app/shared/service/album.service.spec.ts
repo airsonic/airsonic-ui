@@ -29,4 +29,5 @@ export class AlbumServiceSpy {
   getAlbums = jasmine.createSpy('getAlbums').and.callFake(() => {
     return Observable.of();
   });
+  getAlbumImageUrl = jasmine.createSpy('getAlbumImageUrl');
 }

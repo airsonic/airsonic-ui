@@ -19,16 +19,11 @@ describe('MusicDirectoryService', () => {
 
 export class MusicDirectoryServiceSpy {
   testDirectory = {
-    'subsonic-response': {
-      directory: {
         child: [
           {
             albumId: 1
           }
-        ]
-      }
-    }
-  };
+        ]};
   getMusicDirectory = jasmine.createSpy('getMusicDirectory').and.callFake((id) => {
     return Observable.of(this.testDirectory);
   });

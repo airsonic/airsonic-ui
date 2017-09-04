@@ -23,6 +23,7 @@ import { TimePipe } from './shared/pipe/time.pipe';
 import { MediaControlsComponent } from './shared/component/media-controls/media-controls.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { StreamService } from './shared/service/stream.service';
+import { ClickOutsideDirective } from './shared/directive/click-outside.directive';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { StreamService } from './shared/service/stream.service';
     LoginComponent,
     AlbumComponent,
     TimePipe,
-    MediaControlsComponent
+    MediaControlsComponent,
+    ClickOutsideDirective
   ],
   imports: [
     BrowserModule,
