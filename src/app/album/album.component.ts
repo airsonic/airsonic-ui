@@ -4,8 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { MusicDirectory } from '../shared/domain/music-directory.domain';
 import { AlbumService } from '../shared/service/album.service';
 import { Album } from '../shared/domain/album.domain';
-import { StreamService } from '../shared/service/stream.service';
-import { MediaFile } from '../shared/domain/media-file.domain';
 
 @Component({
   selector: 'app-album',
@@ -17,8 +15,7 @@ export class AlbumComponent implements OnInit {
   album: Album;
   constructor(private musicDirectoryService: MusicDirectoryService,
               private route: ActivatedRoute,
-              private albumService: AlbumService,
-              private streamService: StreamService) { }
+              private albumService: AlbumService) { }
 
   ngOnInit() {
     const id = this.route.snapshot.params.id;
@@ -32,12 +29,8 @@ export class AlbumComponent implements OnInit {
       );
   }
 
-  playSong(mediaFile: MediaFile) {
-    this.streamService.streamFile(mediaFile);
-  }
-
   getAlbumImageUrl(id: string) {
-    return this.albumService.getAlbumImageUrl(id, '200');
+    return AlbumService.getAlbumImageUrl(id, '200');
   }
 
   getAlbum(albumId: string) {

@@ -11,13 +11,13 @@ export class AlbumCardComponent implements OnInit {
   @Input()
   albums: Array<Albums>;
 
-  constructor(private albumService: AlbumService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
   getAlbumImageUrl(id: string) {
-    return this.albumService.getAlbumImageUrl(id);
+    return AlbumService.getAlbumImageUrl(id);
   }
 
 }

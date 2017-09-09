@@ -20,10 +20,6 @@ export class AlbumsComponent implements OnInit {
     this.getAlbums();
   }
 
-  getAlbumImageUrl(id: string) {
-    return this.albumService.getAlbumImageUrl(id);
-  }
-
   getAlbums() {
     this.albumService.getAlbums({size: this.pageSize, offset: this.page * this.pageSize})
       .subscribe(

@@ -11,6 +11,11 @@ export class AlbumService {
 
   constructor(private httpClient: HttpClient) { }
 
+  static getAlbumImageUrl(id: string, size: string = '160') {
+    const userInfo: User = JSON.parse(localStorage.getItem(USER_INFO));
+    return `${userInfo.server}/rest/getCoverArt?id=${id}&v=1.15.0&u=${userInfo.name}&s=${userInfo.salt}&t=${userInfo.token}&c=${environment.applicationName}&size=${size}`.trim();
+  }
+
   getAlbums(options: {
     type?: string,
     size?: number,
@@ -43,8 +48,5 @@ export class AlbumService {
       .map(res => res['subsonic-response'].album);
   }
 
-  getAlbumImageUrl(id: string, size: string = '160') {
-    const userInfo: User = JSON.parse(localStorage.getItem(USER_INFO));
-    return `${userInfo.server}/rest/getCoverArt?id=${id}&v=1.15.0&u=${userInfo.name}&s=${userInfo.salt}&t=${userInfo.token}&c=${environment.applicationName}&size=${size}`.trim();
-  }
+
 }
