@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MediaStream, StreamService } from '../../service/stream.service';
+import { AlbumService } from '../../service/album.service';
 
 @Component({
   selector: 'app-media-controls',
@@ -21,6 +22,13 @@ export class MediaControlsComponent implements OnInit {
 
   play() {
     this.streamService.play();
+  }
+
+  albumImageUrl() {
+    if (this.stream) {
+      return AlbumService.getAlbumImageUrl(this.stream.mediaFile.id, '60');
+    }
+    return '';
   }
 
 }

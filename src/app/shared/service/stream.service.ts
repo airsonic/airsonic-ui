@@ -15,6 +15,11 @@ export class StreamService {
 
   constructor() {
     this.currentStream = new Audio();
+    this.currentStream.addEventListener('ended', () =>
+      this.streamObserver.next({
+        isPlaying: false,
+        mediaFile: this.currentMediaFile
+      }));
   }
 
   streamFile(mediaFile: MediaFile) {

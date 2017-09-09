@@ -1,4 +1,11 @@
 <nav class="navbar fixed-bottom navbar-dark bg-dark">
+    <a class="navbar-brand">
+      <img src="{{albumImageUrl()}}" width="60" height="60" alt="">
+    </a>
+    <span class="navbar-text">
+      {{stream?.mediaFile?.artist}}<br>
+      <span class="text-muted">{{stream?.mediaFile?.title}}</span>
+    </span>
   <div id="controls" class="mx-auto my-auto">
     <a><i class="material-icons md-light md-48">skip_previous</i></a>
     <a *ngIf="stream && stream.isPlaying; else playBlock" (click)="pause()"><i class="material-icons md-light md-48">pause_circle_filled</i></a>

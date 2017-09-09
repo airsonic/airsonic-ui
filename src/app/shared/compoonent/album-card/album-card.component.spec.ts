@@ -2,8 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AlbumCardComponent } from './album-card.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { AlbumServiceSpy } from '../../service/album.service.spec';
-import { AlbumService } from '../../service/album.service';
 
 describe('AlbumCardComponent', () => {
   let component: AlbumCardComponent;
@@ -12,10 +10,7 @@ describe('AlbumCardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AlbumCardComponent ],
-      schemas: [NO_ERRORS_SCHEMA],
-      providers: [
-        { provide: AlbumService, useValue: new AlbumServiceSpy() }
-      ]
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));
