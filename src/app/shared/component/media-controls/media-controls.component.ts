@@ -24,6 +24,14 @@ export class MediaControlsComponent implements OnInit {
     this.streamService.play();
   }
 
+  next() {
+    this.streamService.next();
+  }
+
+  previous() {
+    this.streamService.previous();
+  }
+
   albumImageUrl() {
     if (this.stream) {
       return AlbumService.getAlbumImageUrl(this.stream.mediaFile.id, '60');

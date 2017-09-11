@@ -26,8 +26,9 @@ import { StreamService } from './shared/service/stream.service';
 import { ClickOutsideDirective } from './shared/directive/click-outside.directive';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { SearchService } from './shared/service/search.service';
-import { SongTableComponent } from './shared/compoonent/song-table/song-table.component';
-import { AlbumCardComponent } from './shared/compoonent/album-card/album-card.component';
+import { SongTableComponent } from './shared/component/song-table/song-table.component';
+import { AlbumCardComponent } from './shared/component/album-card/album-card.component';
+import { AUDIO_PROVIDER, AudioProviderFactory } from './shared/provider/audio.provider';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { AlbumCardComponent } from './shared/compoonent/album-card/album-card.co
   AlbumService,
   MusicDirectoryService,
   StreamService,
-  SearchService],
+  SearchService,
+    { provide: AUDIO_PROVIDER, useFactory: AudioProviderFactory }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,44 +1,51 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { User, USER_INFO } from './user.service';
 import { environment } from '../../../environments/environment';
 import { MediaFile } from '../domain/media-file.domain';
 import { Subscription } from 'rxjs/Subscription';
 import { Subject } from 'rxjs/Subject';
+import { AUDIO_PROVIDER, AudioProvider } from '../provider/audio.provider';
 
-declare let Audio: any;
 
 @Injectable()
 export class StreamService {
-  private currentStream;
   private streamObserver = new Subject<MediaStream>();
   private currentMediaFile: MediaFile;
+  private mediaQueue: Array<MediaFile> = [];
+  private previousMediaQueue: Array<MediaFile> = [];
 
-  constructor() {
-    this.currentStream = new Audio();
-    this.currentStream.addEventListener('ended', () =>
-      this.streamObserver.next({
-        isPlaying: false,
-        mediaFile: this.currentMediaFile
-      }));
+  constructor(@Inject(AUDIO_PROVIDER) private audioProvider: AudioProvider) {
+    this.audioProvider.onEnded(() => {
+      if (this.mediaQueue.length > 0) {
+        this.previousMediaQueue.push(this.currentMediaFile);
+        this.streamFile(this.mediaQueue.pop());
+      } else {
+        this.currentMediaFile = null;
+        this.updateStream(false, null);
+      }
+    });
   }
 
   streamFile(mediaFile: MediaFile) {
-    console.log('Trying to stream song');
-    this.currentStream.pause();
+    this.audioProvider.pause();
     const userInfo: User = JSON.parse(localStorage.getItem(USER_INFO));
     const streamUrl = `${userInfo.server}/rest/stream?id=${mediaFile.id}&v=1.15.0&u=${userInfo.name}&s=${userInfo.salt}&t=${userInfo.token}&c=${environment.applicationName}`;
-    this.currentStream.src = streamUrl;
+    this.audioProvider.src = streamUrl;
     try {
-      this.currentStream.play();
-      this.streamObserver.next({
-        isPlaying: true,
-        mediaFile: mediaFile
-      });
-      this.currentMediaFile = mediaFile;
+      this.audioProvider.play();
+      this.updateStream(true, mediaFile);
     } catch (e) {
       // Browser doesn't support what we are playing?
       console.log(e);
     }
+  }
+
+  addToQueue(mediaFiles: Array<MediaFile>) {
+    const reversed = mediaFiles.slice().reverse();
+    if (!this.currentMediaFile) {
+      this.streamFile(reversed.pop());
+    }
+    this.mediaQueue.push(...reversed);
   }
 
   onStreamStart(fn: (mediaStream: MediaStream) => void): Subscription {
@@ -46,21 +53,41 @@ export class StreamService {
   }
 
   pause() {
-    this.currentStream.pause();
-    this.streamObserver.next({
-      isPlaying: false,
-      mediaFile: this.currentMediaFile
-    });
+    this.audioProvider.pause();
+    this.updateStream(false);
   }
 
   play() {
     if (this.currentMediaFile) {
-      this.currentStream.play();
-      this.streamObserver.next({
-        isPlaying: true,
-        mediaFile: this.currentMediaFile
-      });
+      this.audioProvider.play();
+      this.updateStream(true);
     }
+  }
+
+  next() {
+    if (this.mediaQueue.length > 0) {
+      this.previousMediaQueue.push(this.currentMediaFile);
+      this.streamFile(this.mediaQueue.pop());
+    }
+  }
+
+  previous() {
+    if (this.currentMediaFile) {
+      this.mediaQueue.push(this.currentMediaFile);
+    }
+    if (this.previousMediaQueue.length > 0) {
+      this.streamFile(this.previousMediaQueue.pop());
+    }
+  }
+
+  private updateStream(isPlaying: boolean, mediaFile?: MediaFile) {
+    if (mediaFile) {
+      this.currentMediaFile = mediaFile;
+    }
+    this.streamObserver.next({
+      isPlaying: isPlaying,
+      mediaFile: this.currentMediaFile
+    });
   }
 }
 
