@@ -7,9 +7,9 @@
       <span class="text-muted">{{stream?.mediaFile?.title}}</span>
     </span>
   <div id="controls" class="mx-auto my-auto">
-    <a><i class="material-icons md-light md-48">skip_previous</i></a>
+    <a (click)="previous()"><i class="material-icons md-light md-48">skip_previous</i></a>
     <a *ngIf="stream && stream.isPlaying; else playBlock" (click)="pause()"><i class="material-icons md-light md-48">pause_circle_filled</i></a>
     <ng-template #playBlock><a (click)="play()"><i class="material-icons md-light md-48">play_circle_filled</i></a></ng-template>
-    <a><i class="material-icons md-light md-48">skip_next</i></a>
+    <a (click)="next()"><i class="material-icons md-light md-48">skip_next</i></a>
   </div>
 </nav>
