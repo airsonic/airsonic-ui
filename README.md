@@ -1,8 +1,9 @@
 # Airsonic
 
 ## Setup
-Install [nvm](https://github.com/creationix/nvm).
-Install angular cli `npm install -g @angular/cli`
+1. Install [nvm](https://github.com/creationix/nvm).
+2. Install angular cli `npm install -g @angular/cli`
+3. Install packages `npm install`
 
 ## Development server
 
