@@ -34,6 +34,10 @@ export class AppComponent implements OnInit {
   }
 
   logout() {
+    this.userService.logout();
+    this.router.navigateByUrl('/login').then(() => {
+      this.closeMenu();
+    });
   }
 
   onSearch(query: string) {

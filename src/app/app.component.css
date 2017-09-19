@@ -11,3 +11,7 @@
 .navbar-brand img {
   width: 196px;
 }
+
+#logout {
+  cursor: pointer;
+}
