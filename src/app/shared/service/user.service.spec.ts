@@ -1,6 +1,6 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { inject, TestBed } from '@angular/core/testing';
 
-import { User, USER_INFO, UserService } from './user.service';
+import { UserService } from './user.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('UserService', () => {
@@ -9,6 +9,7 @@ describe('UserService', () => {
       providers: [UserService],
       imports: [HttpClientTestingModule]
     });
+    localStorage.clear();
   });
 
   it('should be created', inject([UserService], (service: UserService) => {
@@ -21,14 +22,15 @@ describe('UserService', () => {
   }));
 
   it('should be false if no user is set', inject([UserService], (service: UserService) => {
-    const user: User = {
-      name: 'username',
-      salt: 'abc123',
-      token: 'testToken',
-      server: 'localhost:8080'
-    };
-    localStorage.setItem(USER_INFO, JSON.stringify(user));
+    service.loginUser('username', 'abc123', 'http://localhost');
     expect(service.hasUser()).toBeTruthy();
+  }));
+
+  it('should sign the user out', inject([UserService], (service: UserService) => {
+    service.loginUser('username', 'abc123', 'http://localhost');
+    expect(service.hasUser()).toBeTruthy();
+    service.logout();
+    expect(service.hasUser()).toBeFalsy();
   }));
 });
 

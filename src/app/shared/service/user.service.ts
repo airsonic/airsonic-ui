@@ -30,6 +30,10 @@ export class UserService {
     return this.getUser() !== null;
   }
 
+  logout() {
+    localStorage.clear();
+  }
+
   private generateSalt() {
     const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let result = '';
