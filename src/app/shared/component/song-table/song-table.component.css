@@ -1,3 +1,20 @@
 .song-row {
   cursor: pointer;
 }
+
+.card-body {
+  padding: 0 0.75em;
+}
+
+table {
+  margin-bottom: 0;
+}
+
+thead, thead th {
+  border: none !important;
+  vertical-align: middle;
+}
+
+.table th, .table td {
+  padding: 0.5rem;
+}
