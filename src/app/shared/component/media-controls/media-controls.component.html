@@ -26,5 +26,9 @@
       </ul>
     </li>
   </ul>
-  <ul class="col-4"></ul>
+  <ul class="col-4 nav justify-content-end">
+    <li class="nav-item">
+      <input class="form-control" type="range" min="0" max="1" step=".01" (ngModelChange)="volumeChange($event)" [(ngModel)]="volume" [ngModelOptions]="{standalone: true}" />
+    </li>
+  </ul>
 </nav>

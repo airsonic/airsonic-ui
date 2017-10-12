@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MediaControlsComponent } from './media-controls.component';
 import { StreamService } from '../../service/stream.service';
 import { StreamServiceSpy } from '../../service/stream.service.spec';
+import { FormsModule } from '@angular/forms';
 
 describe('MediaControlsComponent', () => {
   let component: MediaControlsComponent;
@@ -13,7 +14,8 @@ describe('MediaControlsComponent', () => {
       declarations: [ MediaControlsComponent ],
       providers: [
         { provide: StreamService, useValue: new StreamServiceSpy() }
-      ]
+      ],
+      imports: [ FormsModule ]
     })
     .compileComponents();
   }));

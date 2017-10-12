@@ -4,6 +4,7 @@ import { Injectable, InjectionToken } from '@angular/core';
 @Injectable()
 export abstract class AudioProvider {
   src: string;
+  volume: number;
   abstract play();
   abstract pause();
   abstract onEnded(fn: () => void);
@@ -13,6 +14,9 @@ export abstract class AudioProvider {
 export class WebAudioProvider implements AudioProvider {
   set src(it: string) {
     this.currentTrack.src = it;
+  }
+  set volume(it: number) {
+    this.currentTrack.volume = it;
   }
   private currentTrack;
   constructor() {

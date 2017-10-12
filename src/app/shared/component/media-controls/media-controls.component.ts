@@ -14,6 +14,7 @@ export class MediaControlsComponent implements OnInit {
 
   ngOnInit() {
     this.streamService.onStreamStart(stream => this.stream = stream);
+    this.volume = this.streamService.volume;
   }
 
   pause() {
@@ -26,6 +27,10 @@ export class MediaControlsComponent implements OnInit {
 
   next() {
     this.streamService.next();
+  }
+
+  volumeChange(val) {
+    this.streamService.volume = val;
   }
 
   previous() {

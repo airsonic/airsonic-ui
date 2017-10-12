@@ -109,7 +109,7 @@ export class StreamServiceSpy {
 
 class TestAudioProvider implements AudioProvider {
   src: string;
-
+  volume: number;
   play = jasmine.createSpy('play');
 
   pause = jasmine.createSpy('pause');
