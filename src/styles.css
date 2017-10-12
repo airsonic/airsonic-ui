@@ -13,6 +13,11 @@
 .material-icons.md-light { color: rgba(255, 255, 255, 1); }
 .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
 
+/* Fix bad vertical align with icons */
+* > i.material-icons {
+    vertical-align: middle;
+}
+
 #content {
   padding-top:5em;
   padding-bottom: 5em;
