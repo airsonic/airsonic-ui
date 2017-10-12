@@ -2,19 +2,6 @@
     padding: 0;
 }
 
-table {
-    margin: 0;
-}
-
-table * {
-    border: none !important;
-    vertical-align: middle;
-}
-
-.table th, .table td {
-    padding: 0.30em;
-}
-
 .song-row {
     cursor: pointer;
 }
