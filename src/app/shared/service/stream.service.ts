@@ -9,6 +9,14 @@ import { AUDIO_PROVIDER, AudioProvider } from '../provider/audio.provider';
 
 @Injectable()
 export class StreamService {
+  set volume(it: number) {
+    this._volume = it;
+    this.audioProvider.volume = it;
+  }
+  get volume(): number {
+    return this._volume;
+  }
+  private _volume = 1.0;
   private streamObserver = new Subject<MediaStream>();
   private currentMediaFile: MediaFile;
   private mediaQueue: Array<MediaFile> = [];

@@ -1,15 +1,34 @@
 <nav class="navbar fixed-bottom navbar-dark bg-dark">
-    <a class="navbar-brand">
-      <img src="{{albumImageUrl()}}" width="60" height="60" alt="">
-    </a>
-    <span class="navbar-text">
+  <ul class="nav col-4 my-0">
+    <li class="nav-item">
+      <img class="mr-1" src="{{albumImageUrl()}}" width="50" height="50" alt="">
+    </li>
+    <li class="nav-item">
+      <span class="navbar-text">
       {{stream?.mediaFile?.artist}}<br>
       <span class="text-muted">{{stream?.mediaFile?.title}}</span>
     </span>
-  <div id="controls" class="mx-auto my-auto">
-    <a (click)="previous()"><i class="material-icons md-light md-48">skip_previous</i></a>
-    <a *ngIf="stream && stream.isPlaying; else playBlock" (click)="pause()"><i class="material-icons md-light md-48">pause_circle_filled</i></a>
-    <ng-template #playBlock><a (click)="play()"><i class="material-icons md-light md-48">play_circle_filled</i></a></ng-template>
-    <a (click)="next()"><i class="material-icons md-light md-48">skip_next</i></a>
-  </div>
+    </li>
+  </ul>
+  <ul id="controls" class="nav col-4 justify-content-center">
+    <li>
+      <ul class="nav">
+        <li class="nav-item">
+          <a (click)="previous()"><i class="material-icons md-light md-48">skip_previous</i></a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="stream && stream.isPlaying; else playBlock" (click)="pause()"><i class="material-icons md-light md-48">pause_circle_filled</i></a>
+          <ng-template #playBlock><a (click)="play()"><i class="material-icons md-light md-48">play_circle_filled</i></a></ng-template>
+        </li>
+        <li class="nav-item">
+          <a (click)="next()"><i class="material-icons md-light md-48">skip_next</i></a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <ul class="col-4 nav justify-content-end">
+    <li class="nav-item">
+      <input class="form-control" type="range" min="0" max="1" step=".01" (ngModelChange)="volumeChange($event)" [(ngModel)]="volume" [ngModelOptions]="{standalone: true}" />
+    </li>
+  </ul>
 </nav>

@@ -9,11 +9,12 @@ import { AlbumService } from '../../service/album.service';
 })
 export class MediaControlsComponent implements OnInit {
   stream: MediaStream;
-
+  volume: number;
   constructor(private streamService: StreamService) { }
 
   ngOnInit() {
     this.streamService.onStreamStart(stream => this.stream = stream);
+    this.volume = this.streamService.volume;
   }
 
   pause() {
@@ -26,6 +27,10 @@ export class MediaControlsComponent implements OnInit {
 
   next() {
     this.streamService.next();
+  }
+
+  volumeChange(val) {
+    this.streamService.volume = val;
   }
 
   previous() {
