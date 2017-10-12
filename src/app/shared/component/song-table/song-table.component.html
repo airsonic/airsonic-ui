@@ -1,20 +1,24 @@
 <div class="card">
   <div class="card-body">
-    <table class="table">
+    <table class="table table-sm table-striped table-borderless table-hover">
       <thead>
       <tr>
-        <th>#</th>
-        <th>Name</th>
+        <th class="pl-3">#</th>
+        <th>Title</th>
         <th><i class="material-icons">access_time</i></th>
-        <th><i class="material-icons">music_note</i></th>
+        <th>Type</th>
+        <th>Bitrate</th>
+        <th class="pr-3"><i class="material-icons">music_note</i></th>
       </tr>
       </thead>
       <tbody>
       <tr class="song-row" *ngFor="let song of songs" (click)="playSong(song)">
-        <td>{{song.track}}</td>
+        <td class="pl-3">{{song.track}}</td>
         <td>{{song.title}}</td>
         <td>{{song.duration | time}}</td>
-        <td>{{song.playCount}}</td>
+        <td>{{song.suffix}}</td>
+        <td>{{song.bitRate}}</td>
+        <td class="pr-3">{{song.playCount}}</td>
       </tr>
       </tbody>
     </table>
