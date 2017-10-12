@@ -24,6 +24,12 @@
     border: 0 !important;
 }
 
+/* No-border */
+.no-border {
+    border: 0 !important;
+    box-shadow: none;
+}
+
 .table.table-borderless {
     margin-bottom: 0;
 }
