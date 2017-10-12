@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   menuOpen = false;
   collapsed = true;
   query: string;
+  username: string;
 
   constructor(private userService: UserService,
               private router: Router) {}
@@ -18,6 +19,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     if (!this.userService.hasUser()) {
       this.router.navigateByUrl('/login');
+    } else {
+      this.username = this.userService.getUser().name;
     }
   }
 
