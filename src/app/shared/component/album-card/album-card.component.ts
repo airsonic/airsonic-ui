@@ -5,7 +5,7 @@ import { AlbumService } from '../../service/album.service';
 @Component({
   selector: 'app-album-card',
   templateUrl: './album-card.component.html',
-  styleUrls: ['./album-card.component.css']
+  styleUrls: ['./album-card.component.scss']
 })
 export class AlbumCardComponent implements OnInit {
   @Input()

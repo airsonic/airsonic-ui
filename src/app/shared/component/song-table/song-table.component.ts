@@ -5,7 +5,7 @@ import { StreamService } from '../../service/stream.service';
 @Component({
   selector: 'app-song-table',
   templateUrl: './song-table.component.html',
-  styleUrls: ['./song-table.component.css']
+  styleUrls: ['./song-table.component.scss']
 })
 export class SongTableComponent implements OnInit {
   @Input()
