@@ -18,6 +18,16 @@
     vertical-align: middle;
 }
 
+/* Custom classes (boostrap style) */
+/* Borderless-table */
+.table.table-borderless td, .table.table-borderless th {
+    border: 0 !important;
+}
+
+.table.table-borderless {
+    margin-bottom: 0;
+}
+
 #content {
   padding-top:5em;
   padding-bottom: 5em;
