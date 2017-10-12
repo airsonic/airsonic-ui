@@ -4,8 +4,10 @@
       <thead>
       <tr>
         <th class="pl-3">#</th>
-        <th>Name</th>
+        <th>Title</th>
         <th><i class="material-icons">access_time</i></th>
+        <th>Type</th>
+        <th>Bitrate</th>
         <th class="pr-3"><i class="material-icons">music_note</i></th>
       </tr>
       </thead>
@@ -14,6 +16,8 @@
         <td class="pl-3">{{song.track}}</td>
         <td>{{song.title}}</td>
         <td>{{song.duration | time}}</td>
+        <td>{{song.suffix}}</td>
+        <td>{{song.bitRate}}</td>
         <td class="pr-3">{{song.playCount}}</td>
       </tr>
       </tbody>
