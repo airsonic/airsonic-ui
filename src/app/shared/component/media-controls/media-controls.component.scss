@@ -1,0 +1,10 @@
+#controls a {
+  cursor: pointer;
+}
+
+#control-volume {
+    display: inline-flex;
+    & > i {
+        font-size: 20px;
+    }
+}

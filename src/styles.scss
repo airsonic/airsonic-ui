@@ -28,6 +28,12 @@
     margin-bottom: 0;
 }
 
+/* No-border */
+.no-border {
+    border: 0 !important;
+    box-shadow: none;
+}
+
 #content {
   padding-top:5em;
   padding-bottom: 5em;
