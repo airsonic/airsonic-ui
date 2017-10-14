@@ -5,7 +5,7 @@ import { AlbumService } from '../../service/album.service';
 @Component({
   selector: 'app-media-controls',
   templateUrl: './media-controls.component.html',
-  styleUrls: ['./media-controls.component.css']
+  styleUrls: ['./media-controls.component.scss']
 })
 export class MediaControlsComponent implements OnInit {
   stream: MediaStream;
