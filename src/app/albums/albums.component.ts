@@ -10,7 +10,7 @@ import { NotificationService } from '../shared/service/notification.service';
 })
 export class AlbumsComponent implements OnInit {
   albums: Array<Albums> = [];
-  pageSize = 20;
+  pageSize = 40;
   page = 0;
 
   constructor(private albumService: AlbumService,
