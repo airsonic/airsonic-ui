@@ -1,15 +1,10 @@
-<div class="row">
-  <div class="col-lg-2 col-sm-4" *ngFor="let album of albums">
-    <a class="card" routerLink="/album/{{album.id}}">
-      <img class="card-img-top"
-           src="{{getAlbumImageUrl(album.id)}}"
-           alt="Photo of {{album.title}}"
-      >
-      <div class="card-body">
-        <h4 class="card-title"
-            ngbPopover="{{album.title}}"
-            triggers="mouseenter:mouseleave">{{album.title}}</h4>
-        <p class="card-text">{{album.artist}}</p>
+<div class="row justify-content-center">
+  <div class="album-card rounded col-sm-3 col-lg-2 p-0 m-2" *ngFor="let album of albums">
+    <a class="card p-0" routerLink="/album/{{album.id}}">
+      <img class="card-img-top p-0" src="{{getAlbumImageUrl(album.id)}}" alt="Photo of {{album.title}}">
+      <div class="card-body m-0 p-2">
+        <h4 class="card-title m-0 p-0">{{album.title}}</h4>
+        <p class="card-text m-0 p-0">{{album.artist}}</p>
       </div>
     </a>
   </div>
