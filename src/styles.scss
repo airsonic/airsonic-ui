@@ -1,3 +1,7 @@
+html, body {
+  min-width: 600px; // This might be only temporary, until we properly buidl the mobile interface. Or should we leave it to the current mobile apps ?
+}
+
 /* You can add global styles to this file, and also import other style files */
 /* Rules for sizing the icon. */
 .material-icons.md-18 { font-size: 18px; }
