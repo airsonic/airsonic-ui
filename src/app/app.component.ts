@@ -8,9 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  menuOpen = false;
-  collapsed = true;
-  query: string;
   username: string;
 
   constructor(private userService: UserService,
@@ -24,26 +21,4 @@ export class AppComponent implements OnInit {
     }
   }
 
-  openMenu() {
-    this.menuOpen = !this.menuOpen;
-  }
-
-  collapseOpen() {
-    this.collapsed = !this.collapsed;
-  }
-
-  closeMenu() {
-    this.menuOpen = false;
-  }
-
-  logout() {
-    this.userService.logout();
-    this.router.navigateByUrl('/login').then(() => {
-      this.closeMenu();
-    });
-  }
-
-  onSearch(query: string) {
-    this.router.navigate(['/search', query]);
-  }
 }

@@ -14,4 +14,4 @@ import { SearchResultComponent } from './search-result/search-result.component';
   ]) ],
   exports: [ RouterModule ]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -1,9 +1,9 @@
-# Airsonic
+# Airsonic UI
 
 ## Setup
-1. Install [nvm](https://github.com/creationix/nvm).
-2. Install angular cli `npm install -g @angular/cli`
-3. Install packages `npm install`
+
+1. Install angular cli `npm install -g @angular/cli`
+2. Install packages `npm install`
 
 ## Development server
 
@@ -24,6 +24,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
 Before running the tests make sure you are serving the app via `ng serve`.
 
 ## Further help

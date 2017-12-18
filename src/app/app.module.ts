@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SidebarModule } from 'ng-sidebar';
-import { SideMenuComponent } from './side-menu/side-menu.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './shared/auth/AuthInterceptor';
 import { ArtistService } from './shared/service/artist.service';
@@ -33,7 +31,6 @@ import { AUDIO_PROVIDER, AudioProviderFactory } from './shared/provider/audio.pr
 @NgModule({
   declarations: [
     AppComponent,
-    SideMenuComponent,
     AlbumsComponent,
     ArtistsComponent,
     LoginComponent,
@@ -48,7 +45,6 @@ import { AUDIO_PROVIDER, AudioProviderFactory } from './shared/provider/audio.pr
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
-    SidebarModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
