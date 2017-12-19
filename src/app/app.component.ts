@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   username: string;
+  sideMenuClosed = false; // Need to export the side-menu function to a dedicated service
 
   constructor(private userService: UserService,
               private router: Router) {}
@@ -21,4 +22,8 @@ export class AppComponent implements OnInit {
     }
   }
 
+  // Need to export the side-menu function to a dedicated service
+  toggleSideMenu() {
+    this.sideMenuClosed = !this.sideMenuClosed;
+  }
 }

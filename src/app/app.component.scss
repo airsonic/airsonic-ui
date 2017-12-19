@@ -1,0 +1,23 @@
+#side-menu {
+  min-height: 100vh;
+  width: 13em;
+  transition: margin 0.4s ease;
+  nav {
+    .nav-link, .material-icons {
+      font-size: 14px;
+    }
+    #logo img {
+      height: 44px;
+    }
+  }
+}
+
+#side-menu-toggle {
+  position: fixed; // Temp position need to export the side-menu toggle function to a service
+  bottom: 5em;
+  left: 0.5em;
+  z-index: 2000;
+}
+
+/* Close side-menu */
+.side-menu-closed { margin-left: -13em !important; }

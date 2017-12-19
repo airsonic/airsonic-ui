@@ -20,3 +20,20 @@ html, body, .min-width {
 * > i.material-icons {
     vertical-align: middle;
 }
+
+/* Custom styling rules */
+.custom-full-height {
+  min-height: 100%;
+}
+
+/* Boostrap fixes */
+
+/* Better use padding */
+.row {
+  margin: 0;
+}
+
+/* Use pointer when hovering a button */
+.btn {
+  cursor: pointer;
+}

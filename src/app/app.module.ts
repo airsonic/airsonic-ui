@@ -27,6 +27,7 @@ import { SearchService } from './shared/service/search.service';
 import { SongTableComponent } from './shared/component/song-table/song-table.component';
 import { AlbumCardComponent } from './shared/component/album-card/album-card.component';
 import { AUDIO_PROVIDER, AudioProviderFactory } from './shared/provider/audio.provider';
+import { TopBarComponent } from './top-bar/top-bar.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AUDIO_PROVIDER, AudioProviderFactory } from './shared/provider/audio.pr
     ClickOutsideDirective,
     SearchResultComponent,
     SongTableComponent,
-    AlbumCardComponent
+    AlbumCardComponent,
+    TopBarComponent
   ],
   imports: [
     BrowserModule,

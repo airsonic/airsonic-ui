@@ -1,9 +1,10 @@
-<div class="row my-3">
+<div class="row m-0 py-3">
   <div class="col-lg-6">
     <img class="rounded mx-2 float-left" src="{{getAlbumImageUrl(musicDirectory?.id)}}" alt="Photo of {{musicDirectory?.name}}">
     <h4>{{album?.name}} <a (click)="playAlbum()" id="play-album" class="material-icons">play_circle_outline</a></h4>
     <p class="text-muted">{{album?.artist}}</p>
   </div>
 </div>
-
-<app-song-table [songs]="album?.song"></app-song-table>
+<div class="m-0 p-2">
+  <app-song-table [songs]="album?.song"></app-song-table>
+</div>
