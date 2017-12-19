@@ -1,8 +1,9 @@
-<div class="container">
+<div class="container p-5" id="login">
   <form class="form-signin" #loginForm="ngForm" (ngSubmit)="onSubmit()">
-    <h2 class="form-signin-heading">Please sign in</h2>
+    <img class="px-5 pb-3" src="assets/images/logo/airsonic-dark-350x100.png">
+    <h5 class="form-signin-heading text-center">Please sign in</h5>
     <div class="form-group">
-      <label for="inputUser" class="sr-only">Email address</label>
+      <label for="inputUser" class="sr-only">Username</label>
       <input [(ngModel)]="model.user" name="user" id="inputUser" class="form-control" placeholder="Username" required autofocus>
     </div>
     <div class="form-group">
@@ -10,8 +11,8 @@
       <input [(ngModel)]="model.password" name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
     </div>
     <div class="form-group">
-      <label for="inputServer" class="sr-only">Server Url</label>
-      <input [(ngModel)]="model.server" name="server" id="inputServer" class="form-control" placeholder="Server Url" required>
+      <label for="inputServer" class="sr-only">Server</label>
+      <input [(ngModel)]="model.server" name="server" id="inputServer" class="form-control" placeholder="Server" required>
     </div>
     <div class="form-group">
       <button class="btn btn-lg btn-primary btn-block" (click)="onSubmit()" type="submit">Sign in</button>
