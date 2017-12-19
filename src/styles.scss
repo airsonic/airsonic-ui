@@ -26,14 +26,19 @@ html, body, .min-width {
   min-height: 100%;
 }
 
-/* Boostrap fixes */
+.custom-shadows {
+  -webkit-box-shadow: 0px 30px 50px 10px rgba(0,0,0,0.6);
+  -moz-box-shadow: 0px 30px 50px 10px rgba(0,0,0,0.6);
+  box-shadow: 0px 30px 50px 10px rgba(0,0,0,0.6);
+}
 
-/* Better use padding */
+
+/* Boostrap fix: Better use padding */
 .row {
   margin: 0;
 }
 
-/* Use pointer when hovering a button */
+/* Boostrap fix: Use pointer when hovering a button */
 .btn {
   cursor: pointer;
 }

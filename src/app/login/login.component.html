@@ -1,18 +1,32 @@
-<div class="container p-5" id="login">
-  <form class="form-signin" #loginForm="ngForm" (ngSubmit)="onSubmit()">
-    <img class="px-5 pb-3" src="assets/images/logo/airsonic-dark-350x100.png">
-    <h5 class="form-signin-heading text-center">Please sign in</h5>
+<div class="container p-5 py-auto" id="signin">
+  <form class="form-signin px-4 py-3 rounded bg-dark custom-shadows" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+    <img class="w-100 mb-3" src="assets/images/logo/airsonic-light-350x100.png">
     <div class="form-group">
-      <label for="inputUser" class="sr-only">Username</label>
-      <input [(ngModel)]="model.user" name="user" id="inputUser" class="form-control" placeholder="Username" required autofocus>
+      <label class="mb-0 text-white" for="inputUser">Username</label>
+      <div class="input-group">
+        <input [(ngModel)]="model.user" name="user" id="inputUser" class="form-control form-control-sm" required autofocus>
+        <div class="input-group-addon p-1">
+          <i class="material-icons md-18">face</i>
+        </div>
+      </div>
     </div>
     <div class="form-group">
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input [(ngModel)]="model.password" name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <label class="mb-0 text-white" for="inputPassword">Password</label>
+      <div class="input-group">
+        <input [(ngModel)]="model.password" name="password" type="password" id="inputPassword" class="form-control form-control-sm" required>
+        <div class="input-group-addon p-1">
+          <i class="material-icons md-18">lock_open</i>
+        </div>
+      </div>
     </div>
     <div class="form-group">
-      <label for="inputServer" class="sr-only">Server</label>
-      <input [(ngModel)]="model.server" name="server" id="inputServer" class="form-control" placeholder="Server" required>
+      <label class="mb-0 text-white" for="inputServer">Server location</label>
+      <div class="input-group">
+        <input [(ngModel)]="model.server" name="server" id="inputServer" class="form-control form-control-sm" required>
+        <div class="input-group-addon p-1">
+          <i class="material-icons md-18">cloud_queue</i>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <button class="btn btn-lg btn-primary btn-block" (click)="onSubmit()" type="submit">Sign in</button>
