@@ -7,10 +7,11 @@
   min-height: 100vh;
   min-width: 100vw;
   z-index: 2000;
-  background-color: white;
+  background-color: rgb(20, 20, 20);
   .form-signin {
     max-width: 330px;
     padding: 15px;
     margin: 0 auto;
+    margin-top: 5rem;
   }
 }

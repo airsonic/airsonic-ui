@@ -1,31 +1,22 @@
 <div class="container p-5 py-auto" id="signin">
-  <form class="form-signin px-4 py-3 rounded bg-dark custom-shadows" #loginForm="ngForm" (ngSubmit)="onSubmit()">
-    <img class="w-100 mb-3" src="assets/images/logo/airsonic-light-350x100.png">
+  <form class="form-signin px-4 py-3 bg-light rounded custom-shadows" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+    <img class="w-100 mb-3" src="assets/images/logo/airsonic-dark-350x100.png">
     <div class="form-group">
-      <label class="mb-0 text-white" for="inputUser">Username</label>
+      <label class="mb-1" for="inputUser">Username</label>
       <div class="input-group">
         <input [(ngModel)]="model.user" name="user" id="inputUser" class="form-control form-control-sm" required autofocus>
-        <div class="input-group-addon p-1">
-          <i class="material-icons md-18">face</i>
-        </div>
       </div>
     </div>
     <div class="form-group">
-      <label class="mb-0 text-white" for="inputPassword">Password</label>
+      <label class="mb-1" for="inputPassword">Password</label>
       <div class="input-group">
         <input [(ngModel)]="model.password" name="password" type="password" id="inputPassword" class="form-control form-control-sm" required>
-        <div class="input-group-addon p-1">
-          <i class="material-icons md-18">lock_open</i>
-        </div>
       </div>
     </div>
     <div class="form-group">
-      <label class="mb-0 text-white" for="inputServer">Server location</label>
+      <label class="mb-1" for="inputServer">Server location</label>
       <div class="input-group">
         <input [(ngModel)]="model.server" name="server" id="inputServer" class="form-control form-control-sm" required>
-        <div class="input-group-addon p-1">
-          <i class="material-icons md-18">cloud_queue</i>
-        </div>
       </div>
     </div>
     <div class="form-group">
