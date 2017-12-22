@@ -39,6 +39,6 @@ html, body, .min-width {
 }
 
 /* Boostrap fix: Use pointer when hovering a button */
-.btn {
+button, .btn, a {
   cursor: pointer;
 }

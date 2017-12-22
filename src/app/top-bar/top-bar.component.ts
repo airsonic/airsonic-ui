@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class TopBarComponent implements OnInit {
   @Input() username: string;
-  menuOpen = false;
+  profilMenuOpen = false;
   collapsed = true;
   query: string;
 
@@ -22,20 +22,20 @@ export class TopBarComponent implements OnInit {
   logout() {
     this.userService.logout();
     this.router.navigateByUrl('/login').then(() => {
-      this.closeMenu();
+      this.closeProfilMenu();
     });
   }
 
-  openMenu() {
-    this.menuOpen = !this.menuOpen;
+  openProfilMenu() {
+    this.profilMenuOpen = !this.profilMenuOpen;
+  }
+
+  closeProfilMenu() {
+    this.profilMenuOpen = false;
   }
 
   collapseOpen() {
     this.collapsed = !this.collapsed;
-  }
-
-  closeMenu() {
-    this.menuOpen = false;
   }
 
   onSearch(query: string) {

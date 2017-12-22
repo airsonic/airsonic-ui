@@ -15,12 +15,12 @@
       </div>
     </form>
 
-    <ul class="navbar-nav" (appClickOutside)="closeMenu()">
-      <li class="nav-item dropdown" [class.show]="menuOpen">
-        <a class="nav-link mx-auto" id="logout-menu" (click)="openMenu()">
+    <ul class="navbar-nav" (appClickOutside)="closeProfilMenu()">
+      <li class="nav-item dropdown" [class.show]="profilMenuOpen">
+        <a class="nav-link mx-auto" id="profil-menu" (click)="openProfilMenu()">
           <i class="material-icons">account_circle</i>
         </a>
-        <ul class="dropdown-menu dropdown-menu-right" [class.show]="menuOpen">
+        <ul class="dropdown-menu dropdown-menu-right" [class.show]="profilMenuOpen">
           <li class="dropdown-item disabled">{{username}}</li>
           <li class="dropdown-item"><a id="logout" (click)="logout()" i18n="@@Logout">Logout</a></li>
         </ul>

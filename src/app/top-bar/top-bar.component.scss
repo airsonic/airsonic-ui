@@ -1,13 +1,10 @@
-#logout-menu {
-  cursor: pointer;
+#profil-menu {
   padding-bottom: 0;
   padding-top: 0;
-}
-
-#logout-menu .material-icons {
-  font-size: 30px;
-}
-
-#logout {
-  cursor: pointer;
+  .material-icons {
+    font-size: 30px;
+  }
+  a {
+    display: block;
+  }
 }
