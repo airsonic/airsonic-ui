@@ -1,5 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top p-1 min-width">
 
+  <!-- Side-menu toggler -->
+  <a id="side-menu-toggle" (click)="toggleSideMenu()"><i [class.side-menu-toggled]="sideMenuClosed" class="material-icons">keyboard_arrow_left</i></a>
+
   <button class="navbar-toggler" (click)="collapseOpen()" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

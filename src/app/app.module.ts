@@ -28,6 +28,7 @@ import { SongTableComponent } from './shared/component/song-table/song-table.com
 import { AlbumCardComponent } from './shared/component/album-card/album-card.component';
 import { AUDIO_PROVIDER, AudioProviderFactory } from './shared/provider/audio.provider';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { SideMenuService } from './shared/service/side-menu.service';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
   MusicDirectoryService,
   StreamService,
   SearchService,
+  SideMenuService,
     { provide: AUDIO_PROVIDER, useFactory: AudioProviderFactory }],
   bootstrap: [AppComponent]
 })

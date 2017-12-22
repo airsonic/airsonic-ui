@@ -12,13 +12,6 @@
   }
 }
 
-#side-menu-toggle {
-  position: fixed; // Temp position need to export the side-menu toggle function to a service
-  bottom: 5em;
-  left: 0.5em;
-  z-index: 2000;
-}
-
 /* Close side-menu */
 .side-menu-closed { margin-left: -13em !important; }
 

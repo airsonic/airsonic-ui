@@ -8,3 +8,13 @@
     display: block;
   }
 }
+
+#side-menu-toggle {
+  .material-icons{
+    font-size: 36px;
+    transition: transform 0.4s ease;
+  }
+}
+.side-menu-toggled {
+  transform: rotate(180deg);
+}

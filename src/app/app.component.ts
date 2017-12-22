@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './shared/service/user.service';
 import { Router } from '@angular/router';
+import { SideMenuService } from './shared/service/side-menu.service';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,11 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   username: string;
-  sideMenuClosed = false; // Need to export the side-menu function to a dedicated service
+  sideMenuClosed = false;
 
   constructor(private userService: UserService,
-              private router: Router) {}
+              private router: Router,
+              private sideMenuService: SideMenuService) {}
 
   ngOnInit() {
     if (!this.userService.hasUser()) {
@@ -20,10 +22,9 @@ export class AppComponent implements OnInit {
     } else {
       this.username = this.userService.getUser().name;
     }
-  }
 
-  // Need to export the side-menu function to a dedicated service
-  toggleSideMenu() {
-    this.sideMenuClosed = !this.sideMenuClosed;
+    this.sideMenuService.toggleSideMenu.subscribe(() => {
+      this.sideMenuClosed = !this.sideMenuClosed;
+    });
   }
 }
