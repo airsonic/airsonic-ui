@@ -5,7 +5,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { UserService } from './shared/service/user.service';
 import { UserServiceSpy } from './shared/service/user.service.spec';
 import { RouterTestingModule } from '@angular/router/testing';
-import { FormsModule } from '@angular/forms';
+import { SideMenuService } from './shared/service/side-menu.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -14,9 +14,10 @@ describe('AppComponent', () => {
         AppComponent
       ],
       providers: [
-        { provide: UserService, useValue: new UserServiceSpy() }
+        { provide: UserService, useValue: new UserServiceSpy() },
+        SideMenuService
       ],
-      imports: [ RouterTestingModule, FormsModule ],
+      imports: [ RouterTestingModule ],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   }));
