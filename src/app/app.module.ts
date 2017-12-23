@@ -53,11 +53,8 @@ import { SideMenuService } from './shared/service/side-menu.service';
     FormsModule,
     InfiniteScrollModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
-    multi: true
-  },
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ArtistService,
   NotificationService,
   UserService,
@@ -66,8 +63,9 @@ import { SideMenuService } from './shared/service/side-menu.service';
   MusicDirectoryService,
   StreamService,
   SearchService,
-  SideMenuService,
-    { provide: AUDIO_PROVIDER, useFactory: AudioProviderFactory }],
+    { provide: AUDIO_PROVIDER, useFactory: AudioProviderFactory },
+  SideMenuService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
