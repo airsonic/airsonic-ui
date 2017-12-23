@@ -1,17 +1,20 @@
-#logout-menu {
-  cursor: pointer;
-  padding-bottom: 0;
-  padding-top: 0;
+#side-menu {
+  min-height: 100vh;
+  width: 13em;
+  transition: margin 0.4s ease;
+  nav {
+    .nav-link, .material-icons {
+      font-size: 14px;
+    }
+    #logo img {
+      height: 44px;
+    }
+  }
 }
 
-#logout-menu .material-icons {
-  font-size: 30px;
-}
+/* Close side-menu */
+.side-menu-closed { margin-left: -13em !important; }
 
-.navbar-brand img {
-  height: 40px;
-}
-
-#logout {
-  cursor: pointer;
+#content {
+  margin-bottom: 64px !important;
 }

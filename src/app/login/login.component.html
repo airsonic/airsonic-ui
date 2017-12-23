@@ -1,17 +1,23 @@
-<div class="container">
-  <form class="form-signin" #loginForm="ngForm" (ngSubmit)="onSubmit()">
-    <h2 class="form-signin-heading">Please sign in</h2>
+<div class="container p-5 py-auto" id="signin">
+  <form class="form-signin px-4 py-3 bg-light rounded custom-shadows" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+    <img class="w-100 mb-3" src="assets/images/logo/airsonic-dark-350x100.png">
     <div class="form-group">
-      <label for="inputUser" class="sr-only">Email address</label>
-      <input [(ngModel)]="model.user" name="user" id="inputUser" class="form-control" placeholder="Username" required autofocus>
+      <label class="mb-1" for="inputUser">Username</label>
+      <div class="input-group">
+        <input [(ngModel)]="model.user" name="user" id="inputUser" class="form-control form-control-sm" required autofocus>
+      </div>
     </div>
     <div class="form-group">
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input [(ngModel)]="model.password" name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <label class="mb-1" for="inputPassword">Password</label>
+      <div class="input-group">
+        <input [(ngModel)]="model.password" name="password" type="password" id="inputPassword" class="form-control form-control-sm" required>
+      </div>
     </div>
     <div class="form-group">
-      <label for="inputServer" class="sr-only">Server Url</label>
-      <input [(ngModel)]="model.server" name="server" id="inputServer" class="form-control" placeholder="Server Url" required>
+      <label class="mb-1" for="inputServer">Server location</label>
+      <div class="input-group">
+        <input [(ngModel)]="model.server" name="server" id="inputServer" class="form-control form-control-sm" required>
+      </div>
     </div>
     <div class="form-group">
       <button class="btn btn-lg btn-primary btn-block" (click)="onSubmit()" type="submit">Sign in</button>

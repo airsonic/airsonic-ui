@@ -1,10 +1,7 @@
-/* This might be only temporary, until we properly buidl the mobile interface.
-Or should we leave it to the current mobile apps ? */
 html, body, .min-width {
   min-width: 600px;
 }
 
-/* You can add global styles to this file, and also import other style files */
 /* Rules for sizing the icon. */
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }
@@ -24,23 +21,24 @@ html, body, .min-width {
     vertical-align: middle;
 }
 
-/* Custom classes (boostrap style) */
-/* Borderless-table */
-.table.table-borderless td, .table.table-borderless th {
-    border: 0 !important;
+/* Custom styling rules */
+.custom-full-height {
+  min-height: 100%;
 }
 
-.table.table-borderless {
-    margin-bottom: 0;
+.custom-shadows {
+  -webkit-box-shadow: 0px 30px 50px 10px rgba(0,0,0,0.6);
+  -moz-box-shadow: 0px 30px 50px 10px rgba(0,0,0,0.6);
+  box-shadow: 0px 30px 50px 10px rgba(0,0,0,0.6);
 }
 
-/* No borders */
-.no-borders {
-    border: 0;
-    box-shadow: 0;
+
+/* Boostrap fix: Better use padding */
+.row {
+  margin: 0;
 }
 
-#content {
-  padding-top:5em;
-  padding-bottom: 5em;
+/* Boostrap fix: Use pointer when hovering a button */
+button, .btn, a {
+  cursor: pointer;
 }

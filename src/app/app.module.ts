@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SidebarModule } from 'ng-sidebar';
-import { SideMenuComponent } from './side-menu/side-menu.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './shared/auth/AuthInterceptor';
 import { ArtistService } from './shared/service/artist.service';
@@ -29,11 +27,12 @@ import { SearchService } from './shared/service/search.service';
 import { SongTableComponent } from './shared/component/song-table/song-table.component';
 import { AlbumCardComponent } from './shared/component/album-card/album-card.component';
 import { AUDIO_PROVIDER, AudioProviderFactory } from './shared/provider/audio.provider';
+import { TopBarComponent } from './top-bar/top-bar.component';
+import { SideMenuService } from './shared/service/side-menu.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SideMenuComponent,
     AlbumsComponent,
     ArtistsComponent,
     LoginComponent,
@@ -43,22 +42,19 @@ import { AUDIO_PROVIDER, AudioProviderFactory } from './shared/provider/audio.pr
     ClickOutsideDirective,
     SearchResultComponent,
     SongTableComponent,
-    AlbumCardComponent
+    AlbumCardComponent,
+    TopBarComponent
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
-    SidebarModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
     InfiniteScrollModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
-    multi: true
-  },
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ArtistService,
   NotificationService,
   UserService,
@@ -67,7 +63,9 @@ import { AUDIO_PROVIDER, AudioProviderFactory } from './shared/provider/audio.pr
   MusicDirectoryService,
   StreamService,
   SearchService,
-    { provide: AUDIO_PROVIDER, useFactory: AudioProviderFactory }],
+    { provide: AUDIO_PROVIDER, useFactory: AudioProviderFactory },
+  SideMenuService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

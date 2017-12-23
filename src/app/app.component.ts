@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './shared/service/user.service';
 import { Router } from '@angular/router';
+import { SideMenuService } from './shared/service/side-menu.service';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +9,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  menuOpen = false;
-  collapsed = true;
-  query: string;
   username: string;
+  sideMenuClosed = false;
 
   constructor(private userService: UserService,
-              private router: Router) {}
+              private router: Router,
+              private sideMenuService: SideMenuService) {}
 
   ngOnInit() {
     if (!this.userService.hasUser()) {
@@ -22,28 +22,9 @@ export class AppComponent implements OnInit {
     } else {
       this.username = this.userService.getUser().name;
     }
-  }
 
-  openMenu() {
-    this.menuOpen = !this.menuOpen;
-  }
-
-  collapseOpen() {
-    this.collapsed = !this.collapsed;
-  }
-
-  closeMenu() {
-    this.menuOpen = false;
-  }
-
-  logout() {
-    this.userService.logout();
-    this.router.navigateByUrl('/login').then(() => {
-      this.closeMenu();
+    this.sideMenuService.toggleSideMenu.subscribe(() => {
+      this.sideMenuClosed = !this.sideMenuClosed;
     });
-  }
-
-  onSearch(query: string) {
-    this.router.navigate(['/search', query]);
   }
 }

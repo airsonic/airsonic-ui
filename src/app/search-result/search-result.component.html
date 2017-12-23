@@ -1,9 +1,9 @@
 <div *ngIf="searchResult && (searchResult.song || searchResult.artist || searchResult.album); else noResultBlock">
   <div *ngIf="searchResult.artist"></div>
-  <div *ngIf="searchResult.album">
+  <div *ngIf="searchResult.album" class="m-0 p-2">
     <app-album-card [albums]="searchResult.album"></app-album-card>
   </div>
-  <div *ngIf="searchResult.song">
+  <div *ngIf="searchResult.song" class="m-0 p-2">
     <app-song-table [songs]="searchResult.song"></app-song-table>
   </div>
 </div>

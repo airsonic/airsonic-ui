@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  applicationName: 'AIRSONIC_UI'
+  applicationName: "Airsonic UI"
 };
