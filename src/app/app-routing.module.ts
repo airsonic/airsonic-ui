@@ -8,6 +8,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
 @NgModule({
   imports: [ RouterModule.forRoot([
     { path: '', component: AlbumsComponent },
+    { path: '**', component: AlbumsComponent },
     { path: 'login', component: LoginComponent },
     { path: 'album/:id', component: AlbumComponent },
     { path: 'search/:query', component: SearchResultComponent }
