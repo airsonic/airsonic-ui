@@ -1,3 +1,123 @@
-#controls a {
-  cursor: pointer;
+$media-controls-height: 56px;
+
+#media-controls {
+  height: $media-controls-height;
+  -webkit-box-shadow: 0px -5px 20px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px -5px 20px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px -5px 20px 0px rgba(0,0,0,0.2);
+}
+
+$playing-range-height: 8px;
+$playing-range-background: rgba(0, 0, 0, 0.4);
+$playing-range-color: #2f7bd9;
+
+#media-controls-top {
+  height: $playing-range-height;
+  input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: $playing-range-height;
+    border: none;
+    box-shadow: none;
+    border-radius: none;
+    &::-moz-progress-bar {
+      width: 100%;
+      height: $playing-range-height;
+      border: none;
+      box-shadow: none;
+      border-radius: none;
+    }
+    &::-moz-range-progress {
+      background-color: $playing-range-color;
+      height: $playing-range-height;
+      cursor: pointer;
+      border: none;
+      box-shadow: none;
+      border-radius: none;
+    }
+    &::-moz-range-thumb {
+      background-color: transparent;
+      cursor: pointer;
+      border: none;
+      box-shadow: none;
+      border-radius: none;
+      width: 4px;
+      height: $playing-range-height;
+    }
+    &::-moz-range-track {
+      height: $playing-range-height;
+      background-color: $playing-range-background;
+      cursor: pointer;
+      border: none;
+      box-shadow: none;
+      border-radius: none;
+    }
+    &::-moz-focus-outer {
+      border: none;
+    }
+  }
+}
+
+$volume-range-height: 10px;
+$volume-range-background: rgba(0, 0, 0, 0.4);
+$volume-range-color: #2f7bd9;
+
+#media-controls-bottom {
+  height: -webkit-calc(#{$media-controls-height} - #{$playing-range-height});
+  height: -moz-calc(#{$media-controls-height} - #{$playing-range-height});
+  height: calc(#{$media-controls-height} - #{$playing-range-height});
+  #playing-info-text {
+    div, span {
+      height: 20px;
+      line-height: 20px;
+    }
+  }
+  #control-volume {
+    .material-icons {
+      padding: 11px 0;
+    }
+    input[type=range] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: $volume-range-height;
+      border: none;
+      box-shadow: none;
+      border-radius: none;
+      &::-moz-progress-bar {
+        width: 100%;
+        height: $volume-range-height;
+        border: none;
+        box-shadow: none;
+        border-radius: none;
+      }
+      &::-moz-range-progress {
+        background-color: $volume-range-color;
+        height: $volume-range-height;
+        cursor: pointer;
+        border: none;
+        box-shadow: none;
+        border-radius: none;
+      }
+      &::-moz-range-thumb {
+        background-color: transparent;
+        cursor: pointer;
+        border: none;
+        box-shadow: none;
+        border-radius: none;
+        width: 4px;
+        height: $volume-range-height;
+      }
+      &::-moz-range-track {
+        height: $volume-range-height;
+        background-color: $volume-range-background;
+        cursor: pointer;
+        border: none;
+        box-shadow: none;
+        border-radius: none;
+      }
+      &::-moz-focus-outer {
+        border: none;
+      }
+    }
+  }
 }

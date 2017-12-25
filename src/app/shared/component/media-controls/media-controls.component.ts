@@ -10,11 +10,18 @@ import { AlbumService } from '../../service/album.service';
 export class MediaControlsComponent implements OnInit {
   stream: MediaStream;
   volume: number;
+  muted: boolean = false;
+
   constructor(private streamService: StreamService) { }
 
   ngOnInit() {
     this.streamService.onStreamStart(stream => this.stream = stream);
-    this.volume = this.streamService.volume;
+    if (localStorage.getItem(VOLUME) === null) {
+      this.volume = this.streamService.volume;
+    } else {
+      this.volume = Number(localStorage.getItem(VOLUME));
+      this.volumeChange(this.volume);
+    }
   }
 
   pause() {
@@ -30,18 +37,36 @@ export class MediaControlsComponent implements OnInit {
   }
 
   volumeChange(val) {
+    if (val === 0) {
+      this.muted = true;
+    } else {
+      this.muted = false;
+    }
     this.streamService.volume = val;
+  }
+
+  volumeMute() {
+    if (!this.muted) {
+      localStorage.setItem(VOLUME, this.volume.toString());
+      this.volumeChange(0);
+      this.volume= 0;
+    } else {
+      this.volume = Number(localStorage.getItem(VOLUME));
+      this.volumeChange(this.volume);
+    }
   }
 
   previous() {
     this.streamService.previous();
   }
 
-  albumImageUrl() {
+  albumImageUrl(albumImageSize) {
     if (this.stream) {
-      return AlbumService.getAlbumImageUrl(this.stream.mediaFile.id, '60');
+      return AlbumService.getAlbumImageUrl(this.stream.mediaFile.id, albumImageSize);
     }
     return '';
   }
 
 }
+
+export var VOLUME: string;
