@@ -18,3 +18,10 @@
 .side-menu-toggled {
   transform: rotate(180deg);
 }
+
+#search {
+  button:hover {
+    background-color: #2F7BD9;
+    color: white;
+  }
+}
