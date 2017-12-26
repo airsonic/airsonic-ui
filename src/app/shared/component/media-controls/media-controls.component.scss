@@ -1,5 +1,11 @@
 $media-controls-height: 56px;
 
+$range-background: rgba(0, 0, 0, 0.4);
+$range-color: #2f7bd9;
+
+$playing-range-height: 8px;
+$volume-range-height: 10px;
+
 #media-controls {
   height: $media-controls-height;
   -webkit-box-shadow: 0px -5px 20px 0px rgba(0,0,0,0.2);
@@ -7,60 +13,12 @@ $media-controls-height: 56px;
   box-shadow: 0px -5px 20px 0px rgba(0,0,0,0.2);
 }
 
-$playing-range-height: 8px;
-$playing-range-background: rgba(0, 0, 0, 0.4);
-$playing-range-color: #2f7bd9;
-
 #media-controls-top {
   height: $playing-range-height;
   input[type=range] {
-    -webkit-appearance: none;
-    width: 100%;
     height: $playing-range-height;
-    border: none;
-    box-shadow: none;
-    border-radius: none;
-    &::-moz-progress-bar {
-      width: 100%;
-      height: $playing-range-height;
-      border: none;
-      box-shadow: none;
-      border-radius: none;
-    }
-    &::-moz-range-progress {
-      background-color: $playing-range-color;
-      height: $playing-range-height;
-      cursor: pointer;
-      border: none;
-      box-shadow: none;
-      border-radius: none;
-    }
-    &::-moz-range-thumb {
-      background-color: transparent;
-      cursor: pointer;
-      border: none;
-      box-shadow: none;
-      border-radius: none;
-      width: 4px;
-      height: $playing-range-height;
-    }
-    &::-moz-range-track {
-      height: $playing-range-height;
-      background-color: $playing-range-background;
-      cursor: pointer;
-      border: none;
-      box-shadow: none;
-      border-radius: none;
-    }
-    &::-moz-focus-outer {
-      border: none;
-    }
   }
 }
-
-$volume-range-height: 10px;
-$volume-range-background: rgba(0, 0, 0, 0.4);
-$volume-range-color: #2f7bd9;
 
 #media-controls-bottom {
   height: -webkit-calc(#{$media-controls-height} - #{$playing-range-height});
@@ -77,47 +35,117 @@ $volume-range-color: #2f7bd9;
       padding: 11px 0;
     }
     input[type=range] {
-      -webkit-appearance: none;
-      width: 100%;
       height: $volume-range-height;
-      border: none;
-      box-shadow: none;
-      border-radius: none;
-      &::-moz-progress-bar {
-        width: 100%;
-        height: $volume-range-height;
-        border: none;
-        box-shadow: none;
-        border-radius: none;
-      }
-      &::-moz-range-progress {
-        background-color: $volume-range-color;
-        height: $volume-range-height;
-        cursor: pointer;
-        border: none;
-        box-shadow: none;
-        border-radius: none;
-      }
-      &::-moz-range-thumb {
-        background-color: transparent;
-        cursor: pointer;
-        border: none;
-        box-shadow: none;
-        border-radius: none;
-        width: 4px;
-        height: $volume-range-height;
-      }
-      &::-moz-range-track {
-        height: $volume-range-height;
-        background-color: $volume-range-background;
-        cursor: pointer;
-        border: none;
-        box-shadow: none;
-        border-radius: none;
-      }
-      &::-moz-focus-outer {
-        border: none;
-      }
     }
   }
+}
+
+@mixin box-shadow { box-shadow: none; }
+@mixin border { border-radius: 0; border: none; }
+@mixin cursor { cursor: pointer; }
+
+/* Reset to transparent range */
+input[type=range] {
+  @include border;
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+  &:focus {
+    @include box-shadow;
+  }
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]::-ms-track {
+  @include cursor;
+  width: 100%;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/* Styling the thumb */
+input[type=range]::-webkit-slider-thumb {
+  @include cursor;
+  @include border;
+  @include box-shadow;
+  height: $playing-range-height;
+  width: 4px;
+  background: $range-color;
+}
+
+input[type=range]::-moz-range-thumb {
+  @include cursor;
+  @include border;
+  @include box-shadow;
+  height: $playing-range-height;
+  width: 4px;
+  background: $range-color;
+}
+
+input[type=range]::-ms-thumb {
+  @include cursor;
+  @include border;
+  @include box-shadow;
+  height: $playing-range-height;
+  width: 4px;
+  background: $range-color;
+}
+
+/* Styling the track */
+input[type=range]::-webkit-slider-runnable-track {
+  @include cursor;
+  @include border;
+  @include box-shadow;
+  width: 100%;
+  height: $playing-range-height;
+  background: $range-background;
+}
+
+input[type=range]:focus:-webkit-slider-runnable-track {
+  background: $range-color;
+}
+
+input[type=range]::-moz-range-track {
+  @include cursor;
+  @include border;
+  @include box-shadow;
+  width: 100%;
+  height: $playing-range-height;
+  background: $range-background;
+}
+
+input[type=range]::-ms-track {
+  @include cursor;
+  @include border;
+  width: 100%;
+  height: $playing-range-height;
+  background: transparent;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  @include border;
+  @include box-shadow;
+  background: $range-background;
+}
+
+input[type=range]::-ms-fill-upper {
+  @include border;
+  @include box-shadow;
+  background: $range-background;
+}
+
+/* Styling the progress */
+input[type=range]::-moz-range-progress {
+  background: $range-color;
+  height: $playing-range-height;
+}
+
+input[type=range]::-webkit-range-progress {
+  background: $range-color;
+  height: $playing-range-height;
 }

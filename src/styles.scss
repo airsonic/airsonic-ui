@@ -21,6 +21,12 @@ html, body, .min-width {
     vertical-align: middle;
 }
 
+/* Fix firefox outline on focus */
+:focus, ::-moz-focus-inner, ::-moz-focus-outer {
+  border: none;
+  outline: none;
+}
+
 /* Custom styling rules */
 .custom-full-height {
   min-height: 100%;
