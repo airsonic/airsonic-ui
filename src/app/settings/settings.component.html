@@ -1,3 +1,50 @@
-<p>
-  settings works!
-</p>
+<div class="m-0 p-0 d-flex flex-row h-100">
+
+  <div class="m-0 p-0" id="settings-side-menu">
+    <ul class="nav flex-column d-flex">
+      <li class="nav-item">
+        <a class="nav-link btn-sm px-1 py-2"><i class="material-icons md-18 mr-1">folder</i>Media folders</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn-sm px-1 py-2"><i class="material-icons md-18 mr-1">settings_applications</i>General</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn-sm px-1 py-2"><i class="material-icons md-18 mr-1">build</i>Advanced</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn-sm px-1 py-2"><i class="material-icons md-18 mr-1">supervisor_account</i>Users</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn-sm px-1 py-2"><i class="material-icons md-18 mr-1">play_circle_outline</i>Players</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn-sm px-1 py-2"><i class="material-icons md-18 mr-1">perm_media</i>Transcoding</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn-sm px-1 py-2"><i class="material-icons md-18 mr-1">wifi_tethering</i>Podcasts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn-sm px-1 py-2"><i class="material-icons md-18 mr-1">share</i>Sharing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn-sm px-1 py-2"><i class="material-icons md-18 mr-1">radio</i>TV & Radio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn-sm px-1 py-2"><i class="material-icons md-18 mr-1">format_paint</i>Theming</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn-sm px-1 py-2"><i class="material-icons md-18 mr-1">settings_applications</i>DLNA/UPnP</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn-sm px-1 py-2"><i class="material-icons md-18 mr-1">settings_applications</i>Sonos</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="m-0 p-0 w-100" id="settings-content">
+    <div class="container-fluid m-0 p-0">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>
