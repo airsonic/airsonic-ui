@@ -69,4 +69,4 @@ export class MediaControlsComponent implements OnInit {
 
 }
 
-export var VOLUME: string;
+export const VOLUME = 'volume';
