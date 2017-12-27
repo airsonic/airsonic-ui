@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top p-1 min-width">
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top p-1">
 
   <!-- Side-menu toggler -->
-  <a id="side-menu-toggle" (click)="toggleSideMenu()"><i [class.side-menu-toggled]="sideMenuClosed" class="material-icons">keyboard_arrow_left</i></a>
+  <a class="d-block" id="side-menu-toggle" (click)="toggleSideMenu()"><i [class.side-menu-toggled]="sideMenuClosed" class="material-icons md-36">keyboard_arrow_left</i></a>
 
   <button class="navbar-toggler" (click)="collapseOpen()" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -20,12 +20,12 @@
 
     <ul class="navbar-nav" (appClickOutside)="closeProfilMenu()">
       <li class="nav-item dropdown" [class.show]="profilMenuOpen">
-        <a class="nav-link mx-auto" id="profil-menu" (click)="openProfilMenu()">
-          <i class="material-icons">account_circle</i>
+        <a class="nav-link mx-auto d-block py-0" (click)="openProfilMenu()">
+          <i class="material-icons md-24">account_circle</i>
         </a>
-        <ul class="dropdown-menu dropdown-menu-right" [class.show]="profilMenuOpen">
-          <li class="dropdown-item disabled">{{username}}</li>
-          <li class="dropdown-item"><a id="logout" (click)="logout()" i18n="@@Logout">Logout</a></li>
+        <ul class="dropdown-menu dropdown-menu-right mt-3 p-0 text-right" [class.show]="profilMenuOpen">
+          <li class="dropdown-item px-2 rounded"><a class="d-block">{{username|titlecase}}<i class="material-icons md-24 ml-3">face</i></a></li>
+          <li class="dropdown-item px-2 rounded"><a class="d-block" (click)="logout()" i18n="@@Logout">Logout<i class="material-icons md-24 ml-3">power_settings_new</i></a></li>
         </ul>
       </li>
     </ul>

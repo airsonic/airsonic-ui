@@ -1,20 +1,33 @@
-#side-menu {
-  min-height: 100vh;
-  width: 13em;
+$side-menu-width: 13em;
+$media-controls-height: 56px;
+
+#side-menu, #content {
   transition: margin 0.4s ease;
-  nav {
+  min-height: calc(100vh - #{$media-controls-height});
+  margin: 0;
+}
+
+#side-menu {
+  position: fixed;
+  top: 0;
+  width: $side-menu-width;
+  overflow-y: auto;
+  .nav {
     .nav-link, .material-icons {
-      font-size: 14px;
+      font-size: 15px;
     }
-    #logo img {
-      height: 44px;
+    .nav-brand img {
+      height: 48px;
     }
   }
 }
 
-/* Close side-menu */
-.side-menu-closed { margin-left: -13em !important; }
-
 #content {
-  margin-bottom: 64px !important;
+  min-width: calc(600px - #{$side-menu-width});
+  margin-left: $side-menu-width;
+  margin-bottom: $media-controls-height;
 }
+
+/* Toggle side-menu */
+.hide-side-menu { margin-left: -$side-menu-width !important; }
+.expand-content { margin-left: 0 !important; }
