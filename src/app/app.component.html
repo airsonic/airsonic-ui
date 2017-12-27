@@ -1,20 +1,30 @@
 <div class="container-fluid m-0 p-0 d-flex flex-row">
-    <div class="m-0 p-0 bg-dark" id="side-menu" [class.side-menu-closed]="sideMenuClosed">
-      <nav class="nav sticky-top flex-column">
-        <a id="logo" class="mx-auto mb-3" routerLink=""><img src="assets/images/logo/airsonic-light-350x100.png"></a>
-        <a class="nav-link text-white" routerLink=""><i class="material-icons mr-1">music_note</i> Playing</a>
-        <a class="nav-link text-white" routerLink=""><i class="material-icons mr-1">star</i> Starred</a>
-        <a class="nav-link text-white" routerLink=""><i class="material-icons mr-1">playlist_play</i> Playlists</a>
-        <a class="nav-link text-white" routerLink=""><i class="material-icons mr-1">settings</i> Settings</a>
+  <div id="side-menu" class="p-0 bg-dark" [class.hide-side-menu]="sideMenuClosed">
+
+    <div class="m-0 p-0">
+      <nav class="nav flex-column">
+        <a class="nav-brand mx-auto mb-1" routerLink=""><img src="assets/images/logo/airsonic-light-350x100.png"></a>
+      </nav>
+      <nav class="nav flex-column">
+        <a class="nav-link text-white p-1" routerLink=""><i class="material-icons mx-3">music_note</i>Playing</a>
+        <a class="nav-link text-white p-1" routerLink=""><i class="material-icons mx-3">star</i>Starred</a>
+        <a class="nav-link text-white p-1" routerLink=""><i class="material-icons mx-3">playlist_play</i>Playlists</a>
+        <a class="nav-link text-white p-1" routerLink=""><i class="material-icons mx-3">settings</i>Settings</a>
       </nav>
     </div>
 
-    <div class="m-0 p-0 w-100" id="content">
-      <app-top-bar [username]="username" ></app-top-bar>
-      <div class="container-fluid m-0 p-0">
-        <router-outlet></router-outlet>
+  </div>
+  <div id="content" class="p-0 w-100" [class.expand-content]="sideMenuClosed">
+
+    <app-top-bar [username]="username" ></app-top-bar>
+    <nav class="navbar bg-secondary p-1">
+      <div class="nav-item">
       </div>
+    </nav>
+    <div class="container-fluid m-0 p-0">
+      <router-outlet></router-outlet>
     </div>
 
+  </div>
 </div>
 <app-media-controls></app-media-controls>

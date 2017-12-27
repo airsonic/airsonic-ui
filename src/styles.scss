@@ -1,6 +1,4 @@
-html, body, .min-width {
-  min-width: 600px;
-}
+html, body, .min-width { min-width: 600px; }
 
 /* Rules for sizing the icon. */
 .material-icons.md-18 { font-size: 18px; }
@@ -21,24 +19,5 @@ html, body, .min-width {
     vertical-align: middle;
 }
 
-/* Custom styling rules */
-.custom-full-height {
-  min-height: 100%;
-}
-
-.custom-shadows {
-  -webkit-box-shadow: 0px 30px 50px 10px rgba(0,0,0,0.6);
-  -moz-box-shadow: 0px 30px 50px 10px rgba(0,0,0,0.6);
-  box-shadow: 0px 30px 50px 10px rgba(0,0,0,0.6);
-}
-
-
-/* Boostrap fix: Better use padding */
-.row {
-  margin: 0;
-}
-
 /* Boostrap fix: Use pointer when hovering a button */
-button, .btn, a {
-  cursor: pointer;
-}
+button, a { cursor: pointer; }
