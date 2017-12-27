@@ -21,17 +21,16 @@ html, body, .min-width {
     vertical-align: middle;
 }
 
+/* Fix firefox outline on focus */
+:focus, ::-moz-focus-inner, ::-moz-focus-outer {
+  border: none;
+  outline: none;
+}
+
 /* Custom styling rules */
 .custom-full-height {
   min-height: 100%;
 }
-
-.custom-shadows {
-  -webkit-box-shadow: 0px 30px 50px 10px rgba(0,0,0,0.6);
-  -moz-box-shadow: 0px 30px 50px 10px rgba(0,0,0,0.6);
-  box-shadow: 0px 30px 50px 10px rgba(0,0,0,0.6);
-}
-
 
 /* Boostrap fix: Better use padding */
 .row {
