@@ -1,36 +1,64 @@
-<nav class="navbar fixed-bottom navbar-dark bg-dark min-width">
-  <ul class="nav col-4 m-0">
-    <li class="nav-item mr-1">
-      <img src="{{albumImageUrl()}}" width="48" height="48" alt="">
-    </li>
-    <li class="nav-item mr-1">
-      <span class="navbar-text py-0">
-      {{stream?.mediaFile?.artist}}<br>
-      <span class="text-muted py-0">{{stream?.mediaFile?.title}}</span>
-    </span>
-    </li>
-  </ul>
-  <ul id="controls" class="nav col-4 justify-content-center">
-    <li>
-      <ul class="nav">
-        <li class="nav-item">
-          <a (click)="previous()"><i class="material-icons md-light md-48">skip_previous</i></a>
-        </li>
-        <li class="nav-item">
-          <a *ngIf="stream && stream.isPlaying; else playBlock" (click)="pause()"><i class="material-icons md-light md-48">pause_circle_filled</i></a>
-          <ng-template #playBlock><a (click)="play()"><i class="material-icons md-light md-48">play_circle_filled</i></a></ng-template>
-        </li>
-        <li class="nav-item">
-          <a (click)="next()"><i class="material-icons md-light md-48">skip_next</i></a>
-        </li>
-      </ul>
-    </li>
-  </ul>
-  <ul class="col-4 nav justify-content-end">
-    <li class="nav-item d-inline-flex">
-      <i class="material-icons md-light">volume_mute</i>
-      <input class="form-control bg-dark no-borders" type="range" min="0" max="1" step=".01" (ngModelChange)="volumeChange($event)" [(ngModel)]="volume" [ngModelOptions]="{standalone: true}" />
-      <i class="material-icons md-light">volume_up</i>
-    </li>
-  </ul>
+<nav  id="media-controls" class="m-0 p-0 fixed-bottom bg-dark min-width">
+
+  <div id="media-controls-top" class="row m-0 p-0 justify-content-center">
+    <div id="playing-time" class="col-12 m-0 p-0">
+      <input
+          class="form-control p-0 m-0"
+          type="range"
+          value="10"
+          min="0"
+          max="{{stream?.mediaFile?.duration}}"
+          step="1"/>
+    </div>
+  </div>
+
+  <div id="media-controls-bottom" class="row m-0 p-1">
+
+    <ul class="nav col-6 col-lg-5 m-0 p-0 justify-content-start">
+      <li class="nav-item m-0 p-0">
+        <img class="m-0 p-0" src="{{albumImageUrl(40)}}" width="40" height="40" alt="">
+      </li>
+      <li class="nav-item m-0 p-0 ml-2" id="playing-info-text">
+        <div class="m-0 p-0"><span class="text-white">{{stream?.mediaFile?.title}}</span><span *ngIf="stream?.mediaFile?.duration !== null" class="text-white ml-2">({{stream?.mediaFile?.duration | time}})</span></div>
+        <div class="m-0 p-0"><small class="text-muted">{{stream?.mediaFile?.artist}}</small></div>
+      </li>
+    </ul>
+
+    <ul class="nav col-4 col-md-3 justify-content-center m-0 p-0">
+      <li class="nav-item my-auto">
+        <a (click)="previous()"><i class="material-icons md-light md-36">skip_previous</i></a>
+      </li>
+      <li class="nav-item my-auto">
+        <a *ngIf="stream && stream.isPlaying; else playBlock" (click)="pause()"><i class="material-icons md-light md-36">pause</i></a>
+        <ng-template #playBlock><a (click)="play()"><i class="material-icons md-light md-36">play_arrow</i></a></ng-template>
+      </li>
+      <li class="nav-item my-auto">
+        <a (click)="next()"><i class="material-icons md-light md-36">skip_next</i></a>
+      </li>
+      <li class="nav-item my-auto ml-3">
+        <a class="d-block"><i class="material-icons md-light md-24">shuffle</i></a>
+      </li>
+      <li class="nav-item my-auto ml-1 mr-2">
+        <a><i class="material-icons md-light md-24">repeat</i></a>
+      </li>
+    </ul>
+
+    <ul class="nav col-2 col-md-3 col-lg-4 m-0 p-0 justify-content-end">
+      <li id="control-volume" class="nav-item d-inline-flex my-auto">
+        <a *ngIf="muted; else unmutedBlock" (click)="volumeMute()"><i class="material-icons md-light md-18">volume_off</i></a>
+        <ng-template #unmutedBlock><a (click)="volumeMute()"><i class="material-icons md-light md-18">volume_up</i></a></ng-template>
+        <input
+            class="form-control p-0 mx-1 my-auto"
+            type="range"
+            min="0"
+            max="1"
+            step=".01"
+            (ngModelChange)="volumeChange($event)"
+            [(ngModel)]="volume"
+            [ngModelOptions]="{standalone: true}" />
+      </li>
+    </ul>
+
+  </div>
+
 </nav>
