@@ -9,7 +9,7 @@
         <a class="nav-link text-white p-1" routerLink=""><i class="material-icons mx-3">music_note</i>Playing</a>
         <a class="nav-link text-white p-1" routerLink=""><i class="material-icons mx-3">star</i>Starred</a>
         <a class="nav-link text-white p-1" routerLink=""><i class="material-icons mx-3">playlist_play</i>Playlists</a>
-        <a class="nav-link text-white p-1" routerLink=""><i class="material-icons mx-3">settings</i>Settings</a>
+        <a class="nav-link text-white p-1" routerLink="/settings"><i class="material-icons mx-3">settings</i>Settings</a>
       </nav>
     </div>
 
@@ -17,10 +17,10 @@
   <div id="content" class="p-0 w-100" [class.expand-content]="sideMenuClosed">
 
     <app-top-bar [username]="username" ></app-top-bar>
-    <nav class="navbar bg-secondary p-1">
+    <!-- <nav class="navbar bg-secondary p-1">
       <div class="nav-item">
       </div>
-    </nav>
+    </nav> -->
     <div class="container-fluid m-0 p-0">
       <router-outlet></router-outlet>
     </div>
