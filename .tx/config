@@ -1,0 +1,10 @@
+[main]
+host = https://www.transifex.com
+
+[airsonic-ui.messages-xlf]
+file_filter = src/locale/messages.<lang>.xlf
+minimum_perc = 0
+source_file = src/locale/messages.xlf
+source_lang = en
+type = XLIFF
+
