@@ -37,11 +37,7 @@ export class MediaControlsComponent implements OnInit {
   }
 
   volumeChange(val) {
-    if (val === 0) {
-      this.muted = true;
-    } else {
-      this.muted = false;
-    }
+    this.muted = val == 0;
     this.streamService.volume = val;
   }
 
@@ -66,7 +62,6 @@ export class MediaControlsComponent implements OnInit {
     }
     return '';
   }
-
 }
 
 export const VOLUME = 'volume';
