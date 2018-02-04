@@ -11,9 +11,9 @@
 
     <form class="mx-auto my-auto d-inline w-50" #searchForm="ngForm" (submit)="onSearch(query)">
       <div class="input-group">
-          <input class="form-control py-0" placeholder="{{ 'top-bar.search' | translate }}" [(ngModel)]="query" [ngModelOptions]="{standalone: true}">
+          <input class="form-control py-0 rounded-0" placeholder="{{ 'top-bar.search' | translate }}" [(ngModel)]="query" [ngModelOptions]="{standalone: true}">
           <span class="input-group-btn">
-            <button class="btn btn-sm btn-outline-secondary"><i class="material-icons">search</i></button>
+            <button class="btn btn-sm btn-secondary rounded-0 "><i class="material-icons">search</i></button>
           </span>
       </div>
     </form>
