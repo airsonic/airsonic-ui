@@ -29,6 +29,7 @@ import { AlbumCardComponent } from './shared/component/album-card/album-card.com
 import { AUDIO_PROVIDER, AudioProviderFactory } from './shared/provider/audio.provider';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { SideMenuService } from './shared/service/side-menu.service';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { SideMenuService } from './shared/service/side-menu.service';
     SearchResultComponent,
     SongTableComponent,
     AlbumCardComponent,
-    TopBarComponent
+    TopBarComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
