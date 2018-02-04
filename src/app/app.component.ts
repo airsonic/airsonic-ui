@@ -17,8 +17,9 @@ export class AppComponent implements OnInit {
               private router: Router,
               private sideMenuService: SideMenuService,
               private translate: TranslateService) {
-                translate.setDefaultLang('en');
-                translate.use(translate.getBrowserCultureLang());
+                // Translation system mess up the login process when not logged in ...
+                // this.translate.setDefaultLang('en');
+                // this.translate.use(this.translate.getBrowserCultureLang());
               }
 
   ngOnInit() {

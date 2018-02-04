@@ -8,7 +8,7 @@
 	"login": {
 		"username": "Username",
 		"password": "Password",
-		"server": "Server",
+		"server": "Server location",
 		"sign-in": "Sign in"
 	},
 	"search-result": {
