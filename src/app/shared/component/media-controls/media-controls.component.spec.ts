@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MediaControlsComponent } from './media-controls.component';
+import { TimePipe } from '../../pipe/time.pipe';
 import { StreamService } from '../../service/stream.service';
 import { StreamServiceSpy } from '../../service/stream.service.spec';
 import { FormsModule } from '@angular/forms';
@@ -11,7 +12,7 @@ describe('MediaControlsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MediaControlsComponent ],
+      declarations: [ MediaControlsComponent, TimePipe ],
       providers: [
         { provide: StreamService, useValue: new StreamServiceSpy() }
       ],
