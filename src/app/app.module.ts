@@ -29,6 +29,8 @@ import { AlbumCardComponent } from './shared/component/album-card/album-card.com
 import { AUDIO_PROVIDER, AudioProviderFactory } from './shared/provider/audio.provider';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { SideMenuService } from './shared/service/side-menu.service';
+import { MusicFoldersService } from './shared/service/music-folders.service';
+import { MusicFoldersComponent } from './shared/component/music-folders/music-folders.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { SideMenuService } from './shared/service/side-menu.service';
     SearchResultComponent,
     SongTableComponent,
     AlbumCardComponent,
-    TopBarComponent
+    TopBarComponent,
+    MusicFoldersComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,8 @@ import { SideMenuService } from './shared/service/side-menu.service';
   StreamService,
   SearchService,
     { provide: AUDIO_PROVIDER, useFactory: AudioProviderFactory },
-  SideMenuService
+  SideMenuService,
+  MusicFoldersService
   ],
   bootstrap: [AppComponent]
 })

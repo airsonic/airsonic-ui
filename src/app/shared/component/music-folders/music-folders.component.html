@@ -1,0 +1,8 @@
+<div class="btn-group" ngbRadioGroup name="selectedMusicFolder" [(ngModel)]="selectedMusicFolder">
+  <label ngbButtonLabel class="btn btn-sm btn-primary m-0">
+    <input ngbButton type="radio">All folders
+  </label>
+  <label *ngFor="let folder of musicFolders" ngbButtonLabel class="btn btn-sm btn-primary m-0">
+    <input ngbButton type="radio" value="{{folder.id}}">{{folder.name}}
+  </label>
+</div>
