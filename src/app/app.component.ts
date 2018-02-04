@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from './shared/service/user.service';
 import { Router } from '@angular/router';
 import { SideMenuService } from './shared/service/side-menu.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,11 @@ export class AppComponent implements OnInit {
 
   constructor(private userService: UserService,
               private router: Router,
-              private sideMenuService: SideMenuService) {}
+              private sideMenuService: SideMenuService,
+              private translate: TranslateService) {
+                translate.setDefaultLang('en');
+                translate.use(translate.getBrowserCultureLang());
+              }
 
   ngOnInit() {
     if (!this.userService.hasUser()) {
@@ -28,3 +33,5 @@ export class AppComponent implements OnInit {
     });
   }
 }
+
+// export const USER_LANGUAGE = 'user_language';
