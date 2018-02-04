@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, HttpClient } from '@angular/common/http';
 import { AuthInterceptor } from './shared/auth/AuthInterceptor';
 import { ArtistService } from './shared/service/artist.service';
 import { AlbumsComponent } from './albums/albums.component';
@@ -29,6 +29,13 @@ import { AlbumCardComponent } from './shared/component/album-card/album-card.com
 import { AUDIO_PROVIDER, AudioProviderFactory } from './shared/provider/audio.provider';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { SideMenuService } from './shared/service/side-menu.service';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+// Ngx-translate loader
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -51,7 +58,14 @@ import { SideMenuService } from './shared/service/side-menu.service';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

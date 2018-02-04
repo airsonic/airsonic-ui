@@ -8,5 +8,7 @@
   </div>
 </div>
 <ng-template #noResultBlock>
-  <p>No Results Found</p>
+  <div class="mx-auto my-3 rounded bg-warning w-25">
+    <p class="text-center">{{ 'search-result.no-matches-found' | translate }}</p>
+  </div>
 </ng-template>

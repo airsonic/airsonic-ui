@@ -11,7 +11,7 @@
 
     <form class="mx-auto my-auto d-inline w-50" #searchForm="ngForm" (submit)="onSearch(query)">
       <div class="input-group">
-          <input class="form-control py-0" i18n-placeholder="@@Search" placeholder="Search" [(ngModel)]="query" [ngModelOptions]="{standalone: true}">
+          <input class="form-control py-0" placeholder="{{ 'top-bar.search' | translate }}" [(ngModel)]="query" [ngModelOptions]="{standalone: true}">
           <span class="input-group-btn">
             <button class="btn btn-sm btn-outline-secondary"><i class="material-icons">search</i></button>
           </span>
@@ -25,7 +25,7 @@
         </a>
         <ul class="dropdown-menu dropdown-menu-right mt-3 p-0 text-right" [class.show]="profilMenuOpen">
           <li class="dropdown-item px-2 rounded"><a class="d-block">{{username|titlecase}}<i class="material-icons md-24 ml-3">face</i></a></li>
-          <li class="dropdown-item px-2 rounded"><a class="d-block" (click)="logout()" i18n="@@Logout">Logout<i class="material-icons md-24 ml-3">power_settings_new</i></a></li>
+          <li class="dropdown-item px-2 rounded"><a class="d-block" (click)="logout()">{{ 'top-bar.logout' | translate }}<i class="material-icons md-24 ml-3">power_settings_new</i></a></li>
         </ul>
       </li>
     </ul>
