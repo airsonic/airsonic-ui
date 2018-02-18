@@ -1,4 +1,4 @@
-export interface UsersResponse {
+export interface UserResponse {
   'subsonic-response': {
     status: string;
     version: string;
