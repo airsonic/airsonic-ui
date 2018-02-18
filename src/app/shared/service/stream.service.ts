@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { User, USER_INFO } from './user.service';
+import { User, USER_INFO } from './auth.service';
 import { environment } from '../../../environments/environment';
 import { MediaFile } from '../domain/media-file.domain';
 import { Subscription } from 'rxjs/Subscription';

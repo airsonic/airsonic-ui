@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UserService } from '../shared/service/user.service';
+import { AuthService } from '../shared/service/auth.service';
 import { Router } from '@angular/router';
 import { SideMenuService } from '../shared/service/side-menu.service';
 
@@ -15,7 +15,7 @@ export class TopBarComponent implements OnInit {
   collapsed = true;
   query: string;
 
-  constructor(private userService: UserService,
+  constructor(private userService: AuthService,
               private router: Router,
               private sideMenuService: SideMenuService) {}
 

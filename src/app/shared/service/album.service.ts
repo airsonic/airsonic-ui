@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SERVER_URL, User, USER_INFO } from './user.service';
+import { SERVER_URL, User, USER_INFO } from './auth.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Album, AlbumResponse, Albums, AlbumsResponse } from '../domain/album.domain';
 import { Observable } from 'rxjs/Observable';

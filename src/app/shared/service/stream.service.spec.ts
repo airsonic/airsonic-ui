@@ -1,7 +1,7 @@
 import { StreamService } from './stream.service';
 import { Observable } from 'rxjs/Observable';
 import { AudioProvider } from '../provider/audio.provider';
-import { User, USER_INFO } from './user.service';
+import { User, USER_INFO } from './auth.service';
 import { MediaFile } from '../domain/media-file.domain';
 
 const mediaFile: MediaFile = {

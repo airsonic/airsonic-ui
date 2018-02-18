@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { SERVER_URL } from './user.service';
+import { SERVER_URL } from './auth.service';
 
 @Injectable()
 export class SystemService {
