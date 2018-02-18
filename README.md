@@ -27,6 +27,10 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 Before running the tests make sure you are serving the app via `ng serve`.
 
+## Extracting new translation
+
+Run `npm run i18n-extract` to extract the new translation in the app.
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
