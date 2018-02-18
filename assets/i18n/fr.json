@@ -1,0 +1,26 @@
+{
+	"app": {
+		"playing": "Joué",
+		"starred": "Favoris",
+		"playlists": "Listes de lectures",
+		"settings": "Paramètres"
+	},
+	"login": {
+		"username": "Nom d'utilisateur",
+		"password": "Mot de passe",
+		"server": "URL du serveur",
+		"sign-in": "Se connecter"
+	},
+	"search-result": {
+		"no-matches-found": "Aucun résultat"
+	},
+	"song-table": {
+		"title": "Titre",
+		"type": "Format",
+		"bitrate": "Bitrate"
+	},
+	"top-bar": {
+		"search": "Rechercher",
+		"logout": "Se déconnecter"
+	}
+}

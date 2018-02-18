@@ -20,7 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-webpack@3.10.0
+webpack@3.11.0
 MIT
 Copyright JS Foundation and other contributors
 
@@ -43,7 +43,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-zone.js@0.8.18
+zone.js@0.8.20
 MIT
 The MIT License
 
@@ -67,20 +67,24 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-@angular/core@5.1.2
+@angular/core@5.2.3
 MIT
 MIT
 
-ts-md5@1.2.2
+@ngx-translate/core@9.1.1
 MIT
 MIT
 
-bootstrap@4.0.0-beta.2
+ts-md5@1.2.4
+MIT
+MIT
+
+bootstrap@4.0.0
 MIT
 The MIT License (MIT)
 
-Copyright (c) 2011-2017 Twitter, Inc.
-Copyright (c) 2011-2017 The Bootstrap Authors
+Copyright (c) 2011-2018 Twitter, Inc.
+Copyright (c) 2011-2018 The Bootstrap Authors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

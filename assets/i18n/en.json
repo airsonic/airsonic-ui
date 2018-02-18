@@ -1,0 +1,26 @@
+{
+	"app": {
+		"playing": "Playing",
+		"starred": "Starred",
+		"playlists": "Playlists",
+		"settings": "Settings"
+	},
+	"login": {
+		"username": "Username",
+		"password": "Password",
+		"server": "Server location",
+		"sign-in": "Sign in"
+	},
+	"search-result": {
+		"no-matches-found": "No matches found"
+	},
+	"song-table": {
+		"title": "Title",
+		"type": "Type",
+		"bitrate": "Bitrate"
+	},
+	"top-bar": {
+		"search": "Search",
+		"logout": "Logout"
+	}
+}
