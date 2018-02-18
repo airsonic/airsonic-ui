@@ -29,7 +29,7 @@ Before running the tests make sure you are serving the app via `ng serve`.
 
 ## Extracting new translation
 
-Run `npm run i18n-extract` to extract the new translation in the app.
+Run `npm run i18n-extract` to extract the new translation from the app.
 
 ## Further help
 
