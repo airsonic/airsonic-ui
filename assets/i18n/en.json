@@ -21,6 +21,7 @@
 	},
 	"top-bar": {
 		"search": "Search",
-		"logout": "Logout"
+		"logout": "Logout",
+		"profile": "Profile"
 	}
 }
