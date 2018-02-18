@@ -11,7 +11,7 @@ import { ArtistsComponent } from './artists/artists.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { NotificationService } from './shared/service/notification.service';
-import { UserService } from './shared/service/user.service';
+import { AuthService } from './shared/service/auth.service';
 import { FormsModule } from '@angular/forms';
 import { SystemService } from './shared/service/system.service';
 import { AlbumService } from './shared/service/album.service';
@@ -29,8 +29,9 @@ import { AlbumCardComponent } from './shared/component/album-card/album-card.com
 import { AUDIO_PROVIDER, AudioProviderFactory } from './shared/provider/audio.provider';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { SideMenuService } from './shared/service/side-menu.service';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateService } from '@ngx-translate/core';
 
 // Ngx-translate loader
 export function HttpLoaderFactory(http: HttpClient) {
@@ -71,14 +72,15 @@ export function HttpLoaderFactory(http: HttpClient) {
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ArtistService,
   NotificationService,
-  UserService,
+  AuthService,
   SystemService,
   AlbumService,
   MusicDirectoryService,
   StreamService,
   SearchService,
     { provide: AUDIO_PROVIDER, useFactory: AudioProviderFactory },
-  SideMenuService
+  SideMenuService,
+  TranslateService
   ],
   bootstrap: [AppComponent]
 })

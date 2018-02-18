@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserService } from '../shared/service/user.service';
+import { AuthService } from '../shared/service/auth.service';
 import { SystemService } from '../shared/service/system.service';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
@@ -15,7 +15,7 @@ export class LoginComponent {
     password: '',
     server: ''
   };
-  constructor(private userService: UserService,
+  constructor(private userService: AuthService,
               private systemService: SystemService,
               private router: Router) { }
 

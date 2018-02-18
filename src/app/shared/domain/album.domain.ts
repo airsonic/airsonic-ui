@@ -44,4 +44,3 @@ export interface Album {
   genre: string;
   song: Array<MediaFile>;
 }
-

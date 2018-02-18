@@ -2,10 +2,12 @@ import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { UserService } from './shared/service/user.service';
-import { UserServiceSpy } from './shared/service/user.service.spec';
+import { AuthService } from './shared/service/auth.service';
+import { AuthServiceSpy } from './shared/service/auth.service.spec';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SideMenuService } from './shared/service/side-menu.service';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -14,10 +16,14 @@ describe('AppComponent', () => {
         AppComponent
       ],
       providers: [
-        { provide: UserService, useValue: new UserServiceSpy() },
-        SideMenuService
+        { provide: AuthService, useValue: new AuthServiceSpy() },
+        SideMenuService,
+        TranslateService
       ],
-      imports: [ RouterTestingModule ],
+      imports: [
+        RouterTestingModule,
+        TranslateModule.forRoot()
+      ],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   }));
