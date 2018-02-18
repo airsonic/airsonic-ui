@@ -2,8 +2,8 @@ import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { UserService } from './shared/service/user.service';
-import { UserServiceSpy } from './shared/service/user.service.spec';
+import { AuthService } from './shared/service/auth.service';
+import { AuthServiceSpy } from './shared/service/auth.service.spec';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SideMenuService } from './shared/service/side-menu.service';
 
@@ -14,7 +14,7 @@ describe('AppComponent', () => {
         AppComponent
       ],
       providers: [
-        { provide: UserService, useValue: new UserServiceSpy() },
+        { provide: AuthService, useValue: new AuthServiceSpy() },
         SideMenuService
       ],
       imports: [ RouterTestingModule ],

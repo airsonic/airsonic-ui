@@ -11,7 +11,7 @@ import { ArtistsComponent } from './artists/artists.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { NotificationService } from './shared/service/notification.service';
-import { UserService } from './shared/service/user.service';
+import { AuthService } from './shared/service/auth.service';
 import { FormsModule } from '@angular/forms';
 import { SystemService } from './shared/service/system.service';
 import { AlbumService } from './shared/service/album.service';
@@ -71,7 +71,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ArtistService,
   NotificationService,
-  UserService,
+  AuthService,
   SystemService,
   AlbumService,
   MusicDirectoryService,

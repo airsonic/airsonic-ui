@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from './shared/service/user.service';
+import { AuthService } from './shared/service/auth.service';
 import { Router } from '@angular/router';
 import { SideMenuService } from './shared/service/side-menu.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   username: string;
   sideMenuClosed = false;
 
-  constructor(private userService: UserService,
+  constructor(private userService: AuthService,
               private router: Router,
               private sideMenuService: SideMenuService,
               private translate: TranslateService) {
