@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { User, AuthService } from '../service/auth.service';
+import { SERVER_URL, User, AuthService } from '../service/auth.service';
 import { environment } from '../../../environments/environment';
 
 @Injectable()
@@ -10,8 +10,8 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private userService: AuthService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const user: User = this.userService.getUser();
-    if (req.url.startsWith(user.server)) {
+    if (req.url.startsWith(localStorage.getItem(SERVER_URL))) {
+      const user: User = this.userService.getUser();
       const params = req.params
         .set('u', user.name)
         .set('t', user.token)
