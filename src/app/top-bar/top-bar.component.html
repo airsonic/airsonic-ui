@@ -10,7 +10,7 @@
   <div class="collapse navbar-collapse" [class.collapse]="collapsed" id="navbarSupportedContent">
 
     <form class="mx-auto my-auto d-inline w-50" #searchForm="ngForm" (submit)="onSearch(query)">
-      <div class="input-group">
+      <div class="input-group p-2 p-lg-0">
           <input class="form-control py-0 rounded-0" placeholder="{{ 'top-bar.search' | translate }}" [(ngModel)]="query" [ngModelOptions]="{standalone: true}">
           <span class="input-group-btn">
             <button class="btn btn-sm btn-secondary rounded-0 "><i class="material-icons">search</i></button>
@@ -20,14 +20,18 @@
 
     <ul class="navbar-nav" (appClickOutside)="closeProfilMenu()">
       <li class="nav-item dropdown" [class.show]="profilMenuOpen">
-        <a class="nav-link mx-auto d-block py-0" (click)="openProfilMenu()">
+        <a class="nav-link mx-auto d-none d-lg-block py-1 py-lg-0 text-center" (click)="openProfilMenu()">
           <i class="material-icons md-24">account_circle</i>
         </a>
-        <ul class="dropdown-menu dropdown-menu-right mt-3 p-0 text-right" [class.show]="profilMenuOpen">
+        <ul class="dropdown-menu dropdown-menu-right mt-lg-3 p-2 p-lg-0 text-right" [class.show]="profilMenuOpen">
           <li class="dropdown-item px-2 rounded"><a class="d-block">{{username|titlecase}}<i class="material-icons md-24 ml-3">face</i></a></li>
           <li class="dropdown-item px-2 rounded"><a class="d-block" (click)="logout()">{{ 'top-bar.logout' | translate }}<i class="material-icons md-24 ml-3">power_settings_new</i></a></li>
         </ul>
       </li>
+      <div class="d-inline-flex justify-content-end d-lg-none text-white">
+        <a class="btn btn-sm btn-secondary mr-2">{{ 'top-bar.profile' | translate }}<i class="material-icons md-24 ml-3">face</i></a>
+        <a class="btn btn-sm btn-secondary mr-2" (click)="logout()">{{ 'top-bar.logout' | translate }}<i class="material-icons md-24 ml-3">power_settings_new</i></a>
+      </div>
     </ul>
 
   </div>
