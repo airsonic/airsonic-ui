@@ -32,6 +32,7 @@ import { SideMenuService } from './shared/service/side-menu.service';
 import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 // Ngx-translate loader
 export function HttpLoaderFactory(http: HttpClient) {
@@ -80,7 +81,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   SearchService,
     { provide: AUDIO_PROVIDER, useFactory: AudioProviderFactory },
   SideMenuService,
-  TranslateService
+  TranslateService,
+  AuthGuard
   ],
   bootstrap: [AppComponent]
 })

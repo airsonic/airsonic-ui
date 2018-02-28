@@ -15,15 +15,20 @@ export class LoginComponent {
     password: '',
     server: ''
   };
-  constructor(private userService: AuthService,
+  constructor(private authService: AuthService,
               private systemService: SystemService,
               private router: Router) { }
 
+  ngOnInit() {
+    if (this.authService.hasUser()) {
+        this.router.navigate(['']);
+    }
+  }
+
   onSubmit() {
-    this.userService.loginUser(this.model.user, this.model.password, this.model.server);
+    this.authService.loginUser(this.model.user, this.model.password, this.model.server);
     this.systemService.ping().subscribe(
       success => this.router.navigate(['']),
       err => console.log(err));
   }
-
 }

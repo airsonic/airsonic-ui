@@ -4,14 +4,19 @@ import { LoginComponent } from './login/login.component';
 import { AlbumsComponent } from './albums/albums.component';
 import { AlbumComponent } from './album/album.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 @NgModule({
   imports: [ RouterModule.forRoot([
-    { path: '', component: AlbumsComponent },
+    { path: '',
+      canActivate: [ AuthGuard ],
+      children: [
+        { path: '', component: AlbumsComponent },
+        { path: 'album/:id', component: AlbumComponent },
+        { path: 'search/:query', component: SearchResultComponent },
+      ]},
     { path: 'login', component: LoginComponent },
-    { path: 'album/:id', component: AlbumComponent },
-    { path: 'search/:query', component: SearchResultComponent },
-    { path: '**', component: AlbumsComponent }
+    { path: '**', redirectTo: '' }
   ]) ],
   exports: [ RouterModule ]
 })

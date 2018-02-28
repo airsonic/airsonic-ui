@@ -7,11 +7,11 @@ import { environment } from '../../../environments/environment';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(private userService: AuthService) { }
+  constructor(private authService: AuthService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (req.url.startsWith(localStorage.getItem(SERVER_URL))) {
-      const user: User = this.userService.getUser();
+      const user: User = this.authService.getUser();
       const params = req.params
         .set('u', user.name)
         .set('t', user.token)
