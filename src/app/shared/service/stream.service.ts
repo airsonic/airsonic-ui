@@ -37,7 +37,7 @@ export class StreamService {
   streamFile(mediaFile: MediaFile) {
     this.audioProvider.pause();
     const userInfo: User = JSON.parse(localStorage.getItem(USER_INFO));
-    const streamUrl = `${userInfo.server}/rest/stream?id=${mediaFile.id}&v=1.15.0&u=${userInfo.name}&s=${userInfo.salt}&t=${userInfo.token}&c=${environment.applicationName}`;
+    const streamUrl = `${userInfo.server}/rest/stream?id=${mediaFile.id}&v=${environment.apiVersion}u=${userInfo.name}&s=${userInfo.salt}&t=${userInfo.token}&c=${environment.applicationName}`;
     this.audioProvider.src = streamUrl;
     try {
       this.audioProvider.play();

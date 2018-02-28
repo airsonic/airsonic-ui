@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  applicationName: "Airsonic UI"
+  applicationName: "Airsonic UI",
+  apiVersion: "1.15.0"
 };

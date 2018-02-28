@@ -18,7 +18,7 @@ export class AuthInterceptor implements HttpInterceptor {
         .set('s', user.salt)
         .set('c', environment.applicationName)
         .set('f', 'json')
-        .set('v', '1.15.0');
+        .set('v', environment.apiVersion);
       const authReq = req.clone({params: params});
       return next.handle(authReq);
     }

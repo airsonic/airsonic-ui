@@ -13,7 +13,7 @@ export class AlbumService {
 
   static getAlbumImageUrl(id: string, size: string = '160') {
     const userInfo: User = JSON.parse(localStorage.getItem(USER_INFO));
-    return `${userInfo.server}/rest/getCoverArt?id=${id}&v=1.15.0&u=${userInfo.name}&s=${userInfo.salt}&t=${userInfo.token}&c=${environment.applicationName}&size=${size}`.trim();
+    return `${userInfo.server}/rest/getCoverArt?id=${id}&v=${environment.apiVersion}&u=${userInfo.name}&s=${userInfo.salt}&t=${userInfo.token}&c=${environment.applicationName}&size=${size}`.trim();
   }
 
   getAlbums(options: {
