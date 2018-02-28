@@ -6,8 +6,7 @@ import { AuthService } from './shared/service/auth.service';
 import { AuthServiceSpy } from './shared/service/auth.service.spec';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SideMenuService } from './shared/service/side-menu.service';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -17,8 +16,7 @@ describe('AppComponent', () => {
       ],
       providers: [
         { provide: AuthService, useValue: new AuthServiceSpy() },
-        SideMenuService,
-        TranslateService
+        SideMenuService
       ],
       imports: [
         RouterTestingModule,

@@ -36,4 +36,5 @@ describe('AuthService', () => {
 
 export class AuthServiceSpy {
   loginUser = jasmine.createSpy('loginUser');
+  hasUser = jasmine.createSpy('hasUser');
 }

@@ -29,9 +29,8 @@ import { AlbumCardComponent } from './shared/component/album-card/album-card.com
 import { AUDIO_PROVIDER, AudioProviderFactory } from './shared/provider/audio.provider';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { SideMenuService } from './shared/service/side-menu.service';
-import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { TranslateService } from '@ngx-translate/core';
 import { AuthGuard } from './shared/guards/auth.guard';
 
 // Ngx-translate loader
