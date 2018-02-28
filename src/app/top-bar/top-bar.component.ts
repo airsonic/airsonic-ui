@@ -15,7 +15,7 @@ export class TopBarComponent implements OnInit {
   collapsed = true;
   query: string;
 
-  constructor(private userService: AuthService,
+  constructor(private authService: AuthService,
               private router: Router,
               private sideMenuService: SideMenuService) {}
 
@@ -23,7 +23,7 @@ export class TopBarComponent implements OnInit {
   }
 
   logout() {
-    this.userService.logout();
+    this.authService.logout();
     this.router.navigateByUrl('/login').then(() => {
       this.closeProfilMenu();
     });

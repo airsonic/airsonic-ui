@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   username: string;
   sideMenuClosed = false;
 
-  constructor(private userService: AuthService,
+  constructor(private authService: AuthService,
               private router: Router,
               private sideMenuService: SideMenuService,
               private translate: TranslateService) {
@@ -22,10 +22,8 @@ export class AppComponent implements OnInit {
               }
 
   ngOnInit() {
-    if (!this.userService.hasUser()) {
-      this.router.navigateByUrl('/login');
-    } else {
-      this.username = this.userService.getUser().name;
+    if (this.authService.hasUser()) {
+      this.username = this.authService.getUser().name;
     }
 
     this.sideMenuService.toggleSideMenu.subscribe(() => {
