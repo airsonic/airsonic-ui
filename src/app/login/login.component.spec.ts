@@ -7,6 +7,7 @@ import { AuthServiceSpy } from '../shared/service/auth.service.spec';
 import { SystemService } from '../shared/service/system.service';
 import { SystemServiceSpy } from '../shared/service/system.service.spec';
 import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -17,10 +18,11 @@ describe('LoginComponent', () => {
       declarations: [ LoginComponent ],
       imports: [
         FormsModule,
-        RouterTestingModule
+        RouterTestingModule,
+        TranslateModule.forRoot()
       ],
       providers: [
-        { provide: AuthService, useValue: AuthServiceSpy },
+        { provide: AuthService, useValue: new AuthServiceSpy() },
         { provide: SystemService, useValue: SystemServiceSpy }
       ]
     })

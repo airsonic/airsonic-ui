@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { SideMenuService } from '../shared/service/side-menu.service';
 import { AuthService } from '../shared/service/auth.service';
 import { AuthServiceSpy } from '../shared/service/auth.service.spec';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('TopBarComponent', () => {
   let component: TopBarComponent;
@@ -18,7 +19,11 @@ describe('TopBarComponent', () => {
         { provide: AuthService, useValue: new AuthServiceSpy() },
         SideMenuService
       ],
-      imports: [ RouterTestingModule, FormsModule ]
+      imports: [
+        RouterTestingModule,
+        FormsModule,
+        TranslateModule.forRoot()
+      ]
     })
     .compileComponents();
   }));
