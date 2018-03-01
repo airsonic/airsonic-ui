@@ -17,7 +17,7 @@ import { ProfileComponent } from './profile/profile.component';
         { path: '', component: AlbumsComponent },
         { path: 'album/:id', component: AlbumComponent },
         { path: 'search/:query', component: SearchResultComponent },
-        { path: 'profile', component: ProfileComponent, canActivate: [ RolesGuard ], data: { role: "settingsRole" } }
+        { path: 'profile', component: ProfileComponent, canActivate: [ RolesGuard ], data: { role: 'settingsRole' } },
         { path: 'settings/user', component: UserSettingsComponent }
       ]},
     { path: 'login', component: LoginComponent },

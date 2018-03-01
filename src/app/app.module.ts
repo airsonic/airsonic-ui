@@ -57,7 +57,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SongTableComponent,
     AlbumCardComponent,
     TopBarComponent,
-    UserSettingsComponent
+    UserSettingsComponent,
     TopBarComponent,
     ProfileComponent
   ],
