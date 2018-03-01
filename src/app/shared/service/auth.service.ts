@@ -49,6 +49,10 @@ export class AuthService {
     });
   }
 
+  hasRole(role: string): boolean {
+    return this.getMyUser().roles[role];
+  }
+
   getMyUser(): MyUser {
     return JSON.parse(localStorage.getItem(USER_INFO));
   }

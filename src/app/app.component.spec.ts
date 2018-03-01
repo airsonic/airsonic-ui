@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { AuthService } from './shared/service/auth.service';
 import { AuthServiceSpy } from './shared/service/auth.service.spec';
-import { RouterTestingModule } from '@angular/router/testing';
 import { SideMenuService } from './shared/service/side-menu.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { UsersService } from './shared/service/users.service';
@@ -22,7 +21,6 @@ describe('AppComponent', () => {
         UsersService
       ],
       imports: [
-        RouterTestingModule,
         HttpClientTestingModule,
         TranslateModule.forRoot()
       ],

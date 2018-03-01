@@ -29,6 +29,10 @@ export class TopBarComponent implements OnInit {
     });
   }
 
+  hasRole(role: string): boolean {
+    return this.authService.hasRole(role);
+  }
+
   openProfilMenu() {
     this.profilMenuOpen = !this.profilMenuOpen;
   }

@@ -32,7 +32,9 @@ import { SideMenuService } from './shared/service/side-menu.service';
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { RolesGuard } from './shared/guards/roles.guard';
 import { UsersService } from './shared/service/users.service';
+import { ProfileComponent } from './profile/profile.component';
 
 // Ngx-translate loader
 export function HttpLoaderFactory(http: HttpClient) {
@@ -52,7 +54,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SearchResultComponent,
     SongTableComponent,
     AlbumCardComponent,
-    TopBarComponent
+    TopBarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +86,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   SideMenuService,
   TranslateService,
   AuthGuard,
-  UsersService
+  UsersService,
+  RolesGuard
   ],
   bootstrap: [AppComponent]
 })

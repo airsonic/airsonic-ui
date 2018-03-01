@@ -1,3 +1,6 @@
+/* Fix boostrap underline on link hover */
+a:hover { text-decoration: none; }
+
 #side-menu-toggle {
   .material-icons{
     transition: transform 0.4s ease;
