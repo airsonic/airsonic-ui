@@ -30,7 +30,10 @@ export class TopBarComponent implements OnInit {
   }
 
   hasRole(role: string): boolean {
-    return this.authService.hasRole(role);
+    if (this.authService.hasMyUser()) {
+      return this.authService.hasRole(role);
+    }
+    return false;
   }
 
   openProfilMenu() {
