@@ -1,11 +1,10 @@
 import { Inject, Injectable } from '@angular/core';
-import { User, USER_INFO } from './auth.service';
+import { MyUser, USER_INFO } from '../domain/auth.domain';
 import { environment } from '../../../environments/environment';
 import { MediaFile } from '../domain/media-file.domain';
 import { Subscription } from 'rxjs/Subscription';
 import { Subject } from 'rxjs/Subject';
 import { AUDIO_PROVIDER, AudioProvider } from '../provider/audio.provider';
-
 
 @Injectable()
 export class StreamService {
@@ -36,8 +35,8 @@ export class StreamService {
 
   streamFile(mediaFile: MediaFile) {
     this.audioProvider.pause();
-    const userInfo: User = JSON.parse(localStorage.getItem(USER_INFO));
-    const streamUrl = `${userInfo.server}/rest/stream?id=${mediaFile.id}&v=1.15.0&u=${userInfo.name}&s=${userInfo.salt}&t=${userInfo.token}&c=${environment.applicationName}`;
+    const userInfo: MyUser = JSON.parse(localStorage.getItem(USER_INFO));
+    const streamUrl = `${userInfo.server}/rest/stream?id=${mediaFile.id}&v=${environment.apiVersion}&u=${userInfo.name}&s=${userInfo.salt}&t=${userInfo.token}&c=${environment.applicationName}`;
     this.audioProvider.src = streamUrl;
     try {
       this.audioProvider.play();

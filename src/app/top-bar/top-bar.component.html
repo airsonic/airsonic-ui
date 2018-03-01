@@ -23,13 +23,13 @@
         <a class="nav-link mx-auto d-none d-lg-block py-1 py-lg-0 text-center" (click)="openProfilMenu()">
           <i class="material-icons md-24">account_circle</i>
         </a>
-        <ul class="dropdown-menu dropdown-menu-right mt-lg-3 p-2 p-lg-0 text-right" [class.show]="profilMenuOpen">
-          <li class="dropdown-item px-2 rounded"><a class="d-block">{{username|titlecase}}<i class="material-icons md-24 ml-3">face</i></a></li>
-          <li class="dropdown-item px-2 rounded"><a class="d-block" (click)="logout()">{{ 'top-bar.logout' | translate }}<i class="material-icons md-24 ml-3">power_settings_new</i></a></li>
+        <ul class="dropdown-menu dropdown-menu-right mt-lg-3 p-2 p-lg-0 text-right rounded-0" [class.show]="profilMenuOpen">
+          <li *ngIf="hasRole(settingsRole)" class="dropdown-item px-2"><a class="d-block" routerLink="profile" (click)="closeProfilMenu()">{{ username | titlecase }}<i class="material-icons md-24 ml-3">face</i></a></li>
+          <li class="dropdown-item px-2"><a class="d-block" (click)="logout()">{{ 'top-bar.logout' | translate }}<i class="material-icons md-24 ml-3">power_settings_new</i></a></li>
         </ul>
       </li>
       <div class="d-inline-flex justify-content-end d-lg-none text-white">
-        <a class="btn btn-sm btn-secondary mr-2">{{ 'top-bar.profile' | translate }}<i class="material-icons md-24 ml-3">face</i></a>
+        <a *ngIf="hasRole(settingsRole)" class="btn btn-sm btn-secondary mr-2" routerLink="profile">{{ 'top-bar.profile' | translate }}<i class="material-icons md-24 ml-3">face</i></a>
         <a class="btn btn-sm btn-secondary mr-2" (click)="logout()">{{ 'top-bar.logout' | translate }}<i class="material-icons md-24 ml-3">power_settings_new</i></a>
       </div>
     </ul>

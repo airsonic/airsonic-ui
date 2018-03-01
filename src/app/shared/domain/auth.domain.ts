@@ -1,15 +1,14 @@
-export interface UserResponse {
-  'subsonic-response': {
-    status: string;
-    version: string;
-    user: User;
-  };
+export interface MyUser {
+  name: string;
+  email: string;
+  salt: string;
+  token: string;
+  server: string;
+  roles: MyRoles;
+  folder: Array<number>;
 }
 
-export interface User {
-  username: string;
-  email: string;
-  scrobblingEnabled: boolean;
+export interface MyRoles {
   adminRole: boolean;
   settingsRole: boolean;
   downloadRole: boolean;
@@ -22,5 +21,7 @@ export interface User {
   jukeboxRole: boolean;
   shareRole: boolean;
   videoConversionRole: boolean;
-  folder: Array<number>;
 }
+
+export const USER_INFO = 'user_info';
+export const SERVER_URL = 'server_url';

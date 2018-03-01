@@ -1,36 +1,67 @@
 import { Injectable } from '@angular/core';
 import { Md5 } from 'ts-md5/dist/md5';
+import { MyUser, MyRoles, USER_INFO, SERVER_URL } from '../domain/auth.domain';
+import { User } from '../domain/user.domain';
+import { UsersService } from './users.service';
 
 @Injectable()
 export class AuthService {
 
-  constructor() { }
+  constructor(private usersService: UsersService) { }
 
-  loginUser(username: string, password: string, server: string) {
+  loginMyUser(username: string, password: string, server: string) {
     const salt = this.generateSalt();
-    const md5 = new Md5();
-    md5.appendStr(password);
-    md5.appendStr(salt);
-    const token = md5.end().toString();
-    const user: User = {
+    const token = new Md5().appendStr(password).appendStr(salt).end().toString();
+    const myUser : MyUser = {
       name: username,
+      email: null,
       salt: salt,
       token: token,
-      server: server
+      server: server,
+      roles: null,
+      folder: null
     };
-    localStorage.setItem(USER_INFO, JSON.stringify(user));
+    localStorage.setItem(USER_INFO, JSON.stringify(myUser));
     localStorage.setItem(SERVER_URL, server);
   }
 
-  getUser(): User {
+  getMyUserInfos(username: string) {
+    let myUser: MyUser = this.getMyUser();
+    let myRoles: MyRoles;
+    this.usersService.getUser(username).subscribe(res => {
+      myUser.email = res.email;
+      myUser.folder = res.folder;
+      myUser.roles = {
+        adminRole: res.adminRole,
+        settingsRole: res.settingsRole,
+        downloadRole: res.downloadRole,
+        uploadRole: res.uploadRole,
+        playlistRole: res.playlistRole,
+        coverArtRole: res.coverArtRole,
+        commentRole: res.commentRole,
+        podcastRole: res.podcastRole,
+        streamRole: res.streamRole,
+        jukeboxRole: res.jukeboxRole,
+        shareRole: res.shareRole,
+        videoConversionRole: res.videoConversionRole
+      };
+      localStorage.setItem(USER_INFO, JSON.stringify(myUser));
+    });
+  }
+
+  hasRole(role: string): boolean {
+    return this.getMyUser().roles[role];
+  }
+
+  getMyUser(): MyUser {
     return JSON.parse(localStorage.getItem(USER_INFO));
   }
 
-  hasUser(): boolean {
-    return this.getUser() !== null;
+  hasMyUser(): boolean {
+    return this.getMyUser() !== null;
   }
 
-  logout() {
+  logoutMyUser() {
     localStorage.clear();
   }
 
@@ -43,13 +74,3 @@ export class AuthService {
     return result;
   }
 }
-
-export interface User {
-  name: string;
-  salt: string;
-  token: string;
-  server: string;
-}
-
-export const USER_INFO = 'user_info';
-export const SERVER_URL = 'server_url';
