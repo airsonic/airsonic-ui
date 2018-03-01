@@ -10,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  username: string;
+
   sideMenuClosed = false;
 
   constructor(private authService: AuthService,
@@ -22,11 +22,6 @@ export class AppComponent implements OnInit {
               }
 
   ngOnInit() {
-    if (this.authService.hasMyUser()) {
-      this.username = this.authService.getMyUser().name;
-      this.authService.getMyUserInfos(this.username);
-    }
-
     this.sideMenuService.toggleSideMenu.subscribe(() => {
       this.sideMenuClosed = !this.sideMenuClosed;
     });

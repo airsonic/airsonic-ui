@@ -1,30 +1,18 @@
 <div class="container-fluid m-0 p-0 d-flex flex-row">
-  <div id="side-menu" class="p-0 bg-dark" [class.hide-side-menu]="sideMenuClosed">
 
-    <div class="m-0 p-0">
-      <nav class="nav flex-column">
-        <a class="nav-brand mx-auto mb-1" routerLink=""><img src="assets/images/logo/airsonic-light-350x100.png"></a>
-      </nav>
-      <nav class="nav flex-column">
-        <a class="nav-link text-white p-1" routerLink=""><i class="material-icons mx-3">music_note</i>{{ 'app.playing' | translate }}</a>
-        <a class="nav-link text-white p-1" routerLink=""><i class="material-icons mx-3">star</i>{{ 'app.starred' | translate }}</a>
-        <a class="nav-link text-white p-1" routerLink=""><i class="material-icons mx-3">playlist_play</i>{{ 'app.playlists' | translate }}</a>
-        <a class="nav-link text-white p-1" routerLink=""><i class="material-icons mx-3">settings</i>{{ 'app.settings' | translate }}</a>
-      </nav>
-    </div>
+  <router-outlet name=side-menu></router-outlet>
 
-  </div>
   <div id="content" class="p-0 w-100" [class.expand-content]="sideMenuClosed">
 
-    <app-top-bar [username]="username" ></app-top-bar>
-    <!-- <nav class="navbar bg-secondary p-1">
-      <div class="nav-item">
-      </div>
-    </nav> -->
-    <div class="container-fluid m-0 p-0">
-      <router-outlet></router-outlet>
-    </div>
+    <router-outlet name=top-bar></router-outlet>
 
+    <div class="container-fluid m-0 p-0">
+
+      <router-outlet></router-outlet>
+
+    </div>
   </div>
 </div>
 <app-media-controls></app-media-controls>
+
+<router-outlet name=notifications></router-outlet>

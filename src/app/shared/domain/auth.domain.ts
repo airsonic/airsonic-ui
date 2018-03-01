@@ -1,11 +1,8 @@
 export interface MyUser {
   name: string;
-  email: string;
   salt: string;
   token: string;
   server: string;
-  roles: MyRoles;
-  folder: Array<number>;
 }
 
 export interface MyRoles {
@@ -24,4 +21,6 @@ export interface MyRoles {
 }
 
 export const USER_INFO = 'user_info';
+export const USER_ROLES = 'user_roles';
+export const USER_FOLDERS = 'user_folders';
 export const SERVER_URL = 'server_url';

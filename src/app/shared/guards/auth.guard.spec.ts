@@ -5,6 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AuthService } from '../service/auth.service';
 import { UsersService } from '../service/users.service';
+import { SystemService } from '../service/system.service';
 
 describe('AuthGuard', () => {
   beforeEach(() => {
@@ -16,7 +17,8 @@ describe('AuthGuard', () => {
       providers: [
         AuthGuard,
         AuthService,
-        UsersService
+        UsersService,
+        SystemService
       ]
     });
   });

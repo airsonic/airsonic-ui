@@ -4,6 +4,7 @@ import { RolesGuard } from './roles.guard';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AuthService } from '../service/auth.service';
 import { UsersService } from '../service/users.service';
+import { SystemService } from '../service/system.service';
 
 describe('RolesGuard', () => {
   beforeEach(() => {
@@ -11,7 +12,8 @@ describe('RolesGuard', () => {
       providers: [
         RolesGuard,
         AuthService,
-        UsersService
+        UsersService,
+        SystemService
       ],
       imports: [
         HttpClientTestingModule

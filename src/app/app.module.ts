@@ -35,6 +35,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
 import { RolesGuard } from './shared/guards/roles.guard';
 import { UsersService } from './shared/service/users.service';
 import { ProfileComponent } from './profile/profile.component';
+import { SideMenuComponent } from './side-menu/side-menu.component';
 
 // Ngx-translate loader
 export function HttpLoaderFactory(http: HttpClient) {
@@ -55,7 +56,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SongTableComponent,
     AlbumCardComponent,
     TopBarComponent,
-    ProfileComponent
+    ProfileComponent,
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,
