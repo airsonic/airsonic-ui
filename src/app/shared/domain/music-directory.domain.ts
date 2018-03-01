@@ -15,3 +15,17 @@ export interface MusicDirectory {
   playCount: number;
   child: Array<MediaFile>;
 }
+
+export interface MusicFolderResponse {
+  'subsonic-response': {
+    status: string;
+    version: string;
+    musicFolders: {
+      musicFolder: Array<MusicFolder>
+    }};
+}
+
+export interface MusicFolder {
+  id: string;
+  name: string;
+}

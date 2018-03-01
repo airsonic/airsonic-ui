@@ -5,6 +5,7 @@ import { AlbumsComponent } from './albums/albums.component';
 import { AlbumComponent } from './album/album.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { AuthGuard } from './shared/guards/auth.guard';
+import {UserSettingsComponent} from './user-settings/user-settings.component';
 
 @NgModule({
   imports: [ RouterModule.forRoot([
@@ -14,6 +15,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
         { path: '', component: AlbumsComponent },
         { path: 'album/:id', component: AlbumComponent },
         { path: 'search/:query', component: SearchResultComponent },
+        { path: 'settings/user', component: UserSettingsComponent }
       ]},
     { path: 'login', component: LoginComponent },
     { path: '**', redirectTo: '' }

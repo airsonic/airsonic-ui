@@ -2,7 +2,7 @@ export interface UserResponse {
   'subsonic-response': {
     status: string;
     version: string;
-    user: Array<User>;
+    user: User;
   };
 }
 
@@ -14,6 +14,7 @@ export interface User {
   settingsRole: boolean;
   downloadRole: boolean;
   uploadRole: boolean;
+  maxBitRate: number;
   playlistRole: boolean;
   coverArtRole: boolean;
   commentRole: boolean;
@@ -21,7 +22,7 @@ export interface User {
   streamRole: boolean;
   jukeboxRole: boolean;
   shareRole: boolean;
-  folders: Folder;
+  folder: Array<Folder>;
 }
 
 export interface Folder {

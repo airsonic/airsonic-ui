@@ -19,12 +19,23 @@ describe('MusicDirectoryService', () => {
 
 export class MusicDirectoryServiceSpy {
   testDirectory = {
-        child: [
-          {
-            albumId: 1
-          }
-        ]};
+    child: [
+      {
+        albumId: 1
+      }
+    ]};
   getMusicDirectory = jasmine.createSpy('getMusicDirectory').and.callFake((id) => {
     return Observable.of(this.testDirectory);
+  });
+}
+export class MusicFolderServiceSpy {
+  testFolders = {
+    folder: [
+      {
+        id: 1
+      }
+    ]};
+  getMusicFolders = jasmine.createSpy( 'getMusicFolders').and.callFake( (id) => {
+    return Observable.of(this.testFolders);
   });
 }

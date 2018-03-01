@@ -1,0 +1,102 @@
+<div class="form-group m-0 px-lg-5 py-lg-2">
+  <div class="input-group w-50">
+    <label>Select User:&nbsp;</label>
+    <select title="Users" class="form-control col-xs-1" [(ngModel)]="selUser">
+      <option *ngFor="let user of users" [ngValue]="user">{{user.username}}</option>
+    </select>
+  </div>
+</div>
+
+<div class="form-group m-0 px-lg-5 d-block">
+  <label class="d-block"><input type="checkbox" [(ngModel)]="selUser.adminRole">&nbsp;Administrative user</label>
+  <label class="d-block"><input type="checkbox" [(ngModel)]="selUser.settingsRole">&nbsp;User allowed to change personal settings and own password</label>
+  <label class="d-block"><input type="checkbox" [(ngModel)]="selUser.streamRole">&nbsp;User allowed to play files</label>
+  <label class="d-block"><input type="checkbox" [(ngModel)]="selUser.jukeboxRole">&nbsp;User allowed to play files in jukebox mode</label>
+  <label class="d-block"><input type="checkbox" [(ngModel)]="selUser.downloadRole">&nbsp;User allowed to download files</label>
+  <label class="d-block"><input type="checkbox" [(ngModel)]="selUser.uploadRole">&nbsp;User allowed to upload files</label>
+  <label class="d-block"><input type="checkbox" [(ngModel)]="selUser.shareRole">&nbsp;User allowed to share files with anyone</label>
+  <label class="d-block"><input type="checkbox" [(ngModel)]="selUser.coverArtRole">&nbsp;User allowed to change cover art and tags</label>
+  <label class="d-block"><input type="checkbox" [(ngModel)]="selUser.commentRole">&nbsp;User allowed to create and edit own comments and ratings</label>
+  <label class="d-block"><input type="checkbox" [(ngModel)]="selUser.podcastRole">&nbsp;User allowed to administrate podcasts</label>
+</div>
+
+<div class="form-group m-0 px-lg-5 py-lg-1">
+  <label>Allow access to these media folders:</label>
+  <div class="input-group">
+    <div *ngFor="let folder of folders" class="pr-lg-2">
+      <label><input type="checkbox" [checked]="selectFolders(folder.id)">&nbsp;{{folder.name}}</label>
+    </div>
+  </div>
+</div>
+
+<div class="row px-lg-5">
+  <div class="form-group input-group col-lg-8">
+    <div class="col-md-2 mr-md-2 p-0">
+      <label>Max bitrate:&nbsp;</label>
+    </div>
+    <select title="Bitrates" class="form-control" [(ngModel)]="selUser.maxBitRate">
+      <option *ngFor="let bitRate of bitRates" [value]="bitRate.rate">{{bitRate.text}}</option>
+    </select>
+    <div class="col-md-6 mr-md-2 p-0">
+    </div>
+  </div>
+</div>
+
+<div class="row px-lg-5 py-lg-1">
+  <div class="form-group input-group col-lg-8" *ngIf="selUser.username === '-- New User --'">
+    <div class="col-md-2 mr-md-2 p-0">
+      <label for="username">Username:&nbsp;</label>
+    </div>
+    <input id="username" type="text" class="form-control" [(ngModel)]="newUserName"/>
+    <div class="col-md-3 mr-md-2 p-0">
+    </div>
+  </div>
+</div>
+
+<div class="row px-lg-5 py-lg-1">
+  <div class="form-group input-group col-lg-8">
+    <div class="col-md-2 mr-md-2 p-0">
+      <label for="email">E-Mail:&nbsp;</label>
+    </div>
+    <input id="email" type="email" class="form-control" [(ngModel)]="selUser.email"/>
+    <div class="col-md-3 mr-md-2 p-0">
+    </div>
+  </div>
+</div>
+
+<div class="row px-lg-5 py-lg-1">
+  <div class="form-group input-group col-lg-8">
+  <input id="pass" type="checkbox" #changePass [disabled]="selUser.username === '-- New User --'" />
+  <label for="pass">&nbsp;Change password</label>
+  </div>
+</div>
+
+<div class="row px-lg-5 py-lg-1">
+  <div class="form-group input-group col-lg-8" *ngIf="selUser.username == '-- New User --' || changePass?.checked">
+    <div class="col-md-2 mr-md-2 p-0">
+      <label for="newPass">Password:&nbsp;</label>
+    </div>
+    <input id="newPass" class="form-control" type="password" [(ngModel)]="newPassword">
+    <div class="col-md-3 mr-md-2 p-0">
+    </div>
+  </div>
+</div>
+
+<div class="row px-lg-5 py-lg-1">
+  <div class="form-group input-group col-lg-8" *ngIf="selUser.username == '-- New User --' || changePass?.checked">
+    <div class="col-md-2 mr-md-2 p-0">
+      <label for="confPass">Confirm:&nbsp;</label>
+    </div>
+    <input id="confPass" class="form-control" type="password" [(ngModel)]="newPasswordConf">
+    <div class="col-md-3 mr-md-2 p-0">
+    </div>
+  </div>
+</div>
+
+<div class="form-group m-0 px-lg-5 py-lg-2">
+  <div class="input-group">
+    <button type="button" class="btn btn-primary m-2" style="text-align:center;vertical-align:middle;" (click)="saveOrUpdateUser(selUser)">Save user</button>
+    <!--<button type="button" class="btn btn-secondary m-2" style="text-align:center;vertical-align:middle;" (click)="changePassword(selUser.username, newPassword)">Change pass</button>-->
+    <button type="button" class="btn btn-danger m-2" style="text-align:center;vertical-align:middle;" (click)="deleteUser(selUser.username)">Delete user</button>
+  </div>
+</div>
