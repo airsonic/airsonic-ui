@@ -26,10 +26,9 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    this.authService.loginMyUser(this.model.user, this.model.password, this.model.server);
+    this.authService.loginMyUser(this.model.user, this.model.password, this.model.server)
     this.systemService.ping().subscribe(
       success => {
-        this.authService.getMyUserInfos(this.model.user);
         this.router.navigate(['']);
       },
       err => console.log(err));

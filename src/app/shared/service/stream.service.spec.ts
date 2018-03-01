@@ -31,25 +31,9 @@ describe('StreamService', () => {
   let audioProvider: TestAudioProvider;
   const myUser: MyUser = {
     name: 'username',
-    email: 'username@example.com',
     salt: 'abc123',
     token: 'abc123',
     server: 'localhost',
-    roles: {
-      adminRole: false,
-      settingsRole: true,
-      downloadRole: true,
-      uploadRole: false,
-      playlistRole: false,
-      coverArtRole: false,
-      commentRole: false,
-      podcastRole: false,
-      streamRole: false,
-      jukeboxRole: false,
-      shareRole: false,
-      videoConversionRole: false
-    },
-    folder: [ 0, 2 ]
   };
   beforeEach(() => {
     localStorage.setItem(USER_INFO, JSON.stringify(myUser));

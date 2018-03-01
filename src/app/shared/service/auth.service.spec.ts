@@ -3,13 +3,15 @@ import { inject, TestBed } from '@angular/core/testing';
 import { AuthService } from './auth.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { UsersService } from './users.service';
+import { SystemService } from './system.service';
 
 describe('AuthService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
         AuthService,
-        UsersService
+        UsersService,
+        SystemService
     ],
       imports: [HttpClientTestingModule]
     });
@@ -42,4 +44,5 @@ export class AuthServiceSpy {
   loginMyUser = jasmine.createSpy('loginMyUser');
   hasMyUser = jasmine.createSpy('hasMyUser');
   hasRole = jasmine.createSpy('hasRole');
+  getMyUser = jasmine.createSpy('getMyUser');
 }

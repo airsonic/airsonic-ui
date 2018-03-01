@@ -1,3 +1,9 @@
+@import "~vars.scss";
+
+/****************************************************************
+                        default / fixes
+ ****************************************************************/
+
 html, body, .min-width { min-width: 600px; }
 
 /* Rules for sizing the icon. */
@@ -22,3 +28,38 @@ button, a { cursor: pointer; }
 
 /* Fix firefox outline on focus */
 :focus, ::-moz-focus-inner, ::-moz-focus-outer { outline: none; }
+
+/****************************************************************
+                        side-menu / content
+ ****************************************************************/
+
+#side-menu, #content {
+  transition: margin 0.8s ease;
+  min-height: calc(100vh - #{$media-controls-height});
+  margin: 0;
+}
+
+#side-menu {
+  position: fixed;
+  top: 0;
+  width: $side-menu-width;
+  overflow-y: auto;
+  .nav {
+    .nav-link, .material-icons {
+      font-size: 15px;
+    }
+    .nav-brand img {
+      height: 48px;
+    }
+  }
+}
+
+#content {
+  min-width: calc(600px - #{$side-menu-width});
+  margin-left: $side-menu-width;
+  margin-bottom: $media-controls-height;
+}
+
+/* Toggle side-menu */
+.hide-side-menu { margin-left: -$side-menu-width !important; }
+.expand-content { margin-left: 0 !important; }

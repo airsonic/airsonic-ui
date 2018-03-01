@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../shared/service/auth.service';
 import { Router } from '@angular/router';
 import { SideMenuService } from '../shared/service/side-menu.service';
+import { USER_INFO } from '../shared/domain/auth.domain';
 
 @Component({
   selector: 'app-top-bar',
@@ -9,7 +10,7 @@ import { SideMenuService } from '../shared/service/side-menu.service';
   styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent implements OnInit {
-  @Input() username: string;
+  username: string;
   profilMenuOpen = false;
   sideMenuClosed = false;
   collapsed = true;
@@ -20,6 +21,7 @@ export class TopBarComponent implements OnInit {
               private sideMenuService: SideMenuService) {}
 
   ngOnInit() {
+    this.username = this.authService.getMyUser()['name'];
   }
 
   logout() {
@@ -30,10 +32,7 @@ export class TopBarComponent implements OnInit {
   }
 
   hasRole(role: string): boolean {
-    if (this.authService.hasMyUser()) {
-      return this.authService.hasRole(role);
-    }
-    return false;
+    return this.authService.hasRole(role);
   }
 
   openProfilMenu() {
