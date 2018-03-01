@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { SearchResponse, SearchResult2 } from '../domain/search.domain';
-import { SERVER_URL } from './auth.service';
+import { SERVER_URL } from '../domain/auth.domain';
 
 @Injectable()
 export class SearchService {

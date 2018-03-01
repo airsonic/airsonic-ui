@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { SERVER_URL } from './auth.service';
+import { SERVER_URL } from '../domain/auth.domain';
 import { MusicDirectory, MusicDirectoryResponse } from '../domain/music-directory.domain';
 import { Observable } from 'rxjs/Observable';
 

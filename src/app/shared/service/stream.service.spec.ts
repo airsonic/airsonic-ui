@@ -1,7 +1,7 @@
 import { StreamService } from './stream.service';
 import { Observable } from 'rxjs/Observable';
 import { AudioProvider } from '../provider/audio.provider';
-import { User, USER_INFO } from './auth.service';
+import { MyUser, USER_INFO } from '../domain/auth.domain';
 import { MediaFile } from '../domain/media-file.domain';
 
 const mediaFile: MediaFile = {
@@ -29,14 +29,30 @@ const mediaFile2: MediaFile = Object.assign({}, mediaFile, { id: 'media-file-2'}
 describe('StreamService', () => {
   let streamService: StreamService;
   let audioProvider: TestAudioProvider;
-  const user: User = {
-    name: 'Username',
+  const myUser: MyUser = {
+    name: 'username',
+    email: 'username@example.com',
     salt: 'abc123',
     token: 'abc123',
-    server: 'localhost'
+    server: 'localhost',
+    roles: {
+      adminRole: false,
+      settingsRole: true,
+      downloadRole: true,
+      uploadRole: false,
+      playlistRole: false,
+      coverArtRole: false,
+      commentRole: false,
+      podcastRole: false,
+      streamRole: false,
+      jukeboxRole: false,
+      shareRole: false,
+      videoConversionRole: false
+    },
+    folder: [ 0, 2 ]
   };
   beforeEach(() => {
-    localStorage.setItem(USER_INFO, JSON.stringify(user));
+    localStorage.setItem(USER_INFO, JSON.stringify(myUser));
     audioProvider = new TestAudioProvider();
     streamService = new StreamService(audioProvider);
   });

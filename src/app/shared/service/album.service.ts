@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { SERVER_URL, User, USER_INFO } from './auth.service';
+import { AuthService } from '../service/auth.service';
+import { MyUser, SERVER_URL, USER_INFO } from '../domain/auth.domain';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Album, AlbumResponse, Albums, AlbumsResponse } from '../domain/album.domain';
 import { Observable } from 'rxjs/Observable';
@@ -12,7 +13,7 @@ export class AlbumService {
   constructor(private httpClient: HttpClient) { }
 
   static getAlbumImageUrl(id: string, size: string = '160') {
-    const userInfo: User = JSON.parse(localStorage.getItem(USER_INFO));
+    const userInfo: MyUser = JSON.parse(localStorage.getItem(USER_INFO));
     return `${userInfo.server}/rest/getCoverArt?id=${id}&v=${environment.apiVersion}&u=${userInfo.name}&s=${userInfo.salt}&t=${userInfo.token}&c=${environment.applicationName}&size=${size}`.trim();
   }
 
@@ -47,6 +48,4 @@ export class AlbumService {
     return this.httpClient.get<AlbumResponse>(`${server}/rest/getAlbum`, {params: params})
       .map(res => res['subsonic-response'].album);
   }
-
-
 }

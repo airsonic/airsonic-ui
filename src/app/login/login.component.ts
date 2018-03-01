@@ -20,15 +20,18 @@ export class LoginComponent {
               private router: Router) { }
 
   ngOnInit() {
-    if (this.authService.hasUser()) {
+    if (this.authService.hasMyUser()) {
         this.router.navigate(['']);
     }
   }
 
   onSubmit() {
-    this.authService.loginUser(this.model.user, this.model.password, this.model.server);
+    this.authService.loginMyUser(this.model.user, this.model.password, this.model.server);
     this.systemService.ping().subscribe(
-      success => this.router.navigate(['']),
+      success => {
+        this.authService.getMyUserInfos(this.model.user);
+        this.router.navigate(['']);
+      },
       err => console.log(err));
   }
 }

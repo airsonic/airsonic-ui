@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './shared/service/auth.service';
+import { UsersService } from './shared/service/users.service';
 import { Router } from '@angular/router';
 import { SideMenuService } from './shared/service/side-menu.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -14,6 +15,7 @@ export class AppComponent implements OnInit {
   sideMenuClosed = false;
 
   constructor(private authService: AuthService,
+              private usersService: UsersService,
               private router: Router,
               private sideMenuService: SideMenuService,
               private translate: TranslateService) {
@@ -22,8 +24,9 @@ export class AppComponent implements OnInit {
               }
 
   ngOnInit() {
-    if (this.authService.hasUser()) {
-      this.username = this.authService.getUser().name;
+    if (this.authService.hasMyUser()) {
+      this.username = this.authService.getMyUser().name;
+      this.authService.getMyUserInfos(this.username);
     }
 
     this.sideMenuService.toggleSideMenu.subscribe(() => {

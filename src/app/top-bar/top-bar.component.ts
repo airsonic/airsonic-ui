@@ -23,7 +23,7 @@ export class TopBarComponent implements OnInit {
   }
 
   logout() {
-    this.authService.logout();
+    this.authService.logoutMyUser();
     this.router.navigateByUrl('/login').then(() => {
       this.closeProfilMenu();
     });
