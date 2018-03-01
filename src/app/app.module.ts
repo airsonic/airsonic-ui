@@ -32,6 +32,8 @@ import { SideMenuService } from './shared/service/side-menu.service';
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { UserSettingsComponent } from './user-settings/user-settings.component';
+import {UserService} from './shared/service/user.service';
 import { RolesGuard } from './shared/guards/roles.guard';
 import { UsersService } from './shared/service/users.service';
 import { ProfileComponent } from './profile/profile.component';
@@ -54,6 +56,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SearchResultComponent,
     SongTableComponent,
     AlbumCardComponent,
+    TopBarComponent,
+    UserSettingsComponent,
     TopBarComponent,
     ProfileComponent
   ],
@@ -82,6 +86,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   MusicDirectoryService,
   StreamService,
   SearchService,
+  UserService,
     { provide: AUDIO_PROVIDER, useFactory: AudioProviderFactory },
   SideMenuService,
   TranslateService,

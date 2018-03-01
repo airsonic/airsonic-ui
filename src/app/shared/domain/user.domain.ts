@@ -14,6 +14,7 @@ export interface User {
   settingsRole: boolean;
   downloadRole: boolean;
   uploadRole: boolean;
+  maxBitRate: number;
   playlistRole: boolean;
   coverArtRole: boolean;
   commentRole: boolean;
