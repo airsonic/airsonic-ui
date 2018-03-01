@@ -34,6 +34,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { UserSettingsComponent } from './user-settings/user-settings.component';
 import {UserService} from './shared/service/user.service';
+import { RolesGuard } from './shared/guards/roles.guard';
+import { UsersService } from './shared/service/users.service';
+import { ProfileComponent } from './profile/profile.component';
 
 // Ngx-translate loader
 export function HttpLoaderFactory(http: HttpClient) {
@@ -55,6 +58,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AlbumCardComponent,
     TopBarComponent,
     UserSettingsComponent
+    TopBarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +90,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     { provide: AUDIO_PROVIDER, useFactory: AudioProviderFactory },
   SideMenuService,
   TranslateService,
-  AuthGuard
+  AuthGuard,
+  UsersService,
+  RolesGuard
   ],
   bootstrap: [AppComponent]
 })
