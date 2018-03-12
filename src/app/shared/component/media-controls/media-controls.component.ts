@@ -2,15 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { MediaStream, StreamService } from '../../service/stream.service';
 import { AlbumService } from '../../service/album.service';
 
+export const VOLUME = 'volume';
+
 @Component({
   selector: 'app-media-controls',
   templateUrl: './media-controls.component.html',
   styleUrls: ['./media-controls.component.scss']
 })
+
 export class MediaControlsComponent implements OnInit {
   stream: MediaStream;
   volume: number;
-  muted: boolean = false;
+  muted = false;
 
   constructor(private streamService: StreamService) { }
 
@@ -37,7 +40,7 @@ export class MediaControlsComponent implements OnInit {
   }
 
   volumeChange(val) {
-    this.muted = val == 0;
+    this.muted = val === 0;
     this.streamService.volume = val;
   }
 
@@ -45,7 +48,7 @@ export class MediaControlsComponent implements OnInit {
     if (!this.muted) {
       localStorage.setItem(VOLUME, this.volume.toString());
       this.volumeChange(0);
-      this.volume= 0;
+      this.volume = 0;
     } else {
       this.volume = Number(localStorage.getItem(VOLUME));
       this.volumeChange(this.volume);
@@ -63,5 +66,3 @@ export class MediaControlsComponent implements OnInit {
     return '';
   }
 }
-
-export const VOLUME = 'volume';

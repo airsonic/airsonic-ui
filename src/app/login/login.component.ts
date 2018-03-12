@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { AuthService } from '../shared/service/auth.service';
 import { SystemService } from '../shared/service/system.service';
 import { Location } from '@angular/common';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   model = {
     user: '',
     password: '',
@@ -26,7 +26,7 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    this.authService.loginMyUser(this.model.user, this.model.password, this.model.server)
+    this.authService.loginMyUser(this.model.user, this.model.password, this.model.server);
     this.systemService.ping().subscribe(
       success => {
         this.router.navigate(['']);

@@ -10,7 +10,7 @@ export class RolesGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-    let role = next.data["role"] as string;
+    const role = next.data['role'] as string;
     return this.authService.hasRole(role);
   }
 }

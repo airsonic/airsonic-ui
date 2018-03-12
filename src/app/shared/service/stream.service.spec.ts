@@ -4,6 +4,24 @@ import { AudioProvider } from '../provider/audio.provider';
 import { MyUser, USER_INFO } from '../domain/auth.domain';
 import { MediaFile } from '../domain/media-file.domain';
 
+export class StreamServiceSpy {
+  streamFile = jasmine.createSpy('streamFile');
+  onStreamStart = jasmine.createSpy('onStreamStart').and.callFake(() => {
+    return Observable.of();
+  });
+}
+
+class TestAudioProvider implements AudioProvider {
+  src: string;
+  volume: number;
+  play = jasmine.createSpy('play');
+
+  pause = jasmine.createSpy('pause');
+
+  onEnded = jasmine.createSpy('onEnded').and.callFake((fn) => this.onEndedFunction = fn);
+  onEndedFunction: () => void;
+}
+
 const mediaFile: MediaFile = {
   id: '12345',
   parent: '1234',
@@ -99,21 +117,3 @@ describe('StreamService', () => {
     expect(audioProvider.src).toContain(mediaFile.id);
   });
 });
-
-export class StreamServiceSpy {
-  streamFile = jasmine.createSpy('streamFile');
-  onStreamStart = jasmine.createSpy('onStreamStart').and.callFake(() => {
-    return Observable.of();
-  });
-}
-
-class TestAudioProvider implements AudioProvider {
-  src: string;
-  volume: number;
-  play = jasmine.createSpy('play');
-
-  pause = jasmine.createSpy('pause');
-
-  onEnded = jasmine.createSpy('onEnded').and.callFake((fn) => this.onEndedFunction = fn);
-  onEndedFunction: () => void;
-}

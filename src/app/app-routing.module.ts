@@ -20,7 +20,7 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
         { path: '', component: AlbumsComponent },
         { path: 'album/:id', component: AlbumComponent },
         { path: 'search/:query', component: SearchResultComponent },
-        { path: 'profile', component: ProfileComponent, canActivate: [ RolesGuard ], data: { role: "settingsRole" } }
+        { path: 'profile', component: ProfileComponent, canActivate: [ RolesGuard ], data: { role: 'settingsRole' } }
       ]},
     { path: 'login', component: LoginComponent },
     { path: '**', redirectTo: '' }
