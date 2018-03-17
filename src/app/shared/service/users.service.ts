@@ -50,7 +50,9 @@ export class UsersService {
       }
     }
     for (const id in musicFolderId) {
-      params = params.set("musicFolderId", id);
+      if (musicFolderId.hasOwnProperty(id)) {
+        params = params.set('musicFolderId', id);
+      }
     }
     return this.httpClient.get(`${server}/rest/createUser`, {params: params});
   }
@@ -82,7 +84,9 @@ export class UsersService {
       }
     }
     for (const id in musicFolderId) {
-      params = params.set("musicFolderId", id);
+      if (musicFolderId.hasOwnProperty(id)) {
+        params = params.set('musicFolderId', id);
+      }
     }
     return this.httpClient.get(`${server}/rest/updateUser`, {params: params});
   }

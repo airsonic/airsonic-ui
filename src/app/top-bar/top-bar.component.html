@@ -29,7 +29,7 @@
         </ul>
       </li>
       <div class="d-inline-flex justify-content-end d-lg-none text-white">
-        <a *ngIf="hasRole(settingsRole)" class="btn btn-sm btn-secondary mr-2" routerLink="profile">{{ 'top-bar.profile' | translate }}<i class="material-icons md-24 ml-3">face</i></a>
+        <a *ngIf="hasRole('settingsRole')" class="btn btn-sm btn-secondary mr-2" routerLink="profile">{{ 'top-bar.profile' | translate }}<i class="material-icons md-24 ml-3">face</i></a>
         <a class="btn btn-sm btn-secondary mr-2" (click)="logout()">{{ 'top-bar.logout' | translate }}<i class="material-icons md-24 ml-3">power_settings_new</i></a>
       </div>
     </ul>
