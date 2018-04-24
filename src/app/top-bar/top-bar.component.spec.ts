@@ -11,12 +11,17 @@ import { TranslateModule } from '@ngx-translate/core';
 describe('TopBarComponent', () => {
   let component: TopBarComponent;
   let fixture: ComponentFixture<TopBarComponent>;
+  const router = {
+    navigateByUrl: jasmine.createSpy('navigateByUrl'),
+    navigate: jasmine.createSpy('navigate')
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TopBarComponent ],
       providers: [
         { provide: AuthService, useValue: new AuthServiceSpy() },
+        { provide: router, useValue: router },
         SideMenuService
       ],
       imports: [
