@@ -4,10 +4,10 @@
       <a class="nav-brand mx-auto mb-1" routerLink=""><img src="assets/images/logo/airsonic-light-350x100.png"></a>
     </nav>
     <nav class="nav flex-column">
-      <a class="nav-link text-white p-1" routerLink=""><i class="material-icons mx-3">music_note</i>{{ 'app.playing' | translate }}</a>
-      <a class="nav-link text-white p-1" routerLink=""><i class="material-icons mx-3">star</i>{{ 'app.starred' | translate }}</a>
-      <a class="nav-link text-white p-1" routerLink=""><i class="material-icons mx-3">playlist_play</i>{{ 'app.playlists' | translate }}</a>
-      <a class="nav-link text-white p-1" routerLink=""><i class="material-icons mx-3">settings</i>{{ 'app.settings' | translate }}</a>
+      <a class="nav-link custom-left-border text-white p-1" routerLink="/playing" routerLinkActive="custom-left-border-active"><i class="material-icons mx-3">music_note</i>{{ 'app.playing' | translate }}</a>
+      <a class="nav-link custom-left-border text-white p-1" routerLink="/starred" routerLinkActive="custom-left-border-active"><i class="material-icons mx-3">star</i>{{ 'app.starred' | translate }}</a>
+      <a class="nav-link custom-left-border text-white p-1" routerLink="/playlists" routerLinkActive="custom-left-border-active"><i class="material-icons mx-3">playlist_play</i>{{ 'app.playlists' | translate }}</a>
+      <a class="nav-link custom-left-border text-white p-1" routerLink="/settings" routerLinkActive="custom-left-border-active"><i class="material-icons mx-3">settings</i>{{ 'app.settings' | translate }}</a>
     </nav>
   </div>
 </div>

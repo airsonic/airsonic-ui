@@ -1,10 +1,4 @@
 {
-	"app": {
-		"playing": "Playing",
-		"starred": "Starred",
-		"playlists": "Playlists",
-		"settings": "Settings"
-	},
 	"login": {
 		"username": "Username",
 		"password": "Password",
@@ -14,10 +8,20 @@
 	"search-result": {
 		"no-matches-found": "No matches found"
 	},
+	"settings": {
+		"media_folders": "Media folders",
+		"sharing": "Sharing"
+	},
 	"song-table": {
 		"title": "Title",
 		"type": "Type",
 		"bitrate": "Bitrate"
+	},
+	"app": {
+		"playing": "Playing",
+		"starred": "Starred",
+		"playlists": "Playlists",
+		"settings": "Settings"
 	},
 	"top-bar": {
 		"search": "Search",

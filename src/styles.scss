@@ -30,6 +30,24 @@ button, a { cursor: pointer; }
 :focus, ::-moz-focus-inner, ::-moz-focus-outer { outline: none; }
 
 /****************************************************************
+                        tools
+ ****************************************************************/
+
+.custom-left-border {
+  border-left: 3px solid transparent;
+  transition : border 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.custom-left-border:hover {
+  background-color: rgba($color: #2f7bd9, $alpha: 0.1)
+}
+
+.custom-left-border-active {
+  border-color: #2f7bd9;
+  background-color: rgba($color: #000000, $alpha: 0.2)
+}
+
+/****************************************************************
                         side-menu / content
  ****************************************************************/
 
