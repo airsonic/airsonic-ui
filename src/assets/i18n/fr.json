@@ -18,6 +18,7 @@
 		"bitrate": "Bitrate"
 	},
 	"app": {
+		"home": "Accueil",
 		"playing": "Joué",
 		"starred": "Favoris",
 		"playlists": "Listes de lectures",

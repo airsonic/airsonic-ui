@@ -18,6 +18,7 @@
 		"bitrate": "Bitrate"
 	},
 	"app": {
+		"home": "Home",
 		"playing": "Playing",
 		"starred": "Starred",
 		"playlists": "Playlists",
