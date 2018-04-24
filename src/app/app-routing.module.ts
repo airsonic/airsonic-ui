@@ -11,20 +11,22 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 
 @NgModule({
-  imports: [ RouterModule.forRoot([
-    { path: '',
-      canActivate: [ AuthGuard ],
+  imports: [RouterModule.forRoot([
+    {
+      path: '',
+      canActivate: [AuthGuard],
       children: [
         { path: '', component: SideMenuComponent, outlet: 'side-menu' },
         { path: '', component: TopBarComponent, outlet: 'top-bar' },
         { path: '', component: AlbumsComponent },
         { path: 'album/:id', component: AlbumComponent },
         { path: 'search/:query', component: SearchResultComponent },
-        { path: 'profile', component: ProfileComponent, canActivate: [ RolesGuard ], data: { role: 'settingsRole' } }
-      ]},
+        { path: 'profile', component: ProfileComponent, canActivate: [RolesGuard], data: { role: 'settingsRole' } }
+      ]
+    },
     { path: 'login', component: LoginComponent },
     { path: '**', redirectTo: '' }
-  ]) ],
-  exports: [ RouterModule ]
+  ])],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

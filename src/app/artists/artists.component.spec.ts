@@ -10,12 +10,12 @@ describe('ArtistsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArtistsComponent ],
+      declarations: [ArtistsComponent],
       providers: [
         { provide: ArtistService, useValue: new ArtistServiceSpy() }
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

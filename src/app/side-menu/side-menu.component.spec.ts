@@ -20,7 +20,7 @@ describe('SideMenuComponent', () => {
         SideMenuService
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

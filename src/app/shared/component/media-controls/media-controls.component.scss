@@ -1,20 +1,19 @@
 $media-controls-height: 56px;
-
 $range-background: rgba(0, 0, 0, 0.4);
 $range-color: #2f7bd9;
-
 $playing-range-height: 8px;
 $volume-range-height: 10px;
 
 #media-controls {
   height: $media-controls-height;
-  -webkit-box-shadow: 0px -5px 20px 0px rgba(0,0,0,0.2);
-  -moz-box-shadow: 0px -5px 20px 0px rgba(0,0,0,0.2);
-  box-shadow: 0px -5px 20px 0px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 -5px 20px 0 rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 -5px 20px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 -5px 20px 0 rgba(0,0,0,0.2);
 }
 
 #media-controls-top {
   height: $playing-range-height;
+
   input[type=range] {
     height: $playing-range-height;
   }
@@ -24,32 +23,42 @@ $volume-range-height: 10px;
   height: -webkit-calc(#{$media-controls-height} - #{$playing-range-height});
   height: -moz-calc(#{$media-controls-height} - #{$playing-range-height});
   height: calc(#{$media-controls-height} - #{$playing-range-height});
+
   #playing-info-text {
-    div, span {
+    div,
+    span {
       height: 20px;
       line-height: 20px;
     }
   }
+
   #control-volume {
     .material-icons {
       padding: 11px 0;
     }
+
     input[type=range] {
       height: $volume-range-height;
     }
   }
 }
-
-@mixin box-shadow { box-shadow: none; }
-@mixin border { border-radius: 0; border: none; }
-@mixin cursor { cursor: pointer; }
-
+@mixin box-shadow {
+  box-shadow: none;
+}
+@mixin border {
+  border-radius: 0;
+  border: none;
+}
+@mixin cursor {
+  cursor: pointer;
+}
 /* Reset to transparent range */
 input[type=range] {
   @include border;
   -webkit-appearance: none;
   width: 100%;
   background: transparent;
+
   &:focus {
     @include box-shadow;
   }
@@ -66,7 +75,6 @@ input[type=range]::-ms-track {
   border-color: transparent;
   color: transparent;
 }
-
 /* Styling the thumb */
 input[type=range]::-webkit-slider-thumb {
   @include cursor;
@@ -94,7 +102,6 @@ input[type=range]::-ms-thumb {
   width: 4px;
   background: $range-color;
 }
-
 /* Styling the track */
 input[type=range]::-webkit-slider-runnable-track {
   @include cursor;
@@ -138,7 +145,6 @@ input[type=range]::-ms-fill-upper {
   @include box-shadow;
   background: $range-background;
 }
-
 /* Styling the progress */
 input[type=range]::-moz-range-progress {
   background: $range-color;
@@ -150,8 +156,8 @@ input[type=range]::-webkit-range-progress {
   height: $playing-range-height;
 }
 
-:focus,
 ::-moz-focus-inner,
-::-moz-focus-outer {
+::-moz-focus-outer,
+:focus {
   border: none;
 }

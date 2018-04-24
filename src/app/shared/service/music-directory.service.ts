@@ -12,7 +12,7 @@ export class MusicDirectoryService {
   getMusicDirectory(id: string): Observable<MusicDirectory> {
     const server = localStorage.getItem(SERVER_URL);
     const params = new HttpParams().set('id', id);
-    return this.httpClient.get<MusicDirectoryResponse>(`${server}/rest/getMusicDirectory`, {params: params})
+    return this.httpClient.get<MusicDirectoryResponse>(`${server}/rest/getMusicDirectory`, { params: params })
       .map(res => res['subsonic-response'].directory);
   }
 }

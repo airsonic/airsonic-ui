@@ -17,14 +17,14 @@ export class AlbumsComponent implements OnInit {
   pageSorting = 'random';
 
   constructor(private albumService: AlbumService,
-              private notificationService: NotificationService) {}
+    private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.getAlbums();
   }
 
   getAlbums() {
-    this.albumService.getAlbums({type: this.pageSorting, size: this.pageSize, offset: this.page * this.pageSize})
+    this.albumService.getAlbums({ type: this.pageSorting, size: this.pageSize, offset: this.page * this.pageSize })
       .subscribe(
         data => this.albums.push(...data),
         err => this.notificationService.notify(err));

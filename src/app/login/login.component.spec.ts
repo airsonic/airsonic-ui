@@ -15,7 +15,7 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ],
+      declarations: [LoginComponent],
       imports: [
         FormsModule,
         RouterTestingModule,
@@ -26,7 +26,7 @@ describe('LoginComponent', () => {
         { provide: SystemService, useValue: SystemServiceSpy }
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

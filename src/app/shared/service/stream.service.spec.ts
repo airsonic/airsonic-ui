@@ -43,7 +43,7 @@ const mediaFile: MediaFile = {
   artistId: '1234',
   type: 'music'
 };
-const mediaFile2: MediaFile = Object.assign({}, mediaFile, { id: 'media-file-2'});
+const mediaFile2: MediaFile = Object.assign({}, mediaFile, { id: 'media-file-2' });
 describe('StreamService', () => {
   let streamService: StreamService;
   let audioProvider: TestAudioProvider;

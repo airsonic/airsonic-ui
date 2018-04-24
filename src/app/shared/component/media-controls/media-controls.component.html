@@ -1,15 +1,9 @@
-<nav  id="media-controls" class="m-0 p-0 fixed-bottom bg-dark min-width">
+<nav id="media-controls" class="m-0 p-0 fixed-bottom bg-dark min-width">
 
   <div id="media-controls-top" class="row m-0 p-0 justify-content-center">
     <div id="playing-time" class="col-12 m-0 p-0">
       <!-- This needs to be changed to somehting better, Its really ugly on chrome , maybe a clickable progress bar ? Or Plyr ?-->
-      <input
-          class="form-control p-0 m-0"
-          type="range"
-          value="10"
-          min="0"
-          max="{{stream?.mediaFile?.duration}}"
-          step="1"/>
+      <input class="form-control p-0 m-0" type="range" value="10" min="0" max="{{stream?.mediaFile?.duration}}" step="1" />
     </div>
   </div>
 
@@ -48,15 +42,7 @@
       <li id="control-volume" class="nav-item d-inline-flex my-auto">
         <a *ngIf="muted; else unmutedBlock" (click)="volumeMute()"><i class="material-icons md-light md-18">volume_off</i></a>
         <ng-template #unmutedBlock><a (click)="volumeMute()"><i class="material-icons md-light md-18">volume_up</i></a></ng-template>
-        <input
-            class="form-control p-0 mx-1 my-auto"
-            type="range"
-            min="0"
-            max="1"
-            step=".01"
-            (ngModelChange)="volumeChange($event)"
-            [(ngModel)]="volume"
-            [ngModelOptions]="{standalone: true}" />
+        <input class="form-control p-0 mx-1 my-auto" type="range" min="0" max="1" step=".01" (ngModelChange)="volumeChange($event)" [(ngModel)]="volume" [ngModelOptions]="{standalone: true}" />
       </li>
     </ul>
 

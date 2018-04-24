@@ -17,5 +17,4 @@ export class SideMenuComponent implements OnInit {
       this.sideMenuClosed = !this.sideMenuClosed;
     });
   }
-
 }

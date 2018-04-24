@@ -16,5 +16,4 @@ export class ArtistsComponent implements OnInit {
       this.artistIndex = data;
     });
   }
-
 }

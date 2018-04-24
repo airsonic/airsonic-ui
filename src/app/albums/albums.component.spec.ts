@@ -16,7 +16,7 @@ describe('AlbumsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AlbumsComponent ],
+      declarations: [AlbumsComponent],
       schemas: [NO_ERRORS_SCHEMA],
       imports: [NoopAnimationsModule],
       providers: [
@@ -24,7 +24,7 @@ describe('AlbumsComponent', () => {
         { provide: NotificationService, useValue: new NotificationServiceSpy() }
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

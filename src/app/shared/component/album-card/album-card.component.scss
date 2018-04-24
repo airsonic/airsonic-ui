@@ -10,7 +10,6 @@
   max-width: 162px;
 }
 
-/* Remove underlines on the card text */
 .card:hover {
   text-decoration: none;
 }
@@ -25,8 +24,8 @@
   opacity: 0.8;
 }
 
-.card-title,
-.card-text {
+.card-text,
+.card-title {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;

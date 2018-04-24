@@ -8,7 +8,7 @@ import { SystemService } from './system.service';
 export class AuthService {
 
   constructor(private usersService: UsersService,
-              private systemService: SystemService) { }
+    private systemService: SystemService) { }
 
   loginMyUser(username: string, password: string, server: string) {
     // Log user in

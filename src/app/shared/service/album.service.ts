@@ -38,7 +38,7 @@ export class AlbumService {
         params = params.set(option, sentOptions[option]);
       }
     }
-    return this.httpClient.get<AlbumsResponse>(`${server}/rest/getAlbumList`, {params: params})
+    return this.httpClient.get<AlbumsResponse>(`${server}/rest/getAlbumList`, { params: params })
       .map(res => res['subsonic-response'].albumList.album);
   }
 
@@ -46,7 +46,7 @@ export class AlbumService {
     const server = localStorage.getItem(SERVER_URL);
     const params = new HttpParams()
       .set('id', id);
-    return this.httpClient.get<AlbumResponse>(`${server}/rest/getAlbum`, {params: params})
+    return this.httpClient.get<AlbumResponse>(`${server}/rest/getAlbum`, { params: params })
       .map(res => res['subsonic-response'].album);
   }
 }

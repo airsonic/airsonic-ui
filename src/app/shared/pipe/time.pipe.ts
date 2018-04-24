@@ -30,5 +30,4 @@ export class TimePipe implements PipeTransform {
     }
     return value.toString();
   }
-
 }

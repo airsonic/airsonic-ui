@@ -15,9 +15,9 @@ export class AlbumComponent implements OnInit {
   musicDirectory: MusicDirectory;
   album: Album;
   constructor(private musicDirectoryService: MusicDirectoryService,
-              private route: ActivatedRoute,
-              private albumService: AlbumService,
-              private streamService: StreamService) { }
+    private route: ActivatedRoute,
+    private albumService: AlbumService,
+    private streamService: StreamService) { }
 
   ngOnInit() {
     const id = this.route.snapshot.params.id;

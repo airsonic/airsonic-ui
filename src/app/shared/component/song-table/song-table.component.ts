@@ -19,5 +19,4 @@ export class SongTableComponent implements OnInit {
   playSong(song: MediaFile) {
     this.streamService.streamFile(song);
   }
-
 }

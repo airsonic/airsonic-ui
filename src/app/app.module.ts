@@ -39,7 +39,7 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
 
 // Ngx-translate loader
 export function HttpLoaderFactory(http: HttpClient) {
-    return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -76,20 +76,20 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-  ArtistService,
-  NotificationService,
-  AuthService,
-  SystemService,
-  AlbumService,
-  MusicDirectoryService,
-  StreamService,
-  SearchService,
+    ArtistService,
+    NotificationService,
+    AuthService,
+    SystemService,
+    AlbumService,
+    MusicDirectoryService,
+    StreamService,
+    SearchService,
     { provide: AUDIO_PROVIDER, useFactory: AudioProviderFactory },
-  SideMenuService,
-  TranslateService,
-  AuthGuard,
-  UsersService,
-  RolesGuard
+    SideMenuService,
+    TranslateService,
+    AuthGuard,
+    UsersService,
+    RolesGuard
   ],
   bootstrap: [AppComponent]
 })

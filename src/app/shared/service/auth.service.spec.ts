@@ -12,7 +12,7 @@ describe('AuthService', () => {
         AuthService,
         UsersService,
         SystemService
-    ],
+      ],
       imports: [HttpClientTestingModule]
     });
     localStorage.clear();

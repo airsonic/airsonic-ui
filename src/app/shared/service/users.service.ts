@@ -14,7 +14,7 @@ export class UsersService {
     const server = localStorage.getItem(SERVER_URL);
     const params = new HttpParams()
       .set('username', username);
-    return this.httpClient.get<UserResponse>(`${server}/rest/getUser`, {params: params})
+    return this.httpClient.get<UserResponse>(`${server}/rest/getUser`, { params: params })
       .map(res => res['subsonic-response'].user);
   }
 
@@ -40,7 +40,8 @@ export class UsersService {
     streamRole?: boolean,
     jukeboxRole?: boolean,
     shareRole?: boolean,
-    videoConversionRole?: boolean },
+    videoConversionRole?: boolean
+  },
     musicFolderId?: Array<number>) {
     const server = localStorage.getItem(SERVER_URL);
     let params = new HttpParams();
@@ -54,7 +55,7 @@ export class UsersService {
         params = params.set('musicFolderId', id);
       }
     }
-    return this.httpClient.get(`${server}/rest/createUser`, {params: params});
+    return this.httpClient.get(`${server}/rest/createUser`, { params: params });
   }
 
   updateUser(options: {
@@ -74,7 +75,8 @@ export class UsersService {
     jukeboxRole?: boolean,
     shareRole?: boolean,
     videoConversionRole?: boolean,
-    maxBitRate?: number },
+    maxBitRate?: number
+  },
     musicFolderId?: Array<number>) {
     const server = localStorage.getItem(SERVER_URL);
     let params = new HttpParams();
@@ -88,14 +90,14 @@ export class UsersService {
         params = params.set('musicFolderId', id);
       }
     }
-    return this.httpClient.get(`${server}/rest/updateUser`, {params: params});
+    return this.httpClient.get(`${server}/rest/updateUser`, { params: params });
   }
 
   deleteUser(username: string) {
     const server = localStorage.getItem(SERVER_URL);
     const params = new HttpParams()
       .set('username', username);
-    return this.httpClient.get(`${server}/rest/deleteUser`, {params: params});
+    return this.httpClient.get(`${server}/rest/deleteUser`, { params: params });
   }
 
   changePassword(username: string, password: string) {
@@ -103,6 +105,6 @@ export class UsersService {
     const params = new HttpParams()
       .set('username', username)
       .set('password', password);
-    return this.httpClient.get(`${server}/rest/changePassword`, {params: params});
+    return this.httpClient.get(`${server}/rest/changePassword`, { params: params });
   }
 }

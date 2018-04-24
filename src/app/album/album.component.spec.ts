@@ -27,7 +27,7 @@ describe('AlbumComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AlbumComponent, TimePipe ],
+      declarations: [AlbumComponent, TimePipe],
       providers: [
         { provide: AlbumService, useValue: new AlbumServiceSpy() },
         { provide: MusicDirectoryService, useValue: new MusicDirectoryServiceSpy() },
@@ -36,7 +36,7 @@ describe('AlbumComponent', () => {
       ],
       schemas: [NO_ERRORS_SCHEMA]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -51,4 +51,3 @@ describe('AlbumComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-

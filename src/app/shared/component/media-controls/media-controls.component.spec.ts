@@ -12,13 +12,13 @@ describe('MediaControlsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MediaControlsComponent, TimePipe ],
+      declarations: [MediaControlsComponent, TimePipe],
       providers: [
         { provide: StreamService, useValue: new StreamServiceSpy() }
       ],
-      imports: [ FormsModule ]
+      imports: [FormsModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

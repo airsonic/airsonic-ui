@@ -13,8 +13,7 @@ export class SearchService {
     const server = localStorage.getItem(SERVER_URL);
     const params = new HttpParams()
       .set('query', query);
-    return this.httpClient.get<SearchResponse>(`${server}/rest/search2`, {params: params})
+    return this.httpClient.get<SearchResponse>(`${server}/rest/search2`, { params: params })
       .map(res => res['subsonic-response'].searchResult2);
   }
-
 }

@@ -19,5 +19,4 @@ export class AlbumCardComponent implements OnInit {
   getAlbumImageUrl(id: string) {
     return AlbumService.getAlbumImageUrl(id);
   }
-
 }

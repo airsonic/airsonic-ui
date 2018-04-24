@@ -17,5 +17,4 @@ export class ClickOutsideDirective {
       this.appClickOutside.emit(null);
     }
   }
-
 }

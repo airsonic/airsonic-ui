@@ -12,7 +12,7 @@ export class SearchResultComponent implements OnInit {
   searchResult: SearchResult2;
 
   constructor(private route: ActivatedRoute,
-              private searchService: SearchService) { }
+    private searchService: SearchService) { }
 
   ngOnInit() {
     this.route.params
@@ -23,5 +23,4 @@ export class SearchResultComponent implements OnInit {
     this.searchService.getSearch2(query)
       .subscribe(data => this.searchResult = data);
   }
-
 }

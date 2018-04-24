@@ -12,7 +12,7 @@ describe('SongTableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SongTableComponent, TimePipe ],
+      declarations: [SongTableComponent, TimePipe],
       imports: [
         TranslateModule.forRoot()
       ],
@@ -20,7 +20,7 @@ describe('SongTableComponent', () => {
         { provide: StreamService, useValue: new StreamServiceSpy() }
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

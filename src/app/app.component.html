@@ -1,18 +1,11 @@
 <div class="container-fluid m-0 p-0 d-flex flex-row">
-
   <router-outlet name=side-menu></router-outlet>
-
   <div id="content" class="p-0 w-100" [class.expand-content]="sideMenuClosed">
-
     <router-outlet name=top-bar></router-outlet>
-
     <div class="container-fluid m-0 p-0">
-
       <router-outlet></router-outlet>
-
     </div>
   </div>
 </div>
 <app-media-controls></app-media-controls>
-
 <router-outlet name=notifications></router-outlet>

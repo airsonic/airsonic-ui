@@ -20,7 +20,7 @@ export class AuthInterceptor implements HttpInterceptor {
         .set('c', environment.applicationName)
         .set('f', 'json')
         .set('v', environment.apiVersion);
-      const authReq = req.clone({params: params});
+      const authReq = req.clone({ params: params });
       return next.handle(authReq);
     }
     return next.handle(req);

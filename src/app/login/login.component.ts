@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/service/auth.service';
 import { SystemService } from '../shared/service/system.service';
 import { Location } from '@angular/common';
@@ -16,12 +16,12 @@ export class LoginComponent implements OnInit {
     server: ''
   };
   constructor(private authService: AuthService,
-              private systemService: SystemService,
-              private router: Router) { }
+    private systemService: SystemService,
+    private router: Router) { }
 
   ngOnInit() {
     if (this.authService.hasMyUser()) {
-        this.router.navigate(['']);
+      this.router.navigate(['']);
     }
   }
 
