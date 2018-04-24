@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/service/auth.service';
 import { Router } from '@angular/router';
 import { SideMenuService } from '../shared/service/side-menu.service';
-import { USER_INFO } from '../shared/domain/auth.domain';
+import { MyUser } from '../shared/domain/auth.domain';
 
 @Component({
   selector: 'app-top-bar',
@@ -10,7 +10,7 @@ import { USER_INFO } from '../shared/domain/auth.domain';
   styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent implements OnInit {
-  username: string;
+  user: MyUser;
   profilMenuOpen = false;
   sideMenuClosed = false;
   collapsed = true;
@@ -21,7 +21,7 @@ export class TopBarComponent implements OnInit {
               private sideMenuService: SideMenuService) {}
 
   ngOnInit() {
-    this.username = this.authService.getMyUser()['name'];
+    this.user = this.authService.getMyUser();
   }
 
   logout() {

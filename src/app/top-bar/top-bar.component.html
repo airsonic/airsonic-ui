@@ -24,7 +24,7 @@
           <i class="material-icons md-24">account_circle</i>
         </a>
         <ul class="dropdown-menu dropdown-menu-right mt-lg-3 p-2 p-lg-0 text-right rounded-0" [class.show]="profilMenuOpen">
-          <li *ngIf="hasRole('settingsRole')" class="dropdown-item px-2"><a class="d-block" routerLink="profile" (click)="closeProfilMenu()">{{ username | titlecase }}<i class="material-icons md-24 ml-3">face</i></a></li>
+          <li *ngIf="hasRole('settingsRole')" class="dropdown-item px-2"><a class="d-block" routerLink="profile" (click)="closeProfilMenu()">{{ user.name | titlecase }}<i class="material-icons md-24 ml-3">face</i></a></li>
           <li class="dropdown-item px-2"><a class="d-block" (click)="logout()">{{ 'top-bar.logout' | translate }}<i class="material-icons md-24 ml-3">power_settings_new</i></a></li>
         </ul>
       </li>
