@@ -1,10 +1,4 @@
 {
-	"app": {
-		"playing": "Joué",
-		"starred": "Favoris",
-		"playlists": "Listes de lectures",
-		"settings": "Paramètres"
-	},
 	"login": {
 		"username": "Nom d'utilisateur",
 		"password": "Mot de passe",
@@ -14,10 +8,21 @@
 	"search-result": {
 		"no-matches-found": "Aucun résultat"
 	},
+	"settings": {
+		"media_folders": "Dossiers de musique",
+		"sharing": "Partage"
+	},
 	"song-table": {
 		"title": "Titre",
 		"type": "Format",
 		"bitrate": "Bitrate"
+	},
+	"app": {
+		"home": "Accueil",
+		"playing": "Joué",
+		"starred": "Favoris",
+		"playlists": "Listes de lectures",
+		"settings": "Paramètres"
 	},
 	"top-bar": {
 		"search": "Rechercher",

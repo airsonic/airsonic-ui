@@ -1,0 +1,11 @@
+<div class="d-flex flex-row">
+  <div id="settings-menu" class="">
+    <ul class="nav flex-column">
+      <li class="nav-item"><a class="nav-link custom-left-border" routerLink="media-folders" routerLinkActive="custom-left-border-active">{{ 'settings.media_folders' | translate }}</a></li>
+      <li class="nav-item"><a class="nav-link custom-left-border" routerLink="sharing" routerLinkActive="custom-left-border-active">{{ 'settings.sharing' | translate }}</a></li>
+    </ul>
+  </div>
+  <div id="settings-content" class="">
+    <router-outlet></router-outlet>
+  </div>
+</div>
