@@ -17,7 +17,6 @@ export class AppComponent implements OnInit {
     private usersService: UsersService,
     private sideMenuService: SideMenuService,
     private translate: TranslateService) {
-    this.translate.setDefaultLang('en');
     this.translate.use(this.translate.getBrowserCultureLang());
   }
 
