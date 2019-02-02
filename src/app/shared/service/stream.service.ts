@@ -2,8 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { MyUser, USER_INFO } from '../domain/auth.domain';
 import { environment } from '../../../environments/environment';
 import { MediaFile } from '../domain/media-file.domain';
-import { Subscription } from 'rxjs/Subscription';
-import { Subject } from 'rxjs/Subject';
+import { Subscription ,  Subject } from 'rxjs';
 import { AUDIO_PROVIDER, AudioProvider } from '../provider/audio.provider';
 
 @Injectable()

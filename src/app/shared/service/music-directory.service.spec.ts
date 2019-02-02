@@ -1,8 +1,8 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { MusicDirectoryService } from './music-directory.service';
-import { Observable } from 'rxjs/Observable';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import {Observable} from 'rxjs/internal/Observable';
 
 describe('MusicDirectoryService', () => {
   beforeEach(() => {
@@ -26,6 +26,9 @@ export class MusicDirectoryServiceSpy {
     ]
   };
   getMusicDirectory = jasmine.createSpy('getMusicDirectory').and.callFake((id) => {
-    return Observable.of(this.testDirectory);
+    return new Observable(observer => {
+        observer.next(this.testDirectory);
+        observer.complete();
+    });
   });
 }

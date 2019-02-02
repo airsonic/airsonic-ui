@@ -1,8 +1,8 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { ArtistService } from './artist.service';
-import { Observable } from 'rxjs/Observable';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import {Observable} from 'rxjs/internal/Observable';
 
 describe('ArtistService', () => {
   beforeEach(() => {
@@ -19,6 +19,6 @@ describe('ArtistService', () => {
 
 export class ArtistServiceSpy {
   getAll = jasmine.createSpy('getAll').and.callFake(() => {
-    return Observable.of();
+    return new Observable(observer => observer.complete());
   });
 }

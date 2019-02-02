@@ -1,13 +1,13 @@
 import { StreamService } from './stream.service';
-import { Observable } from 'rxjs/Observable';
 import { AudioProvider } from '../provider/audio.provider';
 import { MyUser, USER_INFO } from '../domain/auth.domain';
 import { MediaFile } from '../domain/media-file.domain';
+import {Observable} from 'rxjs/internal/Observable';
 
 export class StreamServiceSpy {
   streamFile = jasmine.createSpy('streamFile');
   onStreamStart = jasmine.createSpy('onStreamStart').and.callFake(() => {
-    return Observable.of();
+    return new Observable(observer => observer.complete());
   });
 }
 

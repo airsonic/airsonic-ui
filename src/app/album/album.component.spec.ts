@@ -5,7 +5,6 @@ import { TimePipe } from '../shared/pipe/time.pipe';
 import { AlbumService } from '../shared/service/album.service';
 import { MusicDirectoryService } from '../shared/service/music-directory.service';
 import { ActivatedRoute } from '@angular/router';
-import 'rxjs/add/observable/of';
 import { AlbumServiceSpy } from '../shared/service/album.service.spec';
 import { MusicDirectoryServiceSpy } from '../shared/service/music-directory.service.spec';
 import { StreamService } from '../shared/service/stream.service';
