@@ -1,8 +1,8 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { AlbumService } from './album.service';
-import { Observable } from 'rxjs/Observable';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import {Observable} from 'rxjs/internal/Observable';
 
 describe('AlbumService', () => {
   beforeEach(() => {
@@ -24,10 +24,13 @@ export class AlbumServiceSpy {
     }
   };
   getAlbum = jasmine.createSpy('getAlbum').and.callFake((id) => {
-    return Observable.of(this.testAlbum);
+    return new Observable(observer => {
+      observer.next(this.testAlbum);
+      observer.complete();
+    });
   });
   getAlbums = jasmine.createSpy('getAlbums').and.callFake(() => {
-    return Observable.of();
+    return new Observable(observer => observer.complete());
   });
   getAlbumImageUrl = jasmine.createSpy('getAlbumImageUrl');
 }

@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { SystemService } from './system.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { Observable } from 'rxjs/Observable';
+import {Observable} from 'rxjs/internal/Observable';
 
 describe('SystemService', () => {
   beforeEach(() => {
@@ -19,6 +19,6 @@ describe('SystemService', () => {
 
 export class SystemServiceSpy {
   ping = jasmine.createSpy('ping').and.callFake(() => {
-    return Observable.of();
+    return new Observable(observer => observer.complete());
   });
 }
