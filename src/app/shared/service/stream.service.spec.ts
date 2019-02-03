@@ -2,7 +2,10 @@ import { StreamService } from './stream.service';
 import { AudioProvider } from '../provider/audio.provider';
 import { MyUser, USER_INFO } from '../domain/auth.domain';
 import { MediaFile } from '../domain/media-file.domain';
-import {Observable} from 'rxjs/internal/Observable';
+import { Observable } from 'rxjs/internal/Observable';
+import { AuthEvent, AuthService } from './auth.service';
+import { EventEmitter } from '@angular/core';
+import SpyObj = jasmine.SpyObj;
 
 export class StreamServiceSpy {
   streamFile = jasmine.createSpy('streamFile');
@@ -15,9 +18,8 @@ class TestAudioProvider implements AudioProvider {
   src: string;
   volume: number;
   play = jasmine.createSpy('play');
-
   pause = jasmine.createSpy('pause');
-
+  close = jasmine.createSpy('close');
   onEnded = jasmine.createSpy('onEnded').and.callFake((fn) => this.onEndedFunction = fn);
   onEndedFunction: () => void;
 }
@@ -47,6 +49,8 @@ const mediaFile2: MediaFile = Object.assign({}, mediaFile, { id: 'media-file-2' 
 describe('StreamService', () => {
   let streamService: StreamService;
   let audioProvider: TestAudioProvider;
+  let authService: SpyObj<AuthService>;
+  const authEvents = new EventEmitter<AuthEvent>();
   const myUser: MyUser = {
     name: 'username',
     salt: 'abc123',
@@ -56,7 +60,9 @@ describe('StreamService', () => {
   beforeEach(() => {
     localStorage.setItem(USER_INFO, JSON.stringify(myUser));
     audioProvider = new TestAudioProvider();
-    streamService = new StreamService(audioProvider);
+    authService = jasmine.createSpyObj<AuthService>(['loginMyUser', 'hasMyUser', 'hasRole', 'authObservable']);
+    authService.authObservable.and.returnValue(authEvents.asObservable());
+    streamService = new StreamService(audioProvider, <any> authService);
   });
 
   it('should start streaming on streamFile', done => {
@@ -115,5 +121,12 @@ describe('StreamService', () => {
     streamService.previous();
     expect(audioProvider.play).toHaveBeenCalledTimes(3);
     expect(audioProvider.src).toContain(mediaFile.id);
+  });
+
+  it('should stop the stream if user logs out', () => {
+    streamService.streamFile(mediaFile);
+    expect(audioProvider.play).toHaveBeenCalled();
+    authEvents.emit(AuthEvent.LOGGED_OUT);
+    expect(audioProvider.close).toHaveBeenCalled();
   });
 });

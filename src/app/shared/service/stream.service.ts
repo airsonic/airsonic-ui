@@ -2,8 +2,9 @@ import { Inject, Injectable } from '@angular/core';
 import { MyUser, USER_INFO } from '../domain/auth.domain';
 import { environment } from '../../../environments/environment';
 import { MediaFile } from '../domain/media-file.domain';
-import { Subscription ,  Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { AUDIO_PROVIDER, AudioProvider } from '../provider/audio.provider';
+import { AuthEvent, AuthService } from './auth.service';
 
 @Injectable()
 export class StreamService {
@@ -20,7 +21,7 @@ export class StreamService {
   private mediaQueue: Array<MediaFile> = [];
   private previousMediaQueue: Array<MediaFile> = [];
 
-  constructor(@Inject(AUDIO_PROVIDER) private audioProvider: AudioProvider) {
+  constructor(@Inject(AUDIO_PROVIDER) private audioProvider: AudioProvider, private authService: AuthService) {
     this.audioProvider.onEnded(() => {
       if (this.mediaQueue.length > 0) {
         this.previousMediaQueue.push(this.currentMediaFile);
@@ -30,6 +31,13 @@ export class StreamService {
         this.updateStream(false, null);
       }
     });
+
+    this.authService.authObservable()
+      .subscribe(event => {
+        if (event === AuthEvent.LOGGED_OUT) {
+          this.audioProvider.close();
+        }
+      });
   }
 
   streamFile(mediaFile: MediaFile) {
