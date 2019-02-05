@@ -6,11 +6,14 @@ export abstract class AudioProvider {
   volume: number;
   abstract play();
   abstract pause();
+  abstract close();
   abstract onEnded(fn: () => void);
 }
 
 @Injectable()
 export class WebAudioProvider implements AudioProvider {
+  private audioContext = new AudioContext();
+
   set src(it: string) {
     this.currentTrack.src = it;
   }
@@ -28,6 +31,11 @@ export class WebAudioProvider implements AudioProvider {
 
   pause() {
     this.currentTrack.pause();
+  }
+
+  close() {
+    this.currentTrack.load();
+    return this.audioContext.close();
   }
 
   onEnded(fn: () => void) {

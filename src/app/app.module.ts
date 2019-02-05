@@ -65,7 +65,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
-    NgbModule.forRoot(),
+    NgbModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,

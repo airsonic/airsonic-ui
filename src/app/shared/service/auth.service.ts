@@ -1,14 +1,19 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Md5 } from 'ts-md5/dist/md5';
-import { MyUser, MyRoles, USER_INFO, USER_ROLES, USER_FOLDERS, SERVER_URL } from '../domain/auth.domain';
+import { MyRoles, MyUser, SERVER_URL, USER_FOLDERS, USER_INFO, USER_ROLES } from '../domain/auth.domain';
 import { UsersService } from './users.service';
-import { SystemService } from './system.service';
+import { Observable } from 'rxjs/internal/Observable';
+
+export enum AuthEvent {
+  LOGGED_OUT
+}
 
 @Injectable()
 export class AuthService {
 
-  constructor(private usersService: UsersService,
-    private systemService: SystemService) { }
+  private authEvents = new EventEmitter<AuthEvent>();
+
+  constructor(private usersService: UsersService) { }
 
   loginMyUser(username: string, password: string, server: string) {
     // Log user in
@@ -80,7 +85,12 @@ export class AuthService {
   }
 
   logoutMyUser() {
+    this.authEvents.emit(AuthEvent.LOGGED_OUT);
     localStorage.clear();
+  }
+
+  authObservable(): Observable<AuthEvent> {
+    return this.authEvents.asObservable();
   }
 
   private generateSalt() {
