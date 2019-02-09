@@ -20,6 +20,7 @@ export interface Albums {
   year: string;
   genre: string;
   playCount: number;
+  coverArt: number;
   created: string;
 }
 

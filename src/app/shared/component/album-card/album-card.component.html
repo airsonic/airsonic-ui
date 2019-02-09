@@ -1,7 +1,7 @@
 <div class="row justify-content-center p-0 m-0">
   <div class="album-card rounded col-sm-3 col-lg-2 p-0 m-2" *ngFor="let album of albums">
     <a class="card p-0" title="{{album.title}}" routerLink="/album/{{album.id}}">
-      <img class="card-img-top p-0" src="{{getAlbumImageUrl(album.id)}}" alt="Photo of {{album.title}}">
+      <img class="card-img-top p-0" src="{{getAlbumImageUrl(album.coverArt)}}" alt="{{album.title}} by {{album.artist}}">
       <div class="card-body m-0 p-1">
         <p class="card-title m-0 p-0">{{album.title}}</p>
         <p class="card-text text-muted m-0 p-0"><small>{{album.artist}}</small></p>

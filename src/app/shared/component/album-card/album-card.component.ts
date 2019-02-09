@@ -17,6 +17,9 @@ export class AlbumCardComponent implements OnInit {
   }
 
   getAlbumImageUrl(id: string) {
-    return AlbumService.getAlbumImageUrl(id);
+    // TODO: Return a stock image when id is null
+    if (id != null) {
+      return AlbumService.getAlbumImageUrl(id);
+    }
   }
 }
